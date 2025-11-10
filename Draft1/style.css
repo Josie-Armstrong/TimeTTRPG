@@ -1,0 +1,14 @@
+html {
+    background-color: rgb(31, 30, 87);
+    justify-content: center;
+    text-align: center;
+}
+
+body {
+    color: white;
+}
+
+embed {
+    border: 5px white solid;
+    border-radius: 30px;;
+}
