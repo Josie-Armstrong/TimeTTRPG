@@ -1,0 +1,48 @@
+.abilities {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    .ab-val {
+        display: block;
+    }
+
+    .ab-in {
+        display: none;
+    }
+}
+
+.abilities div {
+    margin: 10px;
+    width: 100px;
+    border: 1px black solid;
+    border-radius: 20px;
+}
+
+.abilities div input {
+    max-width: 60%;
+    height: 30px;
+    text-align: center;
+
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    
+    justify-self: center;
+
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.abilities.edit-mode {
+
+    .ab-val {
+        display: none;
+    }
+
+    .ab-in {
+        display: block;
+    }
+}
