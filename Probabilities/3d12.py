@@ -32,7 +32,7 @@ def calc_with_rerolls():
         nums = []
         median = -1
         
-        while median > 10 or median < 2: # Median starts at -1, so this always runs once. Will re-roll if 11, 12, or 1.
+        while median > 18 or median < 2: # Median starts at -1, so this always runs once. Will re-roll if 11, 12, or 1.
             nums = []
 
             for i in range(0,dice):
@@ -168,7 +168,7 @@ for i in range(sides):
 if sides == 12 and dice == 3:
     calc_with_rerolls()
 else:
-    calc_med_dist()
+    calc_with_rerolls()
 
 
 print_data()
