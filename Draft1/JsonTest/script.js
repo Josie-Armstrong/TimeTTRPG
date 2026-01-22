@@ -82,7 +82,13 @@ let character = {
     "gear": "",
 
     "notes": ""
-    
+
+}
+
+function onload() {
+    if (localStorage.getItem("char_sheet") != null) {
+        character = localStorage.getItem("char_sheet");
+    }
 }
 
 function makeEdits() {
@@ -158,6 +164,8 @@ function saveEdits() {
             return false;
         }
     }
+
+    localStorage.setItem("char_sheet", character);
 
     // console.log(character);
 
