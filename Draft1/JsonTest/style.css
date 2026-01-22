@@ -1,4 +1,20 @@
-.abilities {
+.sheet-main {
+    display: grid;
+
+    grid-template-columns: 1fr 3fr 3fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+}
+
+.main-item {
+    border: 1px solid black;
+}
+
+#abilities {
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 4;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,14 +29,14 @@
     }
 }
 
-.abilities div {
+#abilities div {
     margin: 10px;
     width: 100px;
     border: 1px black solid;
     border-radius: 20px;
 }
 
-.abilities div input {
+#abilities div input {
     max-width: 60%;
     height: 30px;
     text-align: center;
@@ -36,7 +52,7 @@
     margin-top: 0;
 }
 
-.abilities.edit-mode {
+#abilities.edit-mode {
 
     .ab-val {
         display: none;
@@ -45,6 +61,32 @@
     .ab-in {
         display: block;
     }
+}
+
+#skills-talents-etc {
+    grid-column: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+#background {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+#gear {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#notes {
+    grid-column: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
 }
 
 #upload-popup {
@@ -63,4 +105,114 @@
 
 .hide {
     display: none;
+}
+
+.sheet-head {
+    display: grid;
+    grid-template-columns: 3fr 2fr 3fr 1fr 1.5fr;
+    grid-template-rows: 2fr 1fr;
+
+    .sh-val {
+        display: block;
+    }
+
+    .sh-in {
+        display: none;
+    }
+}
+
+.sheet-header-item {
+    border: 1px solid black;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.sh-val {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.sh-in {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.sheet-head.edit-mode {
+    .sh-val {
+        display: none;
+    }
+
+    .sh-in {
+        display: block;
+    }
+}
+
+#name {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    grid-row: 1;
+}
+
+#pronouns {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#age {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#position {
+    grid-column: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#level {
+    grid-column: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#wounds {
+    grid-column: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#skills {
+    display: grid;
+    grid-template-rows: repeat(12, 1fr);
+
+    .sk-val {
+        display: block;
+    }
+
+    .sk-in {
+        display: none;
+    }
+}
+
+.skill {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+#skills.edit-mode {
+    .sk-val {
+        display: none;
+    }
+
+    .sk-in {
+        display: block;
+    }
+}
+
+.sk-val, .sk-in {
+    grid-column: 2;
 }

@@ -33,40 +33,53 @@
 
         <div class="sheet">
 
-            <!-- <div class="sheet-head">
+            <div class="sheet-head">
 
-                <div class="name">
-                    <h2>Name: Letitia Knox</h2>
+                <div id="name" class="sheet-header-item">
+                    <h2>Name: </h2>
+                    <h2 class="sh-val" id="name-val">Letitia Knox</h2>
+                    <input class="sh-in" id="name-in" placeholder="Name Here"></input>
                 </div>
 
-                <div class="position">
-                    <h2>Position: Senior Researcher</h2>
+                <div id="pronouns" class="sheet-header-item">
+                    <h3>Pronouns: </h3>
+                    <h3 class="sh-val" id="pronouns-val">She/her</h3>
+                    <input class="sh-in" id="pronouns-in" placeholder="Pronouns Here"></input>
                 </div>
 
-                <div class="specialty">
-                    <h2>Specialty: TBD</h2>
+                <div  id="age" class="sheet-header-item">
+                    <h3>Age: </h3>
+                    <h3 class="sh-val" id="age-val">38</h3>
+                    <input class="sh-in" id="age-in" placeholder="Age Here"></input>
                 </div>
 
-                <div class="level">
-                    <h2>Level:</h2>
-                    <h2>1</h2>
+                <div id="position" class="sheet-header-item">
+                    <h3>Position: </h3>
+                    <h3 class="sh-val" id="position-val">Senior Researcher</h3>
+                    <input class="sh-in" id="position-in" placeholder="Position Here"></input>
                 </div>
 
-                <div class="wounds">
-                    <h2>Wounds:</h2>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div id="level" class="sheet-header-item">
+                    <h3>Level:</h3>
+                    <h3 class="sh-val" id="level-val">1</h3>
+                    <input class="sh-in" id="level-in" placeholder="Level Here"></input>
+                </div>
+
+                <div id="wounds" class="sheet-header-item">
+                    <h3>Wounds:</h3>
+                    <span id="scrape-val"></span>
+                    <span id="slash-val"></span>
+                    <span id="severe-val"></span>
                     <p>Scrape</p>
                     <p>Slash</p>
                     <p>Severe</p>
                 </div>
 
-            </div> -->
+            </div>
 
             <div class="sheet-main">
 
-                <div class="abilities">
+                <div class="main-item" id="abilities">
                     <div class="brawn">
                         <h3>Brawn</h3>
                         <input class="ab-in" id="brawn-in" placeholder="8"></input>
@@ -99,19 +112,114 @@
 
                 </div>
 
-                <div class="skills">
+                <div class="main-item" id="skills-talents-etc">
+                    <div id="skills">
+                        <div id="close-combat" class="skill">
+                            <h3>Close Combat</h3>
+                            <h3 class="sk-val" id="close-combat-val">0</h3>
+                            <input class="sk-in" id="close-combat-in" placeholder="0"></input>
+                        </div>
+
+                        <div id="ranged-combat" class="skill">
+                            <h3>Ranged Combat</h3>
+                            <h3 class="sk-val" id="ranged-combat-val">0</h3>
+                            <input class="sk-in" id="ranged-combat-in" placeholder="0"></input>
+                        </div>
+
+                        <div id="survival" class="skill">
+                            <h3>Survival</h3>
+                            <h3 class="sk-val" id="survival-val">0</h3>
+                            <input class="sk-in" id="survival-in" placeholder="0"></input>
+                        </div>
+
+                        <div id="endurance" class="skill">
+                            <h3>Endurance</h3>
+                            <h3 class="sk-val" id="endurance-val">0</h3>
+                            <input class="sk-in" id="endurance-in" placeholder="0"></input>
+                        </div>
+
+                        <div id="stealth" class="skill">
+                            <h3>Stealth</h3>
+                            <h3 class="sk-val" id="stealth-val">0</h3>
+                            <input class="sk-in" id="stealth-in" placeholder="0"></input>
+                        </div>
+
+                        <div id="acrobatics" class="skill">
+                            <h3>Acrobatics</h3>
+                            <h3 class="sk-val" id="acrobatics-val">0</h3>
+                            <input class="sk-in" id="acrobatics-in" placeholder="0"></input>
+                        </div>
+
+                        <div id="notice" class="skill">
+                            <h3>Notice</h3>
+                            <h3 class="sk-val" id="notice-val">0</h3>
+                            <input class="sk-in" id="notice-in" placeholder="0"></input>
+                        </div>
+
+                        <div id="know-how" class="skill">
+                            <h3>Know-How</h3>
+                            <h3 class="sk-val" id="know-how-val">0</h3>
+                            <input class="sk-in" id="know-how-in" placeholder="0"></input>
+                        </div>
+
+                        <div id="blend-in" class="skill">
+                            <h3>Blend In</h3>
+                            <h3 class="sk-val" id="blend-in-val">0</h3>
+                            <input class="sk-in" id="blend-in-in" placeholder="0"></input>
+                        </div>
+
+                        <div id="persuasion" class="skill">
+                            <h3>Persuasion</h3>
+                            <h3 class="sk-val" id="persuasion-val">0</h3>
+                            <input class="sk-in" id="persuasion-in" placeholder="0"></input>
+                        </div>
+
+                        <div id="history" class="skill">
+                            <h3>History</h3>
+                            <h3 class="sk-val" id="history-val">0</h3>
+                            <input class="sk-in" id="history-in" placeholder="0"></input>
+                        </div>
+
+                        <div id="technology" class="skill">
+                            <h3>Technology</h3>
+                            <h3 class="sk-val" id="technology-val">0</h3>
+                            <input class="sk-in" id="technology-in" placeholder="0"></input>
+                        </div>
+                    </div>
+
+                    <div id="talents-and-expertise">
+
+                        <div class="talents">
+                            <h3>Talents:</h3>
+                            <p class="te-val" id="talents-val"></p>
+                            <input class="te-in" id="talents-in" placeholder="Talents Here"></input>
+                        </div>
+
+                        <div class="expertise">
+                            <h3>Expertise:</h3>
+                            <p class="te-val" id="expertise-val"></p>
+                            <input class="te-in" id="expertise-in" placeholder="Expertise Here"></input>
+                        </div>
+
+                    </div>
                 </div>
 
-                <div class="talents">
+                <div class="main-item" id="background">
+                    <h3>Background:</h3>
+                    <h3 class="long-text-val" id="background-val"></h3>
+                    <input class="long-text-in" id="background-in" placeholder="Background Here"></input>
                 </div>
 
-                <div class="background">
+                <div class="main-item" id="gear">
+                    <h3>Gear:</h3>
+                    <h3 class="long-text-val" id="gear-val"></h3>
+                    <input class="long-text-in" id="gear-in" placeholder="Gear Here"></input>
                 </div>
 
-                <div class="gear">
-                </div>
-
-                <div class="notes">
+                <div class="main-item" id="notes">
+                    <h3>Notes:</h3>
+                    <h3 class="long-text-val" id="notes-val"></h3>
+                    <input class="long-text-in" id="notes-in" placeholder="Notes Here"></input>
                 </div>
 
             </div>

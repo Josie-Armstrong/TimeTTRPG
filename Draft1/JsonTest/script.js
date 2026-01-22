@@ -1,4 +1,6 @@
-const abilities = document.querySelector(".abilities");
+const abilities = document.querySelector("#abilities");
+const skills = document.querySelector("#skills");
+const sheet_head = document.querySelector(".sheet-head");
 
 // Input fields for abilities in editing mode
 const ability_inputs = [
@@ -40,14 +42,47 @@ let character = {
 
     "valid_sheet": true,
 
+    "name": "",
+
+    "age": "",
+
+    "pronouns": "",
+
+    "position": "",
+
+    "level": 1,
+
+    "wounds": "",
+
     "abilities": {
         0: 8,
         1: 8,
         2: 8,
         3: 8,
         4: 8
-    }
+    },
 
+    "skills": {
+        0: 0,
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        7: 0,
+        8: 0,
+        9: 0,
+        10: 0,
+        11: 0
+    },
+
+    "background": "",
+
+    "gear": "",
+
+    "notes": ""
+    
 }
 
 function makeEdits() {
@@ -69,6 +104,9 @@ function makeEdits() {
 function EditDisplay() {
 
     abilities.classList.add("edit-mode");
+    skills.classList.add("edit-mode");
+    sheet_head.classList.add("edit-mode");
+
     edit_btn.textContent = "Finish Editing";
     // console.log("entered editing");
 
@@ -84,6 +122,9 @@ function EditDisplay() {
 function NormalDisplay() {
 
     abilities.classList.remove("edit-mode");
+    skills.classList.remove("edit-mode");
+    sheet_head.classList.remove("edit-mode");
+
     edit_btn.textContent = "Edit";
     // console.log("left editing");
 
