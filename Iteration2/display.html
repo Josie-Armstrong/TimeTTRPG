@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Rewind Character Sheet</title>
+
+</head>
+
+<body>
+    
+
+
+    <header>
+        <h1>Rewind</h1>
+        <nav>
+            <a href="#">How to Play</a>
+            <a href="#">Character Creator</a>
+            <a href="#">GM Resources</a>
+            <a href="#">Compendium</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="edit-menu">
+            <button id="edit-btn">Edit</button>
+            <button id="download-btn">Download Character Sheet</button>
+            <button id="upload-btn">Upload Character Sheet</button>
+        </div>
+
+        <div class="popup hide" id="upload-popup">
+            <input id="char-file" type="file" accept="applications/json">
+            <button id="finish-upload">Upload Character Sheet</button>
+        </div>
+
+        <div class="sheet">
+
+            <div class="sheet-head">
+
+                <div id="name" class="sheet-header-item">
+                    <h2>Name: </h2>
+                    <h2 class="sh-val" id="name-val">Letitia Knox</h2>
+                    <input class="sh-in" id="name-in" placeholder="Name Here">
+                </div>
+
+                <div id="pronouns" class="sheet-header-item">
+                    <h3>Pronouns: </h3>
+                    <h3 class="sh-val" id="pronouns-val">She/her</h3>
+                    <input class="sh-in" id="pronouns-in" placeholder="Pronouns Here">
+                </div>
+
+                <div  id="age" class="sheet-header-item">
+                    <h3>Age: </h3>
+                    <h3 class="sh-val" id="age-val">38</h3>
+                    <input class="sh-in" id="age-in" placeholder="Age Here">
+                </div>
+
+                <div id="position" class="sheet-header-item">
+                    <h3>Position: </h3>
+                    <h3 class="sh-val" id="position-val">Senior Researcher</h3>
+                    <input class="sh-in" id="position-in" placeholder="Position Here">
+                </div>
+
+                <div id="level" class="sheet-header-item">
+                    <h3>Level:</h3>
+                    <h3 class="sh-val" id="level-val">1</h3>
+                    <input class="sh-in" id="level-in" placeholder="Level Here">
+                </div>
+
+                <div id="wounds" class="sheet-header-item">
+                    <h3>Wounds:</h3>
+                    <span id="scrape-val">
+                        <input type="checkbox" name="scrape" id="scrape" class="wound-check">
+                    </span>
+                    <span id="slash-val">
+                        <input type="checkbox" name="slash" id="scrape" class="wound-check">
+                    </span>
+                    <span id="severe-val">
+                        <input type="checkbox" name="severe" id="scrape" class="wound-check">
+                    </span>
+                    <p>Scrape</p>
+                    <p>Slash</p>
+                    <p>Severe</p>
+                </div>
+
+            </div>
+
+            <div class="sheet-main">
+
+                <div class="main-item" id="abilities">
+                    <div class="brawn">
+                        <h3>Brawn</h3>
+                        <input class="ab-in" id="brawn-in" type="number" min="0" max="20">
+                        <h3 class="ab-val" id="brawn-val">8</h3>
+                    </div>
+
+                    <div class="sturdy">
+                        <h3>Sturdy</h3>
+                        <input class="ab-in" id="sturdy-in" type="number" min="0" max="20">
+                        <h3 class="ab-val" id="sturdy-val">8</h3>
+                    </div>
+
+                    <div class="agility">
+                        <h3>Agility</h3>
+                        <input class="ab-in" id="agility-in" type="number" min="0" max="20">
+                        <h3 class="ab-val" id="agility-val">8</h3>
+                    </div>
+
+                    <div class="wits">
+                        <h3>Wits</h3>
+                        <input class="ab-in" id="wits-in" type="number" min="0" max="20">
+                        <h3 class="ab-val" id="wits-val">8</h3>
+                    </div>
+
+                    <div class="charm">
+                        <h3>Charm</h3>
+                        <input class="ab-in" id="charm-in" type="number" min="0" max="20">
+                        <h3 class="ab-val" id="charm-val">8</h3>
+                    </div>
+
+                </div>
+
+                <div class="main-item" id="skills-talents-etc">
+                    <div id="skills">
+                        <div id="close-combat" class="skill">
+                            <h3>Close Combat</h3>
+                            <h3 class="sk-val" id="close-combat-val">0</h3>
+                            <input class="sk-in" id="close-combat-in" type="number" min="-20" max="20">
+                        </div>
+
+                        <div id="ranged-combat" class="skill">
+                            <h3>Ranged Combat</h3>
+                            <h3 class="sk-val" id="ranged-combat-val">0</h3>
+                            <input class="sk-in" id="ranged-combat-in" type="number" min="-20" max="20">
+                        </div>
+
+                        <div id="survival" class="skill">
+                            <h3>Survival</h3>
+                            <h3 class="sk-val" id="survival-val">0</h3>
+                            <input class="sk-in" id="survival-in" type="number" min="-20" max="20">
+                        </div>
+
+                        <div id="endurance" class="skill">
+                            <h3>Endurance</h3>
+                            <h3 class="sk-val" id="endurance-val">0</h3>
+                            <input class="sk-in" id="endurance-in" type="number" min="-20" max="20">
+                        </div>
+
+                        <div id="stealth" class="skill">
+                            <h3>Stealth</h3>
+                            <h3 class="sk-val" id="stealth-val">0</h3>
+                            <input class="sk-in" id="stealth-in" type="number" min="-20" max="20">
+                        </div>
+
+                        <div id="acrobatics" class="skill">
+                            <h3>Acrobatics</h3>
+                            <h3 class="sk-val" id="acrobatics-val">0</h3>
+                            <input class="sk-in" id="acrobatics-in" type="number" min="-20" max="20">
+                        </div>
+
+                        <div id="notice" class="skill">
+                            <h3>Notice</h3>
+                            <h3 class="sk-val" id="notice-val">0</h3>
+                            <input class="sk-in" id="notice-in" type="number" min="-20" max="20">
+                        </div>
+
+                        <div id="know-how" class="skill">
+                            <h3>Know-How</h3>
+                            <h3 class="sk-val" id="know-how-val">0</h3>
+                            <input class="sk-in" id="know-how-in" type="number" min="-20" max="20">
+                        </div>
+
+                        <div id="blend-in" class="skill">
+                            <h3>Blend In</h3>
+                            <h3 class="sk-val" id="blend-in-val">0</h3>
+                            <input class="sk-in" id="blend-in-in" type="number" min="-20" max="20">
+                        </div>
+
+                        <div id="persuasion" class="skill">
+                            <h3>Persuasion</h3>
+                            <h3 class="sk-val" id="persuasion-val">0</h3>
+                            <input class="sk-in" id="persuasion-in" type="number" min="-20" max="20">
+                        </div>
+
+                        <div id="history" class="skill">
+                            <h3>History</h3>
+                            <h3 class="sk-val" id="history-val">0</h3>
+                            <input class="sk-in" id="history-in" type="number" min="-20" max="20">
+                        </div>
+
+                        <div id="technology" class="skill">
+                            <h3>Technology</h3>
+                            <h3 class="sk-val" id="technology-val">0</h3>
+                            <input class="sk-in" id="technology-in" type="number" min="-20" max="20">
+                        </div>
+                    </div>
+
+                    <div id="talents-and-expertise">
+
+                        <div class="talents">
+                            <h3>Talents:</h3>
+                            <p class="te-val" id="talents-val"></p>
+                            <textarea class="te-in" id="talents-in" rows="5" cols="30"></textarea>
+                        </div>
+
+                        <div class="expertise">
+                            <h3>Expertise:</h3>
+                            <p class="te-val" id="expertise-val"></p>
+                            <textarea class="te-in" id="expertise-in" rows="5" cols="30"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="main-item" id="background">
+                    <h3>Background:</h3>
+                    <h3 class="long-text-val" id="background-val"></h3>
+                    <textarea class="long-text-in" id="background-in" rows="5" cols="30"></textarea>
+                </div>
+
+                <div class="main-item" id="gear">
+                    <h3>Gear:</h3>
+                    <h3 class="long-text-val" id="gear-val"></h3>
+                    <textarea class="long-text-in" id="gear-in" rows="5" cols="30"></textarea>
+                </div>
+
+                <div class="main-item" id="notes">
+                    <h3>Notes:</h3>
+                    <h3 class="long-text-val" id="notes-val"></h3>
+                    <textarea class="long-text-in" id="notes-in" rows="5" cols="30"></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

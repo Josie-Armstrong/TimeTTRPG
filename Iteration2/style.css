@@ -1,0 +1,301 @@
+:root {
+    --dark-red: #622310;
+    --fill-cream: #FFFAF0;
+    --gold: #FFD078;
+    --light-gold: #FFF0D4;
+    --med-cream: #E0C593;
+}
+
+@font-face {
+  font-family: dm-serif-display; /* set name */
+  src: url(fonts/dm-serif-display.woff2); /* url of the font */
+}
+
+body {
+    background-image: url("images/paper-texture.png");
+    background-color: #EAD9B9;
+
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--dark-red);
+
+    padding: 20px;
+
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--gold);
+    font-family: dm-serif-display;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+nav a {
+    color: var(--light-gold);
+
+    padding: 10px;
+}
+
+h1 {
+    font-size: 3rem;
+
+    padding: 0px;
+    line-height: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    font-family: dm-serif-display;
+}
+
+main {
+    display: grid;
+    gap: 10px;
+
+    grid-template-columns: 1fr 8fr;
+
+    padding: 20px;
+}
+
+.edit-menu {
+    border: 1px solid black;
+}
+
+.sheet-main {
+    display: grid;
+    gap: 20px;
+
+    grid-template-columns: 1fr 3fr 3fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+}
+
+.main-item {
+    border: 3px solid black;
+    background-color: var(--fill-cream);
+}
+
+.sheet-head {
+    display: grid;
+    gap: 0px;
+    grid-template-columns: 3fr 2fr 3fr 1fr 1.5fr;
+    grid-template-rows: 2fr 1fr;
+
+    padding-bottom: 20px;
+
+    .sh-val {
+        display: block;
+    }
+
+    .sh-in {
+        display: none;
+    }
+}
+
+.sheet-header-item {
+    border: 1px solid black;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    border: 3px solid black;
+    background-color: var(--fill-cream);
+}
+
+.sh-val {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.sh-in {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.sheet-head.edit-mode {
+    .sh-val {
+        display: none;
+    }
+
+    .sh-in {
+        display: block;
+    }
+}
+
+#abilities {
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 4;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    .ab-val {
+        display: block;
+    }
+
+    .ab-in {
+        display: none;
+    }
+}
+
+#abilities div {
+    margin: 10px;
+    width: 100px;
+    border: 1px black solid;
+    border-radius: 20px;
+}
+
+#abilities div input {
+    max-width: 60%;
+    height: 30px;
+    text-align: center;
+
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    
+    justify-self: center;
+
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+#abilities.edit-mode {
+
+    .ab-val {
+        display: none;
+    }
+
+    .ab-in {
+        display: block;
+    }
+}
+
+#skills-talents-etc {
+    grid-column: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+#background {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+#gear {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#notes {
+    grid-column: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+#upload-popup {
+    position: fixed;
+    width: 500px;
+    height: 30%;
+    justify-self: center;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: black;
+    color: white;
+}
+
+.hide {
+    display: none;
+}
+
+#name {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    grid-row: 1;
+}
+
+#pronouns {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#age {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#position {
+    grid-column: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#level {
+    grid-column: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#wounds {
+    grid-column: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#skills {
+    display: grid;
+    grid-template-rows: repeat(12, 1fr);
+
+    .sk-val {
+        display: block;
+    }
+
+    .sk-in {
+        display: none;
+    }
+}
+
+.skill {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+#skills.edit-mode {
+    .sk-val {
+        display: none;
+    }
+
+    .sk-in {
+        display: block;
+    }
+}
+
+.sk-val, .sk-in {
+    grid-column: 2;
+}
