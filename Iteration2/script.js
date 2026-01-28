@@ -2,7 +2,6 @@ const abilities = document.querySelector("#abilities");
 const skills = document.querySelector("#skills");
 const sheet_head = document.querySelector(".sheet-head");
 
-// Input fields for abilities in editing mode
 const ability_inputs = [
     document.querySelector("#brawn-in"),
     document.querySelector("#sturdy-in"),
@@ -11,7 +10,6 @@ const ability_inputs = [
     document.querySelector("#charm-in")
 ];
 
-// Display values for abilities
 const ability_display = [
     document.querySelector("#brawn-val"),
     document.querySelector("#sturdy-val"),
@@ -20,12 +18,69 @@ const ability_display = [
     document.querySelector("#charm-val")
 ];
 
+const skill_inputs = [
+    document.querySelector("#close-combat-in"),
+    document.querySelector("#ranged-combat-in"),
+    document.querySelector("#survival-in"),
+    document.querySelector("#endurance-in"),
+    document.querySelector("#stealth-in"),
+    document.querySelector("#acrobatics-in"),
+    document.querySelector("#notice-in"),
+    document.querySelector("#know-how-in"),
+    document.querySelector("#blend-in-in"),
+    document.querySelector("#persuasion-in"),
+    document.querySelector("#history-in"),
+    document.querySelector("#technology-in")
+];
+
+const skill_display = [
+    document.querySelector("#close-combat-val"),
+    document.querySelector("#ranged-combat-val"),
+    document.querySelector("#survival-val"),
+    document.querySelector("#endurance-val"),
+    document.querySelector("#stealth-val"),
+    document.querySelector("#acrobatics-val"),
+    document.querySelector("#notice-val"),
+    document.querySelector("#know-how-val"),
+    document.querySelector("#blend-in-val"),
+    document.querySelector("#persuasion-val"),
+    document.querySelector("#history-val"),
+    document.querySelector("#technology-val")
+];
+
+const header_inputs = [
+    document.querySelector("#name-in"),
+    document.querySelector("#pronouns-in"),
+    document.querySelector("#age-in"),
+    document.querySelector("#position-in"),
+    document.querySelector("#level-in")
+];
+
+const header_display = [
+    document.querySelector("#name-val"),
+    document.querySelector("#pronouns-val"),
+    document.querySelector("#age-val"),
+    document.querySelector("#position-val"),
+    document.querySelector("#level-val")
+];
+
+const talents_in = document.querySelector("#talents-in");
+const expertise_in = document.querySelector("#expertise-in");
+const background_in = document.querySelector("#background-in");
+const gear_in = document.querySelector("#gear-in");
+const notes_in = document.querySelector("#notes-in");
+
+const talents_val = document.querySelector("#talents-val");
+const expertise_val = document.querySelector("#expertise-val");
+const background_val = document.querySelector("#background-val");
+const gear_val = document.querySelector("#gear-val");
+const notes_val = document.querySelector("#notes-val");
+
 // Buttons for downloading and editing
 const download_btn = document.querySelector("#download-btn");
 const upload_btn = document.querySelector("#upload-btn");
 const finish_upload = document.querySelector("#finish-upload");
 const edit_btn = document.querySelector("#edit-btn");
-
 
 download_btn.addEventListener('click', downloadFile);
 upload_btn.addEventListener('click', toggleUploadPopup);
@@ -42,17 +97,15 @@ let character = {
 
     "valid_sheet": true,
 
-    "name": "",
+    "header": {
+        0: "",
+        1: "",
+        2: "",
+        3: "",
+        4: 5
+    },
 
-    "age": "",
-
-    "pronouns": "",
-
-    "position": "",
-
-    "level": 1,
-
-    "wounds": "",
+    "wounds": 0,
 
     "abilities": {
         0: 8,
@@ -77,6 +130,10 @@ let character = {
         11: 0
     },
 
+    "talents": "",
+
+    "expertise": "",
+
     "background": "",
 
     "gear": "",
@@ -85,10 +142,17 @@ let character = {
 
 }
 
-function onload() {
-    if (localStorage.getItem("char_sheet") != null) {
+window.onload = on_load_page();
+
+function on_load_page() {
+    /* if (localStorage.getItem("char_sheet") != null) {
         character = localStorage.getItem("char_sheet");
-    }
+    } */
+
+    assignDisplayVals();
+    assignInputVals();
+
+    console.log(character);
 }
 
 function makeEdits() {
@@ -108,6 +172,7 @@ function makeEdits() {
 }
 
 function EditDisplay() {
+    assignInputVals();
 
     abilities.classList.add("edit-mode");
     skills.classList.add("edit-mode");
@@ -126,6 +191,7 @@ function EditDisplay() {
 }
 
 function NormalDisplay() {
+    assignDisplayVals();
 
     abilities.classList.remove("edit-mode");
     skills.classList.remove("edit-mode");
@@ -139,11 +205,36 @@ function NormalDisplay() {
 // NEW save function for WHOLE character sheet (in progress)
 function saveEdits() {
     try {
-        //
+        for (let i = 0; i < ability_inputs.length; i++) {
+            character["abilities"][i] = ability_inputs[i].value;
+        }
+
+        for (let i = 0; i < skill_inputs.length; i++) {
+            // console.log(skill_inputs[i].value);
+            character["skills"][i] = skill_inputs[i].value;
+        }
+
+        for (let i = 0; i < header_inputs.length; i++) {
+            character["header"][i] = header_inputs[i].value;
+        }
+
+        character["talents"] = talents_in.value;
+        character["expertise"] = expertise_in.value;
+        character["background"] = background_in.value;
+        character["gear"] = gear_in.value;
+        character["notes"] = notes_in.value;
     }
     catch (err) {
-        //
+        console.log(err);
+        window.alert("Something went wrong. Please check your values and try again.");
+        return false;
     }
+
+    localStorage.setItem("char_sheet", character);
+
+    // console.log(character);
+
+    return true;
 }
 
 // OLD function for abilities only, used if/then number verification
@@ -309,4 +400,45 @@ function checkValidCharSheet(char_json) {
 
 function toggleUploadPopup() {
     document.getElementById("upload-popup").classList.toggle("hide");
+}
+
+function assignInputVals() {
+    for (let i = 0; i < ability_inputs.length; i++) {
+        ability_inputs[i].value = character["abilities"][i];
+    }
+
+    for (let i = 0; i < skill_inputs.length; i++) {
+        skill_inputs[i].value = character["skills"][i];
+        // console.log("skill input", character["skills"][i]);
+    }
+
+    for (let i = 0; i < header_inputs.length; i++) {
+        header_inputs[i].value = character["header"][i];
+    }
+
+    talents_in.value = character["talents"];
+    expertise_in.value = character["expertise"];
+    background_in.value = character["background"];
+    gear_in.value = character["gear"];
+    notes_in.value = character["notes"];
+}
+
+function assignDisplayVals() {
+    for (let i = 0; i < ability_display.length; i++) {
+        ability_display[i].textContent = character["abilities"][i];
+    }
+
+    for (let i = 0; i < skill_display.length; i++) {
+        skill_display[i].textContent = character["skills"][i];
+    }
+
+    for (let i = 0; i < header_display.length; i++) {
+        header_display[i].textContent = character["header"][i];
+    }
+
+    talents_val.textContent = character["talents"];
+    expertise_val.textContent = character["expertise"];
+    background_val.textContent = character["background"];
+    gear_val.textContent = character["gear"];
+    notes_val.textContent = character["notes"];
 }
