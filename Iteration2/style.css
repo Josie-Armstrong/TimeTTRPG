@@ -362,3 +362,30 @@ main {
 .sk-val, .sk-in {
     grid-column: 2;
 }
+
+.talents, .expertise {
+    .te-val {
+        display: block;
+    }
+
+    .te-in {
+        display: none;
+    }
+}
+
+.talents.edit-mode, .expertise.edit-mode {
+    .te-val {
+        display: none;
+    }
+
+    .te-in {
+        display: block;
+    }
+}
+
+@media (max-width: 500px) {
+    .sheet-head {
+        display: flex;
+        flex-direction: column;
+    }
+}

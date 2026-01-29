@@ -1,6 +1,8 @@
 const abilities = document.querySelector("#abilities");
 const skills = document.querySelector("#skills");
 const sheet_head = document.querySelector(".sheet-head");
+const talents = document.querySelector(".talents");
+const expertise = document.querySelector(".expertise");
 
 const ability_inputs = [
     document.querySelector("#brawn-in"),
@@ -81,11 +83,13 @@ const download_btn = document.querySelector("#download-btn");
 const upload_btn = document.querySelector("#upload-btn");
 const finish_upload = document.querySelector("#finish-upload");
 const edit_btn = document.querySelector("#edit-btn");
+const clear_btn = document.querySelector("#clear-storage");
 
 download_btn.addEventListener('click', downloadFile);
 upload_btn.addEventListener('click', toggleUploadPopup);
 finish_upload.addEventListener('click', () => {uploadFile(upload_event)});
 edit_btn.addEventListener('click', makeEdits);
+clear_btn.addEventListener('click', clearStoredCharacter);
 document.getElementById("char-file").addEventListener('change', (event) => {assignFile(event)});
 
 let editing = false;
@@ -102,17 +106,17 @@ let character = {
         1: "",
         2: "",
         3: "",
-        4: 5
+        4: 1
     },
 
     "wounds": 0,
 
     "abilities": {
-        0: 8,
-        1: 8,
-        2: 8,
-        3: 8,
-        4: 8
+        0: 0,
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0
     },
 
     "skills": {
@@ -145,9 +149,9 @@ let character = {
 window.onload = on_load_page();
 
 function on_load_page() {
-    /* if (localStorage.getItem("char_sheet") != null) {
+    if (localStorage.getItem("char_sheet") != null) {
         character = localStorage.getItem("char_sheet");
-    } */
+    }
 
     assignDisplayVals();
     assignInputVals();
@@ -167,6 +171,8 @@ function makeEdits() {
             NormalDisplay();
             editing = false;
         }
+
+        localStorage.setItem("char_sheet", character);
     }
 
 }
@@ -177,6 +183,8 @@ function EditDisplay() {
     abilities.classList.add("edit-mode");
     skills.classList.add("edit-mode");
     sheet_head.classList.add("edit-mode");
+    expertise.classList.add("edit-mode");
+    talents.classList.add("edit-mode");
 
     edit_btn.textContent = "Finish Editing";
     // console.log("entered editing");
@@ -196,6 +204,8 @@ function NormalDisplay() {
     abilities.classList.remove("edit-mode");
     skills.classList.remove("edit-mode");
     sheet_head.classList.remove("edit-mode");
+    expertise.classList.remove("edit-mode");
+    talents.classList.remove("edit-mode");
 
     edit_btn.textContent = "Edit";
     // console.log("left editing");
@@ -274,36 +284,35 @@ function OLDsaveEdits() {
     return true;
 }
 
-// To visually change character sheet after a new upload
+// After upload: parse int for char abilities and skills, and update display
 function replaceCharSheet() {
     try {
+
+        // abilities (as ints)
         for (let i = 0; i < ability_display.length; i++) {
             let temp_val = character["abilities"][i];
-
-            // check if value of input works
-            if (temp_val == "0" || temp_val == "1" || temp_val == "2"
-                || temp_val == "3" || temp_val == "4" || temp_val == "5"
-                || temp_val == "6" || temp_val == "7" || temp_val == "8"
-                || temp_val == "8" || temp_val == "9" || temp_val == "10"
-                || temp_val == "11" || temp_val == "12") {
-
-                temp_val = parseInt(temp_val);
-
-                character["abilities"][i] = temp_val;
-                ability_display[i].textContent = temp_val;
-
-                // console.log(character["abilities"][i]);
-
-            }
-            else if (temp_val == "") { // if user hasn't entered a new value
-                // do nothing here
-            }
-            else { // if value is invalid
-                let temp_message = "One of the values you entered is not within range."
-                window.alert(temp_message);
-                return false;
-            }
+            temp_val = parseInt(temp_val);
+            character["abilities"][i] = temp_val;
+            // console.log(character["abilities"][i]);
         }
+
+        // skills (as ints)
+        for(let i = 0; i < skill_display.length; i++) {
+            let temp_val = character["skills"][i];
+            temp_val = parseInt(temp_val);
+            character["skills"][i] = temp_val;
+        }
+
+        // level (as int)
+        let lvl_val = character["header"][4]
+        lvl_val = parseInt(lvl_val);
+        character["header"][4] = lvl_val;
+
+        // console.log("This is your character", character);
+
+        assignDisplayVals();
+        assignInputVals();
+        localStorage.setItem("char_sheet", character);
     }
     catch (err) {
         window.alert("This is not a valid character sheet. Please try again.");
@@ -398,10 +407,12 @@ function checkValidCharSheet(char_json) {
     }
 }
 
+// For upload show/hide
 function toggleUploadPopup() {
     document.getElementById("upload-popup").classList.toggle("hide");
 }
 
+// Update input fields to reflect the char display vals
 function assignInputVals() {
     for (let i = 0; i < ability_inputs.length; i++) {
         ability_inputs[i].value = character["abilities"][i];
@@ -423,6 +434,7 @@ function assignInputVals() {
     notes_in.value = character["notes"];
 }
 
+// Make the char changes visible in display
 function assignDisplayVals() {
     for (let i = 0; i < ability_display.length; i++) {
         ability_display[i].textContent = character["abilities"][i];
@@ -441,4 +453,61 @@ function assignDisplayVals() {
     background_val.textContent = character["background"];
     gear_val.textContent = character["gear"];
     notes_val.textContent = character["notes"];
+}
+
+// Literally just clears character from local storage
+function clearStoredCharacter() {
+    localStorage.clear();
+
+    character = {
+
+        "valid_sheet": true,
+
+        "header": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: 1
+        },
+
+        "wounds": 0,
+
+        "abilities": {
+            0: 0,
+            1: 0,
+            2: 0,
+            3: 0,
+            4: 0
+        },
+
+        "skills": {
+            0: 0,
+            1: 0,
+            2: 0,
+            3: 0,
+            4: 0,
+            5: 0,
+            6: 0,
+            7: 0,
+            8: 0,
+            9: 0,
+            10: 0,
+            11: 0
+        },
+
+        "talents": "",
+
+        "expertise": "",
+
+        "background": "",
+
+        "gear": "",
+
+        "notes": ""
+
+    }
+
+    assignDisplayVals();
+    assignInputVals();
 }
