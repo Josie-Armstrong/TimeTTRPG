@@ -383,6 +383,7 @@ main {
     }
 }
 
+/* IN PROGRESS - styling for phone screens */
 @media (max-width: 500px) {
     .sheet-head {
         display: flex;

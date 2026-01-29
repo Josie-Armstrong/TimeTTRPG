@@ -66,6 +66,12 @@ const header_display = [
     document.querySelector("#level-val")
 ];
 
+const wound_inputs = [
+    document.querySelector("#wound1"),
+    document.querySelector("#wound2"),
+    document.querySelector("#wound3")
+];
+
 const talents_in = document.querySelector("#talents-in");
 const expertise_in = document.querySelector("#expertise-in");
 const background_in = document.querySelector("#background-in");
