@@ -11,6 +11,10 @@
   src: url(fonts/dm-serif-display.woff2); /* url of the font */
 }
 
+html {
+    font-size: 16px;
+}
+
 body {
     background-image: url("images/paper-texture.png");
     background-color: #EAD9B9;
