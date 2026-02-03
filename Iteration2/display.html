@@ -36,6 +36,7 @@
         <div class="popup hide" id="upload-popup">
             <input id="char-file" type="file" accept="applications/json">
             <button id="finish-upload">Upload Character Sheet</button>
+            <button id="cancel-upload">Cancel</button>
         </div>
 
         <div class="sheet">
@@ -87,6 +88,8 @@
             <div class="sheet-main">
 
                 <div class="main-item" id="abilities">
+                    <h2>Abilities</h2>
+
                     <div class="brawn">
                         <h3>Brawn</h3>
                         <input class="ab-in" id="brawn-in" type="number" min="0" max="20">
@@ -121,6 +124,8 @@
 
                 <div class="main-item" id="skills-talents-etc">
                     <div id="skills">
+                        <h2>Skills</h2>
+
                         <div id="close-combat" class="skill">
                             <h4>Close Combat</h4>
                             <h4 class="sk-val" id="close-combat-val">0</h4>
@@ -195,6 +200,7 @@
                     </div>
 
                     <div id="talents-and-expertise">
+                        <h2>Talents & Expertise</h2>
 
                         <div class="talents">
                             <h3>Talents:</h3>
@@ -213,19 +219,19 @@
 
                 <div class="main-item" id="background">
                     <h3>Background:</h3>
-                    <h3 class="long-text-val" id="background-val"></h3>
+                    <p class="long-text-val" id="background-val"></p>
                     <textarea class="long-text-in" id="background-in" rows="5" cols="30"></textarea>
                 </div>
 
                 <div class="main-item" id="gear">
                     <h3>Gear:</h3>
-                    <h3 class="long-text-val" id="gear-val"></h3>
+                    <p class="long-text-val" id="gear-val"></p>
                     <textarea class="long-text-in" id="gear-in" rows="5" cols="30"></textarea>
                 </div>
 
                 <div class="main-item" id="notes">
                     <h3>Notes:</h3>
-                    <h3 class="long-text-val" id="notes-val"></h3>
+                    <p class="long-text-val" id="notes-val"></p>
                     <textarea class="long-text-in" id="notes-in" rows="5" cols="30"></textarea>
                 </div>
 

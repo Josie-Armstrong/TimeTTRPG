@@ -3,6 +3,9 @@ const skills = document.querySelector("#skills");
 const sheet_head = document.querySelector(".sheet-head");
 const talents = document.querySelector(".talents");
 const expertise = document.querySelector(".expertise");
+const background = document.querySelector("#background");
+const gear = document.querySelector("#gear");
+const notes = document.querySelector("#notes");
 
 const ability_inputs = [
     document.querySelector("#brawn-in"),
@@ -156,7 +159,8 @@ window.onload = on_load_page();
 
 function on_load_page() {
     if (localStorage.getItem("char_sheet") != null) {
-        character = localStorage.getItem("char_sheet");
+        console.log(localStorage.getItem("char_sheet"));
+        character = JSON.parse(localStorage.getItem("char_sheet"));
     }
 
     assignDisplayVals();
@@ -178,7 +182,7 @@ function makeEdits() {
             editing = false;
         }
 
-        localStorage.setItem("char_sheet", character);
+        localStorage.setItem("char_sheet", JSON.stringify(character));
     }
 
 }
@@ -191,6 +195,9 @@ function EditDisplay() {
     sheet_head.classList.add("edit-mode");
     expertise.classList.add("edit-mode");
     talents.classList.add("edit-mode");
+    background.classList.add("edit-mode");
+    gear.classList.add("edit-mode");
+    notes.classList.add("edit-mode");
 
     edit_btn.textContent = "Finish Editing";
     // console.log("entered editing");
@@ -212,6 +219,9 @@ function NormalDisplay() {
     sheet_head.classList.remove("edit-mode");
     expertise.classList.remove("edit-mode");
     talents.classList.remove("edit-mode");
+    background.classList.remove("edit-mode");
+    gear.classList.remove("edit-mode");
+    notes.classList.remove("edit-mode");
 
     edit_btn.textContent = "Edit";
     // console.log("left editing");
@@ -246,7 +256,7 @@ function saveEdits() {
         return false;
     }
 
-    localStorage.setItem("char_sheet", character);
+    localStorage.setItem("char_sheet", JSON.stringify(character));
 
     // console.log(character);
 
@@ -283,7 +293,7 @@ function OLDsaveEdits() {
         }
     }
 
-    localStorage.setItem("char_sheet", character);
+    localStorage.setItem("char_sheet", JSON.stringify(character));
 
     // console.log(character);
 
@@ -318,7 +328,7 @@ function replaceCharSheet() {
 
         assignDisplayVals();
         assignInputVals();
-        localStorage.setItem("char_sheet", character);
+        localStorage.setItem("char_sheet", JSON.stringify(character));
     }
     catch (err) {
         window.alert("This is not a valid character sheet. Please try again.");
