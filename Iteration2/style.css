@@ -122,8 +122,11 @@ button:hover {
 .sheet-head {
     display: grid;
     gap: 0px;
-    grid-template-columns: 3fr 2fr 3fr 1fr 1.5fr;
-    grid-template-rows: 1.5fr 1fr;
+    grid-template-columns: 28% 20% 30% 8% 14%;
+    grid-template-rows: 60% 40%;
+
+    height: auto;
+    max-height: 100px;
 
     padding-bottom: 20px;
 
@@ -134,8 +137,6 @@ button:hover {
     .sh-in {
         display: none;
     }
-
-    max-height: 100px;
 
     #name {
         grid-column-start: 1;
@@ -198,6 +199,8 @@ button:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
+
+    height: auto;
 
     border: 3px solid black;
     background-color: var(--fill-cream);
@@ -467,8 +470,79 @@ button:hover {
 
 /* IN PROGRESS - styling for phone screens */
 @media (max-width: 500px) {
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .edit-menu {
+        height: auto;
+
+        #edit-btn {
+            margin-bottom: 0;
+        }
+
+        #download-btn {
+            display: none;
+        }
+
+        #upload-btn {
+            display: none;
+        }
+
+        #clear-storage {
+            display: none;
+            margin-bottom: 0;
+        }
+    }
+
+    .edit_menu.expanded {
+
+        #download-btn {
+            display: block;
+        }
+
+        #upload-btn {
+            display: block;
+        }
+
+        #clear-storage {
+            display: block;
+            margin-bottom: 0;
+        }
+    }
+
+    .sheet {
+        display: flex;
+        flex-direction: column;
+    }
+
     .sheet-head {
         display: flex;
         flex-direction: column;
+
+        margin-bottom: 10px;
+        height: auto;
+        max-height: 100vh;
+    }
+
+    .sheet-main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav {
+        display: none;
+    }
+
+    #skills-talents-etc {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #abilities {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 }
