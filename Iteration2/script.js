@@ -7,6 +7,7 @@ const background = document.querySelector("#background");
 const gear = document.querySelector("#gear");
 const notes = document.querySelector("#notes");
 
+// Arrays of value and input fields
 const ability_inputs = [
     document.querySelector("#brawn-in"),
     document.querySelector("#sturdy-in"),
@@ -75,12 +76,14 @@ const wound_inputs = [
     document.querySelector("#wound3")
 ];
 
+// Input fields
 const talents_in = document.querySelector("#talents-in");
 const expertise_in = document.querySelector("#expertise-in");
 const background_in = document.querySelector("#background-in");
 const gear_in = document.querySelector("#gear-in");
 const notes_in = document.querySelector("#notes-in");
 
+// Value fields
 const talents_val = document.querySelector("#talents-val");
 const expertise_val = document.querySelector("#expertise-val");
 const background_val = document.querySelector("#background-val");
@@ -100,6 +103,11 @@ finish_upload.addEventListener('click', () => {uploadFile(upload_event)});
 edit_btn.addEventListener('click', makeEdits);
 clear_btn.addEventListener('click', clearStoredCharacter);
 document.getElementById("char-file").addEventListener('change', (event) => {assignFile(event)});
+
+// Nav hamburger button stuff
+const hamburger = document.querySelector(".hamburger-menu");
+const nav_bar = document.querySelector("nav");
+hamburger.addEventListener("click", toggleNavMenu);
 
 let editing = false;
 let uploading = false;
@@ -526,4 +534,18 @@ function clearStoredCharacter() {
 
     assignDisplayVals();
     assignInputVals();
+}
+
+function toggleNavMenu() {
+    let shown = nav_bar.classList.toggle("show");
+    console.log(shown);
+
+    if(!shown) {
+        hamburger.style.transform = "rotate(0deg)";
+        hamburger.style.backgroundColor = "var(--gold)";
+    }
+    else {
+        hamburger.style.transform = "rotate(180deg)";
+        hamburger.style.backgroundColor = "var(--light-gold)";
+    }
 }
