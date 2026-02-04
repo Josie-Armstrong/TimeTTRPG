@@ -127,13 +127,13 @@ button:hover {
 
 .sheet-head {
     display: grid;
-    gap: 3px;
-    background-color: var(--dark-red);
+    /* gap: 3px;
+    background-color: var(--dark-red); */
     grid-template-columns: 28% 20% 30% 8% 14%;
     grid-template-rows: 60% 40%;
 
     height: auto;
-    padding: 3px;
+    /* padding: 3px; */
 
     margin-bottom: 20px;
 
@@ -193,7 +193,7 @@ button:hover {
         grid-template-rows: 2fr 1fr 1fr;
 
         h3 {
-            border: 1px solid black;
+            /* border: 1px solid black; */
             grid-row: 1;
             grid-column-start: 1;
             grid-column-end: 4;
@@ -202,7 +202,7 @@ button:hover {
         }
 
         p {
-            border: 1px solid black;
+            /* border: 1px solid black; */
             text-align: center;
             margin: 0px;
             padding: 0px;
@@ -227,7 +227,7 @@ button:hover {
 
     height: auto;
 
-    /* border: 3px solid black; */
+    border: 3px solid black;
     background-color: var(--fill-cream);
 
     padding: 10px;
