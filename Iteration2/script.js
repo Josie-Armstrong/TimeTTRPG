@@ -93,16 +93,28 @@ const notes_val = document.querySelector("#notes-val");
 // Buttons for downloading and editing
 const download_btn = document.querySelector("#download-btn");
 const upload_btn = document.querySelector("#upload-btn");
+const cancel_up_btn = document.querySelector("#cancel-upload");
 const finish_upload = document.querySelector("#finish-upload");
 const edit_btn = document.querySelector("#edit-btn");
 const clear_btn = document.querySelector("#clear-storage");
 
 download_btn.addEventListener('click', downloadFile);
 upload_btn.addEventListener('click', toggleUploadPopup);
-finish_upload.addEventListener('click', () => {uploadFile(upload_event)});
+cancel_up_btn.addEventListener('click',toggleUploadPopup);
+finish_upload.addEventListener('click', () => {checkIfSure("upload")});
 edit_btn.addEventListener('click', makeEdits);
-clear_btn.addEventListener('click', clearStoredCharacter);
+clear_btn.addEventListener('click', () => {checkIfSure("clear")});
 document.getElementById("char-file").addEventListener('change', (event) => {assignFile(event)});
+
+// "Are you sure" warning menu stuff
+const overwrite_warning = document.querySelector("#overwrite-warning");
+const cancel_sure_btn = document.querySelector("#cancel-sure");
+const download_sure_btn = document.querySelector("#download-curr-char");
+const im_sure_btn = document.querySelector("#im-sure");
+
+cancel_sure_btn.addEventListener('click', cancelOverwrite);
+download_sure_btn.addEventListener('click', downloadFile);
+im_sure_btn.addEventListener('click', executeOverwrite);
 
 // Nav hamburger button stuff
 const hamburger = document.querySelector(".hamburger-menu");
@@ -112,6 +124,7 @@ hamburger.addEventListener("click", toggleNavMenu);
 let editing = false;
 let uploading = false;
 let upload_event;
+let event_type = "none";
 
 // This is the JSON that I will be downloading
 let character = {
@@ -367,13 +380,47 @@ function downloadFile(content, name, type) {
 // Happens when user selects a file, stores the event for later handling
 function assignFile(event) {
     upload_event = event;
+    // console.log(event);
+}
+
+// Opens the "are you sure" warning window and sets event type
+function checkIfSure(event_t) {
+    overwrite_warning.classList.toggle("hide");
+
+    event_type = event_t;
+}
+
+// If user clicks "I'm sure," executes the relevant function
+function executeOverwrite() {
+    overwrite_warning.classList.toggle("hide");
+    // console.log(overwrite_warning.classList);
+
+    if(event_type == "upload") {
+        uploadFile(upload_event);
+    }
+    else if(event_type == "clear") {
+        clearStoredCharacter();
+    }
+}
+
+// Closes popup windows
+function cancelOverwrite() {
+
+    // checks if we need to hide the upload menu or not
+    if(!document.getElementById("upload-popup").classList.contains("hide")) {
+        document.getElementById("upload-popup").classList.toggle("hide");
+    }
+
+    overwrite_warning.classList.toggle("hide");
 }
 
 // Uses the file that user has selected, tries to import as character sheet
-function uploadFile(event) {
+function uploadFile() {
     if(!editing) {
         try {
-            let files = event.target.files;
+            let files = upload_event.target.files;
+
+            // console.log(files);
 
             if(!files.length) {
                 alert("No file selected");
@@ -434,6 +481,11 @@ function checkValidCharSheet(char_json) {
 // For upload show/hide
 function toggleUploadPopup() {
     document.getElementById("upload-popup").classList.toggle("hide");
+
+    if(editing) {
+        let temp_message = "You must exit out of editing mode first.";
+        window.alert(temp_message);
+    }
 }
 
 // Update input fields to reflect the char display vals
