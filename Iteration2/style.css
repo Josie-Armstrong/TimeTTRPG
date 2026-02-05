@@ -168,6 +168,11 @@ button:hover {
     }
 }
 
+.sheet {
+    display: flex;
+    flex-direction: column;
+}
+
 .sheet-main {
     display: grid;
     gap: 20px;
@@ -185,15 +190,16 @@ button:hover {
 
 .sheet-head {
     display: grid;
-    /* gap: 3px;
-    background-color: var(--dark-red); */
-    grid-template-columns: 28% 20% 30% 8% 14%;
-    grid-template-rows: 60% 40%;
+    gap: 4px;
+    background-color: var(--dark-red);
+    grid-template-columns: 28fr 20fr 30fr 8fr 14fr;
+    grid-template-rows: 6fr 4fr;
 
-    height: auto;
+    height: min-content;
     /* padding: 3px; */
 
     margin-bottom: 20px;
+    padding: 4px;
 
     .sh-val {
         display: block;
@@ -247,6 +253,7 @@ button:hover {
     }
 
     #wounds {
+        margin: 0;
 
         grid-column: 5;
         grid-row-start: 1;
@@ -263,6 +270,7 @@ button:hover {
             grid-column-end: 4;
 
             text-align: center;
+            margin: 0;
         }
 
         p {
@@ -291,8 +299,12 @@ button:hover {
 
     height: auto;
 
-    border: 3px solid black;
+    /* border: 3px solid black; */
     background-color: var(--fill-cream);
+
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0;
 
     padding: 10px;
 
@@ -618,6 +630,10 @@ button:hover {
         #clear-storage {
             display: none;
             margin-bottom: 0;
+        }
+
+        #use-tutorial {
+            display: none;
         }
     }
 

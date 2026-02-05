@@ -97,6 +97,7 @@ const cancel_up_btn = document.querySelector("#cancel-upload");
 const finish_upload = document.querySelector("#finish-upload");
 const edit_btn = document.querySelector("#edit-btn");
 const clear_btn = document.querySelector("#clear-storage");
+const tutorial_btn = document.querySelector("#use-tutorial");
 
 download_btn.addEventListener('click', downloadFile);
 upload_btn.addEventListener('click', toggleUploadPopup);
@@ -104,6 +105,7 @@ cancel_up_btn.addEventListener('click',toggleUploadPopup);
 finish_upload.addEventListener('click', () => {checkIfSure("upload")});
 edit_btn.addEventListener('click', makeEdits);
 clear_btn.addEventListener('click', () => {checkIfSure("clear")});
+tutorial_btn.addEventListener('click', toggleCharTutorial);
 document.getElementById("char-file").addEventListener('change', (event) => {assignFile(event)});
 
 // "Are you sure" warning menu stuff
@@ -116,6 +118,17 @@ cancel_sure_btn.addEventListener('click', cancelOverwrite);
 download_sure_btn.addEventListener('click', downloadFile);
 im_sure_btn.addEventListener('click', executeOverwrite);
 
+// Tutorial stuff
+const tutorial_popup = document.querySelector("#char-creation-popup");
+const tutorial_header = document.querySelector("#tutorial-header");
+const tutorial_text = document.querySelector("#tutorial-text");
+const tutorial_back_btn = document.querySelector("#cc-back");
+const tutorial_next_btn = document.querySelector("#cc-next");
+const tutorial_exit_btn = document.querySelector("#cc-exit");
+tutorial_exit_btn.addEventListener('click', toggleCharTutorial);
+tutorial_next_btn.addEventListener('click', () => {tutorialCardChange(1)});
+tutorial_back_btn.addEventListener('click', () => {tutorialCardChange(-1)});
+
 // Nav hamburger button stuff
 const hamburger = document.querySelector(".hamburger-menu");
 const nav_bar = document.querySelector("nav");
@@ -125,8 +138,29 @@ let editing = false;
 let uploading = false;
 let upload_event;
 let event_type = "none";
+let tutorial_step = 0;
 
-// This is the JSON that I will be downloading
+// Header text for tutorial steps
+let tutorial_step_h = {
+    0: "Step 1: Abilities",
+    1: "Step 2: Skills",
+    2: "Step 3: Talents",
+    3: "Step 4: Expertise",
+    4: "Step 5: Gear",
+    5: "Step 6: Header & Background",
+}
+
+// Paragraph text for tutorial steps
+let tutorial_step_p = {
+    0: "Explain how to do abilities",
+    1: "Explain how to do skills",
+    2: "Explain how to do talents",
+    3: "Explain how to do expertise",
+    4: "Explain how to do gear",
+    5: "Explain how to do finishing touches",
+}
+
+// This is the JSON that I will be downloading & how the character is stored
 let character = {
 
     "valid_sheet": true,
@@ -178,6 +212,7 @@ let character = {
 
 window.onload = on_load_page();
 
+// Setting up the page & loading locally stored character
 function on_load_page() {
     if (localStorage.getItem("char_sheet") != null) {
         console.log(localStorage.getItem("char_sheet"));
@@ -187,9 +222,12 @@ function on_load_page() {
     assignDisplayVals();
     assignInputVals();
 
+    resetTutorial();
+
     console.log(character);
 }
 
+// Check if in normal/edit display and act accordingly (save or enter edit mode)
 function makeEdits() {
     // console.log("worked");
 
@@ -208,6 +246,7 @@ function makeEdits() {
 
 }
 
+// Changes to edit display
 function EditDisplay() {
     assignInputVals();
 
@@ -232,6 +271,7 @@ function EditDisplay() {
 
 }
 
+// Changes to normal display
 function NormalDisplay() {
     assignDisplayVals();
 
@@ -588,6 +628,7 @@ function clearStoredCharacter() {
     assignInputVals();
 }
 
+// Show/hide nav menu on mobile
 function toggleNavMenu() {
     let shown = nav_bar.classList.toggle("show");
     console.log(shown);
@@ -600,4 +641,25 @@ function toggleNavMenu() {
         hamburger.style.transform = "rotate(180deg)";
         hamburger.style.backgroundColor = "var(--light-gold)";
     }
+}
+
+// Shows/hides tutorial popup
+function toggleCharTutorial() {
+    tutorial_popup.classList.toggle("hide");
+}
+
+// Goes forward or backward by change # of steps in the tutorial cards
+function tutorialCardChange(change) {
+    if((tutorial_step + change) >= 0 && (tutorial_step + change) <= 5) { 
+        tutorial_step += change;
+
+        tutorial_header.textContent = tutorial_step_h[tutorial_step];
+        tutorial_text.textContent = tutorial_step_p[tutorial_step];
+    }
+}
+
+// Resets tutorial to step 1
+function resetTutorial() {
+    tutorial_header.textContent = tutorial_step_h[0];
+    tutorial_text.textContent = tutorial_step_p[0];
 }
