@@ -16,7 +16,8 @@ html {
 }
 
 body {
-    background-image: url("images/paper-texture.png");
+    background-image: url("../images/paper-texture.png");
+    background-size: cover;
     background-color: #EAD9B9;
 
     margin: 0;
@@ -620,11 +621,11 @@ button:hover {
         }
 
         #download-btn {
-            display: none;
+            /* display: none; */
         }
 
         #upload-btn {
-            display: none;
+            /* display: none; */
         }
 
         #clear-storage {
