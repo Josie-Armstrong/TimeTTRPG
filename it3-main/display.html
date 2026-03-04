@@ -35,11 +35,18 @@
 
     <main class="disp-main">
 
-        <div class="edit-menu">
+        <div class="edit-menu hide">
+            <div id="edit-div">
+                <button id="edit-btn">Edit</button>
+                <button id="edit-dropdown">
+                    <img src="images/triangle-drop-down.svg" alt="drop down button image">
+                </button>
+            </div>
             <button id="use-tutorial">Make a Character</button>
-            <button id="edit-btn">Edit</button>
             <button id="download-btn">Download Character Sheet</button>
             <button id="upload-btn">Upload Character Sheet</button>
+            <button id="copy-btn">Copy Character JSON</button>
+            <button id="paste-btn">Paste Character Json</button>
             <button id="clear-storage">Clear Stored Character</button>
             <button id="rand-char-btn">Generate a Random Character</button>
         </div>
@@ -59,8 +66,136 @@
         </div>
 
         <div class="popup hide" id="char-creation-popup">
-            <h3 id="tutorial-header">Step 1:</h3>
-            <p id="tutorial-text">Material Here</p>
+            <h2 id="tutorial-header">Step 1:</h3>
+            <div class="tutorial-text hide" id="ab-tt-1">
+                <p>
+                Your character has five core <strong>abilities</strong>, scores from 3-18, 
+                that determine how proficient they are at broad/basic things: brawn, agility, wits, and charm, 
+                and aware. The higher the score, the better your character is at that particular ability.
+                </p>
+                <p>
+                The first step in creating your character (after coming up with a general character idea) is to 
+                roll for their abilities. <em>Move to the next step to assign your character's abilities.</em>
+                </p>
+            </div>
+
+            <div class="tutorial-text hide" id="ab-tt-2">
+                <p>There are two ways to assign your character's abilities.</p>
+                <h3>1. Score Array</h3>
+                <p>If you want a character that is guaranteed to be balanced, you may assign your character the 
+                following five scores: <strong>7, 9, 10, 11, 13</strong>. You may assign these in any order you like, to whichever 
+                ability you like, but you may only use each score once.</p>
+
+                <h3>2. Random Rolls</h3>
+                <p>Alternatively, you may choose to roll for your attributes. If you choose to roll, you will roll 
+                five times and assign those scores as you like (same rules apply, you must only use each score once).
+                </p>
+                <p>
+                Each time, roll 3d20 and take the middle number (the median) as your score. If the middle number is 19, 
+                20, 2, or 1, re-roll all three dice and take the new median/middle number (keep re-rolling until the 
+                middle number is not 19, 20, 2, or 1).
+                </p>
+                <p>
+                Write down those five numbers, and assign them to whichever abilities you’d like! Think about what your 
+                character might be good or bad at.
+                </p>
+            </div>
+
+            <div class="tutorial-text hide" id="ab-tt-3">
+                <h3>Sturdy:</h3>
+                <p>
+                Sturdy is a special ability that you will only use in combat. It represents how well 
+                you withstand getting hit (the higher the number, the more resilient you are). Roll 3d20, 
+                re-rolling if you get a 1, 2, 19, or 20. Assign the median number to your Sturdy, found in the 
+                header of your character sheet.
+                </p>
+            </div>
+
+            <div class="tutorial-text hide" id="t-tt-1">
+                <p><strong>Talents</strong> are extra-specific, not-often-applicable things that your character is oddly good at. 
+                    When you attempt to do something that aligns with one of your character’s talents, you roll 
+                    with advantage.
+                </p>
+                <p>To choose talents, you can either pick (in which case you will pick 2 talents from the list 
+                    in the next step) or roll 1d20 three times and take the talents of the corresponding numbers (a 5 on a 
+                    d20 would be Carpentry, for instance). If you pick, you get 2 talents; if you roll, you get 3.
+                </p>
+            </div>
+
+            <div class="tutorial-text hide" id="t-tt-2">
+                <h3>List of Talents (pick 2 or roll 3)</h3>
+                <p>
+                    <ol class="two-columns-p">
+                        <li>Animal Whispering</li>
+                        <li>Archery</li>
+                        <li>Baking</li>
+                        <li>Card-Counting/Gaming</li>
+                        <li>Carpentry</li>
+                        <li>Computer Hacking</li>
+                        <li>Explosives</li>
+                        <li>Farming</li>
+                        <li>Fishing</li>
+                        <li>Forgery</li>
+                        <li>Gardening</li>
+                        <li>Hand-to-Hand Combat</li>
+                        <li>Hospitality</li>
+                        <li>Knife Throwing</li>
+                        <li>Lockpicking</li>
+                        <li>Musical Performance</li>
+                        <li>Nature & Wilderness</li>
+                        <li>Networking</li>
+                        <li>Pottery</li>
+                        <li>Sewing</li>
+                    </ol>
+                </p>
+
+                <p>Once you've picked your talents, write them down in the "Talents" box</p>
+            </div>
+
+            <div class="tutorial-text hide" id="e-tt-1">
+                <p>
+                    Everyone has some sort of historical expertise—something that your character is 
+                    particularly knowledgeable about, most likely through their path of study at LRU/in 
+                    academia. Pick which area of history your character is most knowledgeable about, 
+                    and note it down under “Expertise.”
+                </p>
+
+                <ol class="two-columns-p">
+                    <li>Architecture</li>
+                    <li>Fashion</li>
+                    <li>Art</li>
+                    <li>Religion</li>
+                    <li>Nature</li>
+                    <li>Language</li>
+                    <li>Politics</li>
+                    <li>Warfare</li>
+                    <li>Weaponry</li>
+                    <li>Criminology</li>
+                    <li>Technology</li>
+                </ol>
+            </div>
+            
+            <div class="tutorial-text hide" id="g-tt-1">
+                <p>Your gear will depend on your expertise. All of your gear is assumed to be 
+                    carried with you, and accessible to you at all times, unless you explicitly 
+                    leave it somewhere during a mission.
+                </p>
+
+                <p>In addition to your expertise-specific gear, everyone has 
+                    an in-ear communication device whose communication radius 
+                    is ~1 mile, and will translate most spoken (not written) 
+                    language. You also have a modern phone that can take photos and record 
+                    video/audio (and has a calculator, compass, etc). Cell phone service will 
+                    not work in most historical periods, though.
+                </p>
+
+                <p><em>See next step for expertise-specific gear</em></p>
+            </div>
+
+            <div class="tutorial-text hide" id="template-tt">
+
+            </div>
+
             <div id="cc-buttons">
                 <button id="cc-back">Back</button>
                 <button id="cc-next">Next</button>
@@ -104,12 +239,24 @@
 
                 <div id="wounds" class="sheet-header-item">
                     <h3>Wounds:</h3>
-                    <input type="checkbox" name="scrape" id="wound1" class="wound-check">
-                    <input type="checkbox" name="slash" id="wound2" class="wound-check">
-                    <input type="checkbox" name="severe" id="wound3" class="wound-check">
-                    <p>Scrape</p>
-                    <p>Slash</p>
-                    <p>Severe</p>
+                    <div class="wound-big-div">
+                        <div class="wound-div">
+                            <input type="checkbox" name="scrape" id="wound1" class="wound-check">
+                            <label for="wound1" id="wound-label-1" class="wound-label">Scrape</label>
+                        </div>
+                        <div class="wound-div">
+                            <input type="checkbox" name="slash" id="wound2" class="wound-check">
+                            <label for="wound2" id="wound-label-2" class="wound-label">Slash</label>
+                        </div>
+                        <div class="wound-div">
+                            <input type="checkbox" name="severe" id="wound3" class="wound-check">
+                            <label for="wound3" id="wound-label-3" class="wound-label">Severe</label>
+                        </div>
+                        <div class="wound-div">
+                            <input type="checkbox" name="critical" id="wound4" class="wound-check">
+                            <label for="wound4" id="wound-label-4" class="wound-label">Critical</label>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -123,12 +270,6 @@
                         <h3>Brawn</h3>
                         <input class="ab-in" id="brawn-in" type="number" min="0" max="20">
                         <h3 class="ab-val" id="brawn-val">8</h3>
-                    </div>
-
-                    <div class="sturdy">
-                        <h3>Sturdy</h3>
-                        <input class="ab-in" id="sturdy-in" type="number" min="0" max="20">
-                        <h3 class="ab-val" id="sturdy-val">8</h3>
                     </div>
 
                     <div class="agility">
@@ -147,6 +288,12 @@
                         <h3>Charm</h3>
                         <input class="ab-in" id="charm-in" type="number" min="0" max="20">
                         <h3 class="ab-val" id="charm-val">8</h3>
+                    </div>
+
+                    <div class="aware">
+                        <h3>Aware</h3>
+                        <input class="ab-in" id="aware-in" type="number" min="0" max="20">
+                        <h3 class="ab-val" id="aware-val">8</h3>
                     </div>
 
                 </div>

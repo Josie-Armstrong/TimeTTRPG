@@ -5,22 +5,23 @@ const expertise = document.querySelector(".expertise");
 const background = document.querySelector("#background");
 const gear = document.querySelector("#gear");
 const notes = document.querySelector("#notes");
+const edit_menu = document.querySelector(".edit-menu");
 
 // Arrays of value and input fields
 const ability_inputs = [
     document.querySelector("#brawn-in"),
-    document.querySelector("#sturdy-in"),
     document.querySelector("#agility-in"),
     document.querySelector("#wits-in"),
-    document.querySelector("#charm-in")
+    document.querySelector("#charm-in"),
+    document.querySelector("#aware-in")
 ];
 
 const ability_display = [
     document.querySelector("#brawn-val"),
-    document.querySelector("#sturdy-val"),
     document.querySelector("#agility-val"),
     document.querySelector("#wits-val"),
-    document.querySelector("#charm-val")
+    document.querySelector("#charm-val"),
+    document.querySelector("#aware-val")
 ];
 
 const header_inputs = [
@@ -60,6 +61,7 @@ const gear_val = document.querySelector("#gear-val");
 const notes_val = document.querySelector("#notes-val");
 
 // Buttons for downloading and editing
+const edit_dropdown = document.querySelector("#edit-dropdown");
 const download_btn = document.querySelector("#download-btn");
 const upload_btn = document.querySelector("#upload-btn");
 const cancel_up_btn = document.querySelector("#cancel-upload");
@@ -69,6 +71,7 @@ const clear_btn = document.querySelector("#clear-storage");
 const tutorial_btn = document.querySelector("#use-tutorial");
 const rand_char_btn = document.querySelector("#rand-char-btn");
 
+edit_dropdown.addEventListener('click', mobileEditToggle);
 download_btn.addEventListener('click', downloadFile);
 upload_btn.addEventListener('click', toggleUploadPopup);
 cancel_up_btn.addEventListener('click',toggleUploadPopup);
@@ -92,13 +95,19 @@ im_sure_btn.addEventListener('click', executeOverwrite);
 // Tutorial stuff
 const tutorial_popup = document.querySelector("#char-creation-popup");
 const tutorial_header = document.querySelector("#tutorial-header");
-const tutorial_text = document.querySelector("#tutorial-text");
 const tutorial_back_btn = document.querySelector("#cc-back");
 const tutorial_next_btn = document.querySelector("#cc-next");
 const tutorial_exit_btn = document.querySelector("#cc-exit");
 tutorial_exit_btn.addEventListener('click', toggleCharTutorial);
 tutorial_next_btn.addEventListener('click', () => {tutorialCardChange(1)});
 tutorial_back_btn.addEventListener('click', () => {tutorialCardChange(-1)});
+const tutorial_text = [
+    document.querySelector("#ab-tt-1"),
+    document.querySelector("#ab-tt-2"),
+    document.querySelector("#ab-tt-3"),
+    document.querySelector("#t-tt-1"),
+    document.querySelector("#t-tt-2")
+    ];
 
 // Nav hamburger button stuff
 const hamburger = document.querySelector(".hamburger-menu");
@@ -110,25 +119,16 @@ let uploading = false;
 let upload_event;
 let event_type = "none";
 let tutorial_step = 0;
+let tutorial_section = [0, 0, 0, 1, 1, 2, 3, 3, 4, 5];
 
 // Header text for tutorial steps
-let tutorial_step_h = {
+let tutorial_section_h = {
     0: "Step 1: Abilities",
     1: "Step 2: Talents",
     2: "Step 3: Expertise",
     3: "Step 4: Gear",
     4: "Step 5: Header",
     5: "Step 6: Background",
-}
-
-// Paragraph text for tutorial steps
-let tutorial_step_p = {
-    0: "Explain how to do abilities",
-    1: "Explain how to do talents",
-    2: "Explain how to do expertise",
-    3: "Explain how to do gear",
-    4: "Explain how to do header",
-    5: "Explain how to do background",
 }
 
 // This is the JSON that I will be downloading & how the character is stored
@@ -541,6 +541,7 @@ function toggleNavMenu() {
 
 // Shows/hides tutorial popup
 function toggleCharTutorial() {
+    resetTutorial();
     tutorial_popup.classList.toggle("hide");
 }
 
@@ -549,15 +550,26 @@ function tutorialCardChange(change) {
     if((tutorial_step + change) >= 0 && (tutorial_step + change) <= 5) { 
         tutorial_step += change;
 
-        tutorial_header.textContent = tutorial_step_h[tutorial_step];
-        tutorial_text.textContent = tutorial_step_p[tutorial_step];
+        tutorial_header.textContent = tutorial_section_h[tutorial_section[tutorial_step]];
+        tutorial_text[tutorial_step - change].classList.toggle("hide");
+        tutorial_text[tutorial_step].classList.toggle("hide");
     }
 }
 
 // Resets tutorial to step 1
 function resetTutorial() {
-    tutorial_header.textContent = tutorial_step_h[0];
-    tutorial_text.textContent = tutorial_step_p[0];
+    tutorial_header.textContent = tutorial_section_h[0];
+
+    // Hiding anything that is shown
+    for (let i = 0; i < tutorial_text.length; i++) {
+        if (!tutorial_text[i].classList.contains("hide")) {
+            tutorial_text[i].classList.add("hide");
+        }
+    }
+
+    //Showing step one
+    tutorial_text[0].classList.toggle("hide");
+
 }
 
 function generateRandomCharacter() {
@@ -665,4 +677,8 @@ function generateRandomCharacter() {
 
     assignDisplayVals();
     assignInputVals();
+}
+
+function mobileEditToggle() {
+    edit_menu.classList.toggle("hide");
 }
