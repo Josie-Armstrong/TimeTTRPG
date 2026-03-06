@@ -150,7 +150,7 @@ button:hover {
         flex-direction: column;
         gap: 16px;
 
-        height: 600px;
+        height: min-content;
 
         #edit-btn {
             width: 100%;
@@ -162,6 +162,7 @@ button:hover {
     }
 
     #overwrite-warning {
+        position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -210,6 +211,34 @@ button:hover {
             font-family: "EB Garamond", "Times New Roman";
             margin: 0;
             font-weight: bold;
+        }
+    }
+
+    #paste-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        gap: 20px;
+
+        max-width: 90vw;
+        min-width: 30vw;
+        text-align: center;
+
+        h3 {
+            margin: 0;
+        }
+
+        button {
+            max-width: 70%;
+            align-self: center;
+        }
+
+        textarea {
+            align-self: center;
+            width: 100%;
+            min-height: 100px;
         }
     }
 
@@ -363,10 +392,16 @@ button:hover {
                     border: 3px solid var(--dark-red);
                     border-radius: 50%;
                     transform: translateY(-0.075em);
+                    transition-duration: 0.2s;
                 }
 
                 input[type="checkbox"]:checked {
                     background-color: var(--dark-red);
+                }
+
+                input[type="checkbox"]:not(:checked):hover {
+                    background-color: var(--gold);
+                    transition-duration: 0.2s;
                 }
 
             }
@@ -750,6 +785,7 @@ button:hover {
 
         .edit-menu {
             height: auto;
+            max-width: 550px;
 
             #edit-div {
                 display: flex;
@@ -765,6 +801,7 @@ button:hover {
                     margin: 0;
 
                     width: 10%;
+                    max-width: 40px;
                     rotate: 0deg;
                     transition-duration: 0.5s;
 

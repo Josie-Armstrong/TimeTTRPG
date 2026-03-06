@@ -1,3 +1,38 @@
+// This is the object that stores character info
+let character = {
+
+    "valid_sheet": true,
+
+    "header": {
+        0: "",
+        1: "",
+        2: "",
+        3: "",
+        4: 1
+    },
+
+    "wounds": 0,
+
+    "abilities": {
+        0: 0,
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0
+    },
+
+    "talents": "",
+
+    "expertise": "",
+
+    "background": "",
+
+    "gear": "",
+
+    "notes": ""
+
+}
+
 const abilities = document.querySelector("#abilities");
 const sheet_head = document.querySelector(".sheet-head");
 const talents = document.querySelector(".talents");
@@ -70,6 +105,8 @@ const edit_btn = document.querySelector("#edit-btn");
 const clear_btn = document.querySelector("#clear-storage");
 const tutorial_btn = document.querySelector("#use-tutorial");
 const rand_char_btn = document.querySelector("#rand-char-btn");
+const copy_btn = document.querySelector("#copy-btn");
+const paste_btn = document.querySelector("#paste-btn");
 
 edit_dropdown.addEventListener('click', mobileEditToggle);
 download_btn.addEventListener('click', downloadFile);
@@ -79,8 +116,11 @@ finish_upload.addEventListener('click', () => {checkIfSure("upload")});
 edit_btn.addEventListener('click', makeEdits);
 clear_btn.addEventListener('click', () => {checkIfSure("clear")});
 tutorial_btn.addEventListener('click', toggleCharTutorial);
-rand_char_btn.addEventListener('click', () => checkIfSure("rand char"))
+rand_char_btn.addEventListener('click', () => checkIfSure("rand char"));
+copy_btn.addEventListener('click', () => {copyCharacterJSON()});
+paste_btn.addEventListener('click', () => {togglePasteWindow()});
 document.getElementById("char-file").addEventListener('change', (event) => {assignFile(event)});
+document.getElementById("confirm-paste-btn").addEventListener('click',() => {checkIfSure("paste")})
 
 // "Are you sure" warning menu stuff
 const overwrite_warning = document.querySelector("#overwrite-warning");
@@ -120,6 +160,7 @@ let upload_event;
 let event_type = "none";
 let tutorial_step = 0;
 let tutorial_section = [0, 0, 0, 1, 1, 2, 3, 3, 4, 5];
+let paste_string = "";
 
 // Header text for tutorial steps
 let tutorial_section_h = {
@@ -129,41 +170,6 @@ let tutorial_section_h = {
     3: "Step 4: Gear",
     4: "Step 5: Header",
     5: "Step 6: Background",
-}
-
-// This is the JSON that I will be downloading & how the character is stored
-let character = {
-
-    "valid_sheet": true,
-
-    "header": {
-        0: "",
-        1: "",
-        2: "",
-        3: "",
-        4: 1
-    },
-
-    "wounds": 0,
-
-    "abilities": {
-        0: 0,
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0
-    },
-
-    "talents": "",
-
-    "expertise": "",
-
-    "background": "",
-
-    "gear": "",
-
-    "notes": ""
-
 }
 
 let talents_list = ["Animal Whispering", "Archery", "Baking", 
@@ -307,6 +313,11 @@ function replaceCharSheet() {
         assignDisplayVals();
         assignInputVals();
         localStorage.setItem("char_sheet", JSON.stringify(character));
+
+        // Hiding upload popup if it is shown
+        if (!document.getElementById("upload-popup").classList.contains("hide")) {
+            toggleUploadPopup();
+        }
     }
     catch (err) {
         window.alert("This is not a valid character sheet. Please try again.");
@@ -360,6 +371,11 @@ function executeOverwrite() {
     }
     else if(event_type == "rand char") {
         generateRandomCharacter();
+    }
+    else if(event_type == "paste") {
+        paste_string = document.getElementById("paste-textarea").value;
+        pasteCharacterJSON();
+        // TODO: Add call to paste function once that is done
     }
 }
 
@@ -427,7 +443,6 @@ function checkValidCharSheet(char_json) {
             console.log(character);
 
             replaceCharSheet();
-            toggleUploadPopup();
         }
         else {
             window.alert("This is not a valid character sheet. Please try again.");
@@ -681,4 +696,51 @@ function generateRandomCharacter() {
 
 function mobileEditToggle() {
     edit_menu.classList.toggle("hide");
+}
+
+function copyCharacterJSON() {
+    try {
+        const type = "text/plain";
+        const temp_text = JSON.stringify(character);
+        // console.log(temp_text);
+
+        const clip_data = {
+            [type]: temp_text
+        };
+
+        const clipboard_item = new ClipboardItem(clip_data);
+        navigator.clipboard.write([clipboard_item]);
+
+        copy_btn.textContent = "Copied!"
+        setTimeout(() => {
+            copy_btn.textContent = "Copy Character JSON";
+            }, 2000);
+    }
+    catch (err) {
+        console.log(err);
+    }
+
+}
+
+function togglePasteWindow() {
+    document.getElementById("paste-popup").classList.toggle("hide");
+}
+
+function pasteCharacterJSON() {
+    console.log(paste_string);
+
+    try {
+        let test_json = JSON.parse(paste_string);
+        if (checkValidCharSheet(test_json)) {
+            replaceCharSheet();
+        }
+    }
+    catch (err) {
+        window.alert("This is not a valid character sheet.")
+    }
+
+    document.getElementById("paste-textarea").value = "";
+    togglePasteWindow();
+
+
 }
