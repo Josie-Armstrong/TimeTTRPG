@@ -21,7 +21,7 @@ let character = {
         4: 0
     },
 
-    "talents": "",
+    "eccentricities": "",
 
     "expertise": "",
 
@@ -35,7 +35,7 @@ let character = {
 
 const abilities = document.querySelector("#abilities");
 const sheet_head = document.querySelector(".sheet-head");
-const talents = document.querySelector(".talents");
+const eccentricities = document.querySelector(".eccentricities");
 const expertise = document.querySelector(".expertise");
 const background = document.querySelector("#background");
 const gear = document.querySelector("#gear");
@@ -64,7 +64,7 @@ const header_inputs = [
     document.querySelector("#pronouns-in"),
     document.querySelector("#age-in"),
     document.querySelector("#position-in"),
-    document.querySelector("#level-in")
+    document.querySelector("#sturdy-in")
 ];
 
 const header_display = [
@@ -72,7 +72,7 @@ const header_display = [
     document.querySelector("#pronouns-val"),
     document.querySelector("#age-val"),
     document.querySelector("#position-val"),
-    document.querySelector("#level-val")
+    document.querySelector("#sturdy-val")
 ];
 
 const wound_inputs = [
@@ -82,14 +82,14 @@ const wound_inputs = [
 ];
 
 // Input fields
-const talents_in = document.querySelector("#talents-in");
+const eccentricities_in = document.querySelector("#ecc-in");
 const expertise_in = document.querySelector("#expertise-in");
 const background_in = document.querySelector("#background-in");
 const gear_in = document.querySelector("#gear-in");
 const notes_in = document.querySelector("#notes-in");
 
 // Value fields
-const talents_val = document.querySelector("#talents-val");
+const eccentricities_val = document.querySelector("#ecc-val");
 const expertise_val = document.querySelector("#expertise-val");
 const background_val = document.querySelector("#background-val");
 const gear_val = document.querySelector("#gear-val");
@@ -121,6 +121,7 @@ copy_btn.addEventListener('click', () => {copyCharacterJSON()});
 paste_btn.addEventListener('click', () => {togglePasteWindow()});
 document.getElementById("char-file").addEventListener('change', (event) => {assignFile(event)});
 document.getElementById("confirm-paste-btn").addEventListener('click',() => {checkIfSure("paste")})
+document.getElementById("cancel-paste").addEventListener('click', () => {togglePasteWindow()});
 
 // "Are you sure" warning menu stuff
 const overwrite_warning = document.querySelector("#overwrite-warning");
@@ -162,6 +163,14 @@ let tutorial_step = 0;
 let tutorial_section = [0, 0, 0, 1, 1, 2, 3, 3, 4, 5];
 let paste_string = "";
 
+// Variables for tutorial/focus styling
+let default_color = "var(--fill-cream)";
+let default_shadow = "none";
+let default_border = "3px solid var(--dark-red)";
+let focus_color = "var(--gold)";
+let focus_shadow = "5px 5px 10px var(--dark-red)";
+let focus_border = "5px solid var(--dark-red)";
+
 // Header text for tutorial steps
 let tutorial_section_h = {
     0: "Step 1: Abilities",
@@ -172,7 +181,11 @@ let tutorial_section_h = {
     5: "Step 6: Background",
 }
 
-let talents_list = ["Animal Whispering", "Archery", "Baking", 
+let tutorial_section_highlight = [
+    abilities, eccentricities, expertise, gear, sheet_head, background
+    ];
+
+let eccs_list = ["Animal Whispering", "Archery", "Baking", 
     "Card Counting/Gambling", "Carpentry", "Computer Hacking", "Explosives",
     "Farming", "Fishing", "Forgery", "Gardening", "Hand-to-Hand Combat", "Hospitality",
     "Knife Throwing", "Lockpicking", "Musical Performance", "Nature & Wilderness",
@@ -227,7 +240,7 @@ function EditDisplay() {
     abilities.classList.add("edit-mode");
     sheet_head.classList.add("edit-mode");
     expertise.classList.add("edit-mode");
-    talents.classList.add("edit-mode");
+    eccentricities.classList.add("edit-mode");
     background.classList.add("edit-mode");
     gear.classList.add("edit-mode");
     notes.classList.add("edit-mode");
@@ -251,7 +264,7 @@ function NormalDisplay() {
     abilities.classList.remove("edit-mode");
     sheet_head.classList.remove("edit-mode");
     expertise.classList.remove("edit-mode");
-    talents.classList.remove("edit-mode");
+    eccentricities.classList.remove("edit-mode");
     background.classList.remove("edit-mode");
     gear.classList.remove("edit-mode");
     notes.classList.remove("edit-mode");
@@ -272,7 +285,7 @@ function saveEdits() {
             character["header"][i] = header_inputs[i].value;
         }
 
-        character["talents"] = talents_in.value;
+        character["eccentricities"] = eccentricities_in.value;
         character["expertise"] = expertise_in.value;
         character["background"] = background_in.value;
         character["gear"] = gear_in.value;
@@ -303,7 +316,7 @@ function replaceCharSheet() {
             // console.log(character["abilities"][i]);
         }
 
-        // level (as int)
+        // sturdy (as int)
         let lvl_val = character["header"][4]
         lvl_val = parseInt(lvl_val);
         character["header"][4] = lvl_val;
@@ -473,7 +486,7 @@ function assignInputVals() {
         header_inputs[i].value = character["header"][i];
     }
 
-    talents_in.value = character["talents"];
+    eccentricities_in.value = character["eccentricities"];
     expertise_in.value = character["expertise"];
     background_in.value = character["background"];
     gear_in.value = character["gear"];
@@ -490,7 +503,7 @@ function assignDisplayVals() {
         header_display[i].textContent = character["header"][i];
     }
 
-    talents_val.textContent = character["talents"];
+    eccentricities_val.textContent = character["eccentricities"];
     expertise_val.textContent = character["expertise"];
     background_val.textContent = character["background"];
     gear_val.textContent = character["gear"];
@@ -523,7 +536,7 @@ function clearStoredCharacter() {
             4: 0
         },
 
-        "talents": "",
+        "eccentricities": "",
 
         "expertise": "",
 
@@ -557,7 +570,15 @@ function toggleNavMenu() {
 // Shows/hides tutorial popup
 function toggleCharTutorial() {
     resetTutorial();
-    tutorial_popup.classList.toggle("hide");
+
+    // If the tutorial is being shown, highlight abilities
+    if (!tutorial_popup.classList.toggle("hide")) {
+        let item = tutorial_section_highlight[tutorial_section[tutorial_step]];
+        item.style.boxShadow = focus_shadow;
+        item.style.backgroundColor = focus_color;
+        item.style.border = focus_border;
+    }
+
 }
 
 // Goes forward or backward by change # of steps in the tutorial cards
@@ -568,6 +589,32 @@ function tutorialCardChange(change) {
         tutorial_header.textContent = tutorial_section_h[tutorial_section[tutorial_step]];
         tutorial_text[tutorial_step - change].classList.toggle("hide");
         tutorial_text[tutorial_step].classList.toggle("hide");
+
+        // Resetting the sheet pieces to normal styling between steps
+        for (let i = 0; i < tutorial_section_highlight.length; i++) {
+            let item = tutorial_section_highlight[i];
+            item.style.boxShadow = default_shadow;
+
+            if (i == 4) {
+                item.style.backgroundColor = "var(--dark-red)";
+                item.style.border = "none";
+            }
+            else {
+                item.style.backgroundColor = default_color;
+                item.style.border = default_border;
+            }
+        }
+
+        // Changing style for the piece of sheet that is in focus
+        let temp_focus = tutorial_section_highlight[tutorial_section[tutorial_step]];
+
+        temp_focus.style.boxShadow = focus_shadow;
+        temp_focus.style.border = focus_border;
+
+        if (tutorial_section[tutorial_step] != 4) {
+            temp_focus.style.backgroundColor = focus_color;
+        }
+        
     }
 }
 
@@ -579,6 +626,21 @@ function resetTutorial() {
     for (let i = 0; i < tutorial_text.length; i++) {
         if (!tutorial_text[i].classList.contains("hide")) {
             tutorial_text[i].classList.add("hide");
+        }
+    }
+
+    // Resetting styling for pieces of sheet
+    for (let i = 0; i < tutorial_section_highlight.length; i++) {
+        let item = tutorial_section_highlight[i];
+        item.style.boxShadow = default_shadow;
+
+        if (i == 4) {
+            item.style.backgroundColor = "var(--dark-red)";
+            item.style.border = "none";
+        }
+        else {
+            item.style.backgroundColor = default_color;
+            item.style.border = default_border;
         }
     }
 
@@ -724,6 +786,7 @@ function copyCharacterJSON() {
 
 function togglePasteWindow() {
     document.getElementById("paste-popup").classList.toggle("hide");
+    document.getElementById("paste-textarea").value = "";
 }
 
 function pasteCharacterJSON() {
@@ -738,9 +801,5 @@ function pasteCharacterJSON() {
     catch (err) {
         window.alert("This is not a valid character sheet.")
     }
-
-    document.getElementById("paste-textarea").value = "";
     togglePasteWindow();
-
-
 }

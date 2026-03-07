@@ -54,7 +54,11 @@
         <div class="popup hide" id="paste-popup">
             <h3>Paste your character JSON here:</h3>
             <textarea placeholder="Paste here" id="paste-textarea"></textarea>
-            <button id="confirm-paste-btn">Paste Character JSON</button>
+
+            <div id="paste-buttons">
+                <button id="confirm-paste-btn">Paste Character JSON</button>
+                <button id="cancel-paste">Cancel</button>
+            </div>
         </div>
 
         <div class="popup hide" id="upload-popup">
@@ -118,7 +122,7 @@
             </div>
 
             <div class="tutorial-text hide" id="t-tt-1">
-                <p><strong>Talents</strong> are extra-specific, not-often-applicable things that your character is oddly good at. 
+                <p><strong>Eccentricities</strong> are extra-specific, not-often-applicable things that your character is oddly good at. 
                     When you attempt to do something that aligns with one of your character’s talents, you roll 
                     with advantage.
                 </p>
@@ -129,7 +133,7 @@
             </div>
 
             <div class="tutorial-text hide" id="t-tt-2">
-                <h3>List of Talents (pick 2 or roll 3)</h3>
+                <h3>List of Eccentricities (pick 2 or roll 3)</h3>
                 <p>
                     <ol class="two-columns-p">
                         <li>Animal Whispering</li>
@@ -241,10 +245,10 @@
                     <input class="sh-in" id="position-in" placeholder="Position Here">
                 </div>
 
-                <div id="level" class="sheet-header-item">
+                <div id="sturdy" class="sheet-header-item">
                     <h3>Sturdy:</h3>
-                    <p class="sh-val" id="level-val">1</p>
-                    <input class="sh-in" type="number" id="level-in" placeholder="10">
+                    <p class="sh-val" id="sturdy-val">1</p>
+                    <input class="sh-in" type="number" id="sturdy-in" placeholder="10">
                 </div>
 
                 <div id="wounds" class="sheet-header-item">
@@ -308,10 +312,10 @@
 
                 </div>
 
-                <div class="talents main-item">
-                    <h2>Talents:</h2>
-                    <p class="te-val" id="talents-val"></p>
-                    <textarea class="te-in" id="talents-in" rows="5" cols="30"></textarea>
+                <div class="eccentricities main-item">
+                    <h2>Eccentricities:</h2>
+                    <p class="te-val" id="ecc-val"></p>
+                    <textarea class="te-in" id="ecc-in" rows="5" cols="30"></textarea>
                 </div>
 
                 <div class="expertise main-item">

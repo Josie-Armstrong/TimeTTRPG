@@ -134,7 +134,7 @@ button:hover {
         display: grid;
         gap: 20px;
 
-        grid-template-columns: 1.5fr 8fr;
+        grid-template-columns: min-content auto;
 
         padding: 20px;
     }
@@ -151,6 +151,7 @@ button:hover {
         gap: 16px;
 
         height: min-content;
+        min-width: 15vw;
 
         #edit-btn {
             width: 100%;
@@ -231,14 +232,23 @@ button:hover {
         }
 
         button {
-            max-width: 70%;
+            max-width: 100%;
             align-self: center;
+            width: auto;
+            flex-grow: 1;
         }
 
         textarea {
             align-self: center;
             width: 100%;
             min-height: 100px;
+        }
+
+        #paste-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            gap: 20px;
         }
     }
 
@@ -269,7 +279,7 @@ button:hover {
         gap: 3px;
         background-color: var(--dark-red);
         grid-template-columns: 28fr 20fr 26fr 8fr 18fr;
-        grid-template-rows: 6fr 4fr;
+        grid-template-rows: auto auto;
 
         height: min-content;
         /* padding: 3px; */
@@ -320,7 +330,7 @@ button:hover {
             grid-row-end: 3;
         }
 
-        #level {
+        #sturdy {
             grid-column: 4;
             grid-row-start: 1;
             grid-row-end: 3;
@@ -533,7 +543,7 @@ button:hover {
         grid-row-end: 4;
     }
 
-    .talents {
+    .eccentricities {
         grid-column: 2;
         grid-row-start: 1;
         grid-row-end: 2;
@@ -553,7 +563,7 @@ button:hover {
         color: white;
     }
 
-    .talents.edit-mode, .expertise.edit-mode {
+    .eccentricities.edit-mode, .expertise.edit-mode {
         .te-val {
             display: none;
         }
@@ -563,7 +573,7 @@ button:hover {
         }
     }
 
-    .talents, .expertise {
+    .eccentricities, .expertise {
         .te-val {
             display: block;
         }
@@ -573,7 +583,7 @@ button:hover {
         }
     }
 
-    #background, #gear, #notes, .talents, .expertise {
+    #background, #gear, #notes, .eccentricities, .expertise {
         padding: 10px;
 
         .long-text-in {
@@ -886,7 +896,7 @@ button:hover {
                 grid-column: 1 / 3;
             }
 
-            #level {
+            #sturdy {
                 grid-row: 3;
                 grid-column: 3;
 
@@ -919,7 +929,7 @@ button:hover {
                 }
             }
 
-            #name, #pronouns, #age, #position, #level {
+            #name, #pronouns, #age, #position, #sturdy {
                 height: auto;
                 
                 h3 {
@@ -959,7 +969,7 @@ button:hover {
 
         }
 
-        .talents {
+        .eccentricities {
             min-height: 100px;
         }
 
