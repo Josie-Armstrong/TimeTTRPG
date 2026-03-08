@@ -1,13 +1,17 @@
 :root {
     --dark-red: #622310;
+    --light-red: #AE5940;
     --fill-cream: #FFFAF0;
     --gold: #FFD078;
     --light-gold: #FFF0D4;
     --med-cream: #E0C593;
+
+    --p-font: "EB Garamond", "Times New Roman";
+    --h-font: "dm-serif-display", "Times New Roman";
 }
 
 @font-face {
-  font-family: dm-serif-display; /* set name */
+  font-family: "dm-serif-display"; /* set name */
   src: url(fonts/dm-serif-display.woff2); /* url of the font */
 }
 
@@ -17,13 +21,14 @@ html {
 
 body {
     background-image: url("../images/paper-texture.png");
-    background-size: cover;
+    background-size: 100vw;
+    background-repeat: repeat;
     background-color: #EAD9B9;
 
     margin: 0;
     padding: 0;
 
-    font-family: "EB Garamond";
+    font-family: var(--p-font);
 }
 
 header {
@@ -40,7 +45,7 @@ header {
 
 
     color: var(--gold);
-    font-family: dm-serif-display;
+    font-family: var(--h-font);
 
     z-index: 100;
 
@@ -73,7 +78,12 @@ h1 {
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
-    font-family: dm-serif-display;
+    font-family: var(--h-font);
+}
+
+p, label, input, textarea {
+    font-family: var(--p-font);
+    font-size: 1.2rem;
 }
 
 .two-columns-p {
@@ -87,10 +97,12 @@ button {
     border: none;
     border-radius: 5px;
 
-    font-family: "dm-serif-display";
+    font-family: var(--h-font);
     font-size: 1rem;
 
     padding: 10px;
+
+    transition-duration: 0.1s;
 }
 
 button:hover {
@@ -209,7 +221,7 @@ button:hover {
         }
 
         h3 {
-            font-family: "EB Garamond", "Times New Roman";
+            font-family: var(--p-font), "Times New Roman";
             margin: 0;
             font-weight: bold;
         }
@@ -608,6 +620,11 @@ button:hover {
             display: none;
         }
     }
+
+    .long-text-in, .te-in, .long-text-val, .te-val {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }
 
 .gm-resources {
@@ -726,6 +743,267 @@ button:hover {
 
     img {
         max-width: 100%;
+    }
+}
+
+.player-resources-page {
+    #intro {
+        color: black;
+        background-color: var(--light-gold);
+        padding: 20px;
+        margin-top: 20px;
+
+        border-top: 5px solid var(--dark-red);
+        border-bottom: 5px solid var(--dark-red);
+
+        p {
+            max-width: 1500px;
+            text-align: justify;
+            justify-self: center;
+        }
+
+        hr {
+            border: 2px solid var(--gold);
+            max-width: 50%;
+            margin: auto;
+            margin-top: 0;
+            margin-bottom: 0;
+            text-align: center;
+        }
+    }
+
+    h2 {
+        text-align: center;
+        margin: 0;
+        padding-bottom: 20px;
+        font-size: 2rem;
+        color: var(--dark-red);
+    }
+
+    .resources-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        margin: 20px;
+        gap: 20px;
+        
+        .locked-resources, .unlocked-resources {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .player-resource {
+                background-color: var(--fill-cream);
+                height: min-content;
+                border-radius: 20px;
+                border: 3px solid var(--light-red);
+            }
+        }
+
+        h3 {
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            font-size: 1.3rem;
+            background-color: var(--light-gold);
+            color: var(--dark-red);
+
+            border-bottom: 5px solid var(--gold);
+
+            border-radius: 20px 20px 0px 0px;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            padding-top: 20px;
+        }
+    }
+
+    .outer-content-container {
+        padding: 20px;
+    }
+
+    .player-resource {
+
+        .content {
+            max-height: 2000px;
+            overflow: hidden;
+
+            transition: max-height 0.3s ease-in;
+        }
+
+        .relock-btn {
+            display: block;
+        }
+    }
+
+    .player-resource.locked {
+        .content {
+            max-height: 0px;
+            overflow: hidden;
+
+            transition: max-height 0.3s ease-out;
+        }
+
+        .relock-btn {
+            display: none;
+        }
+    }
+
+    .password {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+
+        height: 50px;
+
+        button {
+            height: 100%;
+            font-family: var(--p-font);
+            font-weight: bold;
+            padding: 5px;
+            height: min-content;
+            scale: 1;
+        }
+
+        button:hover {
+            scale: 1.1;
+            border: 2px solid var(--light-red);
+            box-sizing: border-box;
+        }
+
+        input {
+            height: min-content;
+            border: 2px solid var(--light-red);
+        }
+
+        label {
+            font-weight: bold;
+        }
+    }
+
+    .outer-content-container {
+        #test {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    }
+
+    .outer-content-container:hover {
+        #test {
+            max-height: 500px;
+            transition: max-height 0.3s ease-in;
+        }
+    }
+}
+
+.compendium-page {
+    display: flex;
+    flex-direction: row;
+    grid-template-columns: 2fr 8fr;
+    gap: 40px;
+
+    margin: 20px;
+    margin-left: 120px;
+    margin-right: 120px;
+
+    .page-nav {
+        flex-grow: 1;
+
+        background-color: var(--fill-cream);
+        display: flex;
+        flex-direction: column;
+        height: auto;
+
+        a {
+            display: block;
+            margin: 0;
+            padding: 0;
+
+            font-size: 1.2rem;
+            color: var(--dark-red);
+        }
+
+        a:hover {
+            color: var(--light-red);
+        }
+
+        .outer-nav-controls {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            padding: 5px;
+            
+            background-color: var(--light-gold);
+
+            a {
+                font-weight: bold;
+            }
+
+            .expand-nav-btn {
+                background-color: transparent;
+                padding: 5px;
+                margin: 0;
+                width: auto;
+                height: auto;
+
+                .arrow {
+                    display: block;
+                    border-bottom: 4px solid var(--dark-red);
+                    border-right: 4px solid var(--dark-red);
+                    min-width: 8px;
+                    height: 8px;
+                    rotate: -45deg;
+                }
+            }
+
+            .expand-nav-btn:hover {
+                box-shadow: none;
+                background-color: transparent;
+
+                .arrow {
+                    border-bottom: 4px solid var(--light-red);
+                    border-right: 4px solid var(--light-red);
+                }
+            }
+        }
+
+        .outer-nav {
+
+            .inner-nav {
+                max-height: 0px;
+                overflow: hidden;
+            }
+
+        }
+
+        .outer-nav.expanded {
+            .inner-nav {
+
+            }
+        }
+    }
+
+    .main-book {
+        flex-grow: 8;
+
+        background-color: var(--fill-cream);
+    }
+}
+
+@media (max-width: 1500px) {
+    .compendium-page {
+        margin-left: 20px;
+        margin-right: 20px;
+
+        gap: 20px;
     }
 }
 

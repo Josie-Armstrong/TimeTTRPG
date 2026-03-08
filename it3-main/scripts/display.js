@@ -145,9 +145,13 @@ tutorial_back_btn.addEventListener('click', () => {tutorialCardChange(-1)});
 const tutorial_text = [
     document.querySelector("#ab-tt-1"),
     document.querySelector("#ab-tt-2"),
-    document.querySelector("#ab-tt-3"),
     document.querySelector("#t-tt-1"),
-    document.querySelector("#t-tt-2")
+    document.querySelector("#e-tt-1"),
+    document.querySelector("#g-tt-1"),
+    document.querySelector("#h-tt-1"),
+    document.querySelector("#h-tt-2"),
+    document.querySelector("#b-tt-1"),
+    document.querySelector("#end-tt-1")
     ];
 
 // Nav hamburger button stuff
@@ -160,7 +164,7 @@ let uploading = false;
 let upload_event;
 let event_type = "none";
 let tutorial_step = 0;
-let tutorial_section = [0, 0, 0, 1, 1, 2, 3, 3, 4, 5];
+let tutorial_section = [0, 0, 1, 2, 3, 4, 4, 5, 6];
 let paste_string = "";
 
 // Variables for tutorial/focus styling
@@ -174,16 +178,17 @@ let focus_border = "5px solid var(--dark-red)";
 // Header text for tutorial steps
 let tutorial_section_h = {
     0: "Step 1: Abilities",
-    1: "Step 2: Talents",
+    1: "Step 2: Eccentricities",
     2: "Step 3: Expertise",
     3: "Step 4: Gear",
     4: "Step 5: Header",
     5: "Step 6: Background",
+    6: "You've Made a Character!"
 }
 
 let tutorial_section_highlight = [
     abilities, eccentricities, expertise, gear, sheet_head, background
-    ];
+];
 
 let eccs_list = ["Animal Whispering", "Archery", "Baking", 
     "Card Counting/Gambling", "Carpentry", "Computer Hacking", "Explosives",
@@ -583,7 +588,7 @@ function toggleCharTutorial() {
 
 // Goes forward or backward by change # of steps in the tutorial cards
 function tutorialCardChange(change) {
-    if((tutorial_step + change) >= 0 && (tutorial_step + change) <= 5) { 
+    if((tutorial_step + change) >= 0 && (tutorial_step + change) <= (tutorial_text.length - 1)) { 
         tutorial_step += change;
 
         tutorial_header.textContent = tutorial_section_h[tutorial_section[tutorial_step]];
@@ -606,13 +611,15 @@ function tutorialCardChange(change) {
         }
 
         // Changing style for the piece of sheet that is in focus
-        let temp_focus = tutorial_section_highlight[tutorial_section[tutorial_step]];
+        if (tutorial_step != 8) {
+            let temp_focus = tutorial_section_highlight[tutorial_section[tutorial_step]];
 
-        temp_focus.style.boxShadow = focus_shadow;
-        temp_focus.style.border = focus_border;
+            temp_focus.style.boxShadow = focus_shadow;
+            temp_focus.style.border = focus_border;
 
-        if (tutorial_section[tutorial_step] != 4) {
-            temp_focus.style.backgroundColor = focus_color;
+            if (tutorial_section[tutorial_step] != 4) {
+                temp_focus.style.backgroundColor = focus_color;
+            }
         }
         
     }

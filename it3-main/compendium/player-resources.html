@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&family=DM+Serif+Display:ital@0;1&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Faculty+Glyphic&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style/style.css">
+    <title>Character Sheet - Rewind</title>
+
+</head>
+
+<body class="player-resources-page">
+    <header>
+        <h1>Rewind</h1>
+
+        <button class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav>
+            <a href="../home.html">Home</a>
+            <a href="../display.html">Character Creator</a>
+            <a href="../gm-resources.html">GM Resources</a>
+            <a href="../compendium.html">Compendium</a>
+        </nav>
+    </header>
+
+    <div id="intro">
+        <h2>Welcome to Your First Adventure!</h2>
+        <hr>
+        <p>On this page, you will find resources you may need during your adventure. Some of these are
+            locked by a password, which your GM will provide you with when it's time to open them. Others,
+            like some basic guides on how to play, information about LRU, and more, are always accessible to you.
+            If you've never played <em>Rewind</em>, check out the 
+            <a href="../display.html">online character maker</a> and the 
+            <a href="../compendium.html">Rules Compendium</a> to learn how to play!
+
+            Or, you can get a PDF of the rulebook and character sheet LINK (pdf of rules and character sheet) here.
+        </p>
+    </div>
+
+    <div class="resources-grid">
+
+        <div class="unlocked-resources">
+            <div class="player-resource" id="pr-1">
+                <h3>This is an unlocked template resource</h3>
+                <div class="outer-content-container">
+                    <p>Placeholder</p>
+                </div>
+            </div>
+
+            <div class="player-resource" id="pr-2">
+                <h3>This is an unlocked template resource</h3>
+                <div class="outer-content-container">
+                    <p>Placeholder</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="locked-resources">
+            <div class="player-resource locked" id="pr-3">
+                <h3>This is a locked template resource</h3>
+                <div class="outer-content-container">
+                    <p id="test-hover">This is a test. Hover on me</p>
+                    <p id="test">weqfrgtwbyeb vewrt r c eqwrc erqvc erqve ce cec wc wc. e everv ec wec eqgv rwtb rv qec wc e tb eonvoqnfoi wogj oijf oqjoe oeogeoi orej foefeqoi oqwej foiwjfo eo oijf oigo ergohwoif woj oeqhof qwifjoiq </p>
+                </div>
+            </div>
+
+            <div class="player-resource locked" id="house-map">
+                <h3>Resource #1: Map</h3>
+                <div class="outer-content-container locked">
+
+                    <div class="password">
+                        <label for="house-pw">Password:</label>
+                        <input type="text" id="house-map-pw">
+                        <button id="house-btn">Unlock</button>
+                        <button class="relock-btn" id="house-relock-btn">Re-lock</button>
+                    </div>
+
+                    <div class="content">
+                        <img src="../images/house_map.PNG" alt="map of Brutus's house">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../scripts/first-adv-player.js"></script>
+</body>
+</html>
