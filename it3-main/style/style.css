@@ -117,6 +117,7 @@ button:hover {
 
     background-color: var(--dark-red);
     color: var(--light-gold);
+    border: 5px solid var(--light-red);
     border-radius: 20px;
     box-shadow: 5px 5px 10px rgb(0,0,0,0.7);
 
@@ -143,12 +144,92 @@ button:hover {
     }
 
     .disp-main {
-        display: grid;
-        gap: 20px;
+        display: flex;
+    }
 
-        grid-template-columns: min-content auto;
+    .edit-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        width: 80px;
+        min-width: 80px;
 
-        padding: 20px;
+        background-color: var(--light-red);
+
+        .blank-btn {
+            background-color: transparent;
+        }
+
+        .blank-btn:hover {
+            background-color: transparent;
+            box-shadow: none;
+            
+            img {
+                opacity: 100%;
+                transition: 0.1s;
+            }
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            opacity: 80%;
+
+            transition: 0.1s;
+        }
+
+        hr {
+            border: 2px solid var(--light-gold);
+            width: 60%;
+        }
+
+        .sidebar-popout {
+            position: absolute;
+            left: 80px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            width: 230px;
+
+            background-color: var(--light-red);
+            padding: 10px;
+        }
+
+        .sn-sect {
+            .sidebar-popout {
+                display: none;
+            }
+
+            #roll-popout {
+                top: 370px;
+            }
+
+            #edit-popout {
+                top: 104px;
+            }
+
+            #export-popout {
+                top: 194px;
+            }
+
+            #clear-popout {
+                top: 278px;
+            }
+        }
+
+        .sn-sect:hover {
+            .sidebar-popout {
+                display: flex;
+            }
+        }
+
+        .sn-sect.show {
+            .sidebar-popout {
+                display: flex;
+            }
+        }
     }
 
     .edit-menu {
@@ -158,7 +239,8 @@ button:hover {
 
         padding: 16px;
 
-        display: flex;
+        display: none;
+        /* display: flex */
         flex-direction: column;
         gap: 16px;
 
@@ -180,7 +262,17 @@ button:hover {
         left: 50%;
         transform: translate(-50%, -50%);
 
-        max-width: 40vw;
+        max-width: 500px;
+
+        h3 {
+            font-size: 2rem;
+            margin: 0;
+            text-align: center;
+        }
+
+        p {
+            margin: 0;
+        }
     }
 
     #char-creation-popup {
@@ -269,6 +361,10 @@ button:hover {
         flex-direction: column;
 
         height: min-content;
+        box-sizing: border-box;
+        max-width: 100%;
+        width: 100%;
+        margin: 20px;
     }
 
     .sheet-main {
@@ -277,8 +373,6 @@ button:hover {
 
         grid-template-columns: 12.5fr 41fr 48fr;
         grid-template-rows: 1fr 0.5fr 0.5fr 1fr;
-
-        max-height: 45rem;
     }
 
     .main-item {
@@ -340,6 +434,22 @@ button:hover {
             grid-column: 3;
             grid-row-start: 1;
             grid-row-end: 3;
+            display: block;
+            padding: 10px;
+
+            .sh-in, .sh-val {
+                margin: 0;
+                margin-top: 10px;
+            }
+
+            h3 {
+                margin-top: 5px;
+            }
+
+            input {
+                max-width: 95%;
+                height: auto;
+            }
         }
 
         #sturdy {
@@ -351,7 +461,13 @@ button:hover {
             flex-direction: column;
             text-align: center;
             align-content: center;
-            justify-content: center;
+            justify-content: space-evenly;
+
+            input {
+                text-align: center;
+                max-width: 70px;
+                height: auto;
+            }
         }
 
         #wounds {
@@ -480,7 +596,7 @@ button:hover {
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        padding-bottom: 10px;
+        padding: 10px;
 
         .ab-val {
             display: block;
@@ -493,7 +609,7 @@ button:hover {
         div {
             margin: 10px;
             width: 100px;
-            border: 1px black solid;
+            border: 3px var(--light-red) solid;
             border-radius: 20px;
 
             align-self: center;
@@ -516,8 +632,8 @@ button:hover {
         }
 
         h2 {
-            line-height: 100%;
             padding: 0;
+            margin: 0;
         }
     }
 
@@ -609,6 +725,11 @@ button:hover {
         h2 {
             margin: 0;
         }
+
+        p {
+            overflow-wrap: normal;
+            word-break: break-word;
+        }
     }
 
     #background.edit-mode, #gear.edit-mode, #notes.edit-mode {
@@ -661,11 +782,46 @@ button:hover {
 }
 
 .first-adv-gm-page {
-    margin: 20px;
+    #header {
+        color: black;
+        background-color: var(--light-gold);
+        padding: 20px;
+        margin-top: 20px;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+        border-top: 5px solid var(--dark-red);
+        border-bottom: 5px solid var(--dark-red);
+
+        p {
+            max-width: 1000px;
+            text-align: center;
+            justify-self: center;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 0;
+            padding-bottom: 20px;
+            font-size: 2rem;
+            color: var(--dark-red);
+        }
+
+        hr {
+            border: 2px solid var(--gold);
+            max-width: 50%;
+            margin: auto;
+            margin-top: 0;
+            margin-bottom: 0;
+            text-align: center;
+        }
+    }
+
+    .resources-container {
+        margin: 20px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
 
     .text-boxes {
         display: flex;
@@ -673,16 +829,25 @@ button:hover {
     }
 
     .adv-block {
-        border: 1px solid var(--dark-red);
+        overflow: hidden;
+        display: block;
+        max-height: 5000px;
         margin-bottom: 20px;
 
-        background-color: transparent;
+        border-radius: 20px;
+        border: 3px solid var(--light-red);
+
+        transition: max-height 0.3s ease-out;
+
+        .block-header {
+            border-bottom: 5px solid var(--gold);
+        }
     }
 
     .block-header {
-        background-color: var(--dark-red);
+        background-color: var(--light-gold);
         padding: 20px;
-        color: var(--light-gold);
+        color: var(--dark-red);
         border-radius: 10px 10px 0px 0px;
 
         display: flex;
@@ -719,15 +884,20 @@ button:hover {
     .block-content {
         background-color: var(--fill-cream);
         padding: 20px;
+        border-radius: 0px 0px 10px 10px;
     }
 
     .adv-block.collapsed {
         .block-content {
+            max-height: 0;
             display: none;
+
+            transition: max-height 0.3s ease-out;
         }
 
         .block-header {
             border-radius: 10px;
+            border-bottom: none;
         }
 
         .drop-down-btn {
@@ -906,7 +1076,6 @@ button:hover {
 .compendium-page {
     display: flex;
     flex-direction: row;
-    grid-template-columns: 2fr 8fr;
     gap: 40px;
 
     margin: 20px;
@@ -914,9 +1083,10 @@ button:hover {
     margin-right: 120px;
 
     .page-nav {
+        position: sticky;
+        top: 124.31px;
         flex-grow: 1;
 
-        background-color: var(--fill-cream);
         display: flex;
         flex-direction: column;
         height: auto;
@@ -939,7 +1109,7 @@ button:hover {
             flex-direction: row;
             justify-content: space-between;
 
-            padding: 5px;
+            padding: 8px;
             
             background-color: var(--light-gold);
 
@@ -960,7 +1130,6 @@ button:hover {
                     border-right: 4px solid var(--dark-red);
                     min-width: 8px;
                     height: 8px;
-                    rotate: -45deg;
                 }
             }
 
@@ -976,17 +1145,39 @@ button:hover {
         }
 
         .outer-nav {
+            background-color: var(--fill-cream);
 
             .inner-nav {
+
                 max-height: 0px;
                 overflow: hidden;
+
+                transition: max-height 0.3s ease-out;
+
+                padding-left: 20px;
+
+                a {
+                    line-height: 100%;
+                    margin-top: 2px;
+                    margin-bottom: 5px;
+                }
             }
 
+            .arrow {
+                rotate: -45deg;
+                transition: rotate 0.3s ease-in-out;
+            }
         }
 
         .outer-nav.expanded {
             .inner-nav {
+                max-height: 500px;
+                transition: max-height 0.3s ease-in;
+            }
 
+            .arrow {
+                rotate: 45deg;
+                transition: rotate 0.3s ease-in-out;
             }
         }
     }
@@ -995,6 +1186,44 @@ button:hover {
         flex-grow: 8;
 
         background-color: var(--fill-cream);
+    }
+
+    .heading-card {
+        padding: 20px;
+        text-align: center;
+
+        background-color: var(--dark-red);
+        border-bottom: 5px solid var(--gold);
+
+        h2 {
+            margin: 0;
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        p {
+            margin: 0;
+            color: var(--light-gold);
+        }
+    }
+
+    .chapter {
+        padding: 20px;
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        h4 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        p {
+            margin: 0;
+            margin-bottom: 10px;
+        }
     }
 }
 
@@ -1065,77 +1294,21 @@ button:hover {
     }
 
     .char-sheet-page {
-
         .disp-main {
             display: flex;
-            flex-direction: column;
-        }
-
-        .edit-menu {
-            height: auto;
-            max-width: 550px;
-
-            #edit-div {
-                display: flex;
-                flex-direction: row;
-                width: 100%;
-                gap: 16px;
-
-                #edit-dropdown {
-                    display: block;
-                    background-color: transparent;
-                    border-radius: 0px;
-                    padding: 0;
-                    margin: 0;
-
-                    width: 10%;
-                    max-width: 40px;
-                    rotate: 0deg;
-                    transition-duration: 0.5s;
-
-                    img {
-                        width: 100%;
-                    }
-
-                }
-
-                #edit-dropdown:hover {
-                    background-color: transparent;
-                    box-shadow: none;
-                }
-            }
-
-            #edit-btn {
-                width: 90%;
-            }
-
-            #copy-btn, #paste-btn, #clear-storage, #use-tutorial, #rand-char-btn {
-                display: block;
-            }
-
-            #upload-btn, #download-btn {
-                display: none;
-            }
-        }
-
-        .edit-menu.hide {
-            #download-btn, #upload-btn, #clear-storage, #use-tutorial, #rand-char-btn, #copy-btn, #paste-btn {
-                display: none;
-            }
-
-            #edit-dropdown {
-                transform: rotate(-180deg);
-            }
+            flex-direction: row;
         }
 
         .sheet {
             display: flex;
             flex-direction: column;
+            max-width: 100%;
+            width: 100%;
         }
 
         .sheet-head {
             display: grid;
-            grid-template-columns: 50fr 20fr 30fr;
+            grid-template-columns: 50fr 15fr 35fr;
             grid-template-rows: auto auto auto auto;
 
             margin-bottom: 20px;
@@ -1172,6 +1345,16 @@ button:hover {
             #position {
                 grid-row: 3;
                 grid-column: 1 / 3;
+                display: flex;
+
+                .sh-in, .sh-val {
+                    margin: 0;
+                    margin-left: 10px;
+                }
+
+                h3 {
+                    margin: 0;
+                }
             }
 
             #sturdy {
@@ -1186,6 +1369,10 @@ button:hover {
 
                 p {
                     margin-left: 10px;
+                }
+
+                input {
+                    text-align: left;
                 }
             }
 
@@ -1244,7 +1431,9 @@ button:hover {
                 margin: 0;
             }
 
-
+            input {
+                text-align: center;
+            }
         }
 
         .eccentricities {
@@ -1252,8 +1441,98 @@ button:hover {
         }
 
         #upload-popup, #overwrite-warning, #char-creation-popup {
-            max-width: 85vw;
+            max-width: 500px;
             width: 85vw;
+
+            #download-curr-char {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+
+    .char-sheet-page {
+        .disp-main {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sheet {
+            width: auto;
+        }
+    
+        .edit-sidebar {
+            display: none;
+        }
+        
+        .edit-menu {
+            display: flex;
+            height: auto;
+            max-width: 550px;
+
+            margin: 20px 20px 0px 20px;
+
+            #edit-div {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                gap: 16px;
+
+                #edit-dropdown {
+                    display: block;
+                    background-color: transparent;
+                    border-radius: 0px;
+                    padding: 0;
+                    margin: 0;
+
+                    width: 10%;
+                    max-width: 40px;
+                    rotate: 0deg;
+                    transition-duration: 0.5s;
+
+                    img {
+                        width: 100%;
+                    }
+
+                }
+
+                #edit-dropdown:hover {
+                    background-color: transparent;
+                    box-shadow: none;
+                }
+            }
+
+            #edit-btn {
+                width: 90%;
+            }
+
+            #copy-btn, #paste-btn, #clear-storage, #use-tutorial, #rand-char-btn {
+                display: block;
+            }
+
+            #upload-btn, #download-btn {
+                display: none;
+            }
+        }
+
+        .edit-menu.hide {
+            #download-btn, #upload-btn, #clear-storage, #use-tutorial, #rand-char-btn, #copy-btn, #paste-btn {
+                display: none;
+            }
+
+            #edit-dropdown {
+                transform: rotate(-180deg);
+            }
+
+            #edit-div {
+                display: flex;
+            }
+        }
+
+        #paste-popup {
+            width: 80vw;
         }
     }
 }

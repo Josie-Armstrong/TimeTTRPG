@@ -32,14 +32,68 @@
             <a href="compendium.html">Compendium</a>
         </nav>
     </header>
-
+    
     <main class="disp-main">
+
+        <div class="edit-sidebar">
+            <div class="sn-sect" id="edit-nav">
+                <button class="blank-btn" id="s-edit" title="Edit Sheet">
+                    <img alt="Edit icon" src="images/edit-icon.svg">
+                </button>
+
+                <div class="sidebar-popout" id="edit-popout">
+                    <button id="edit-btn-po">Edit</button>
+                    <button id="use-tutorial-po">Make a Character (Tutorial)</button>
+                    <button id="rand-char-btn-po">Generate a Random Character</button>
+                </div>
+            </div>
+
+            <div class="sn-sect" id="export-nav">
+                <button class="blank-btn" id="s-export" title="Export/Import Sheet">
+                    <img alt="Edit icon" src="images/export-1.svg">
+                </button>
+
+                <div class="sidebar-popout" id="export-popout">
+                    <button id="download-btn-po">Download Character Sheet</button>
+                    <button id="upload-btn-po">Upload Character Sheet</button>
+                    <button id="copy-btn-po">Copy Character JSON</button>
+                    <button id="paste-btn-po">Paste Character Json</button>
+                </div>
+            </div>
+
+            <div class="sn-sect" id="clear-nav">
+                <button class="blank-btn" id="s-clear" title="Reset Character">
+                    <img alt="Edit icon" src="images/clear-2.svg">
+                </button>
+
+                <div class="sidebar-popout" id="clear-popout">
+                    <button id="clear-storage-po">Clear Stored Character</button>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="sn-sect" id="roll-nav">
+                <button class="blank-btn" id="s-roll" title="Roll Dice">
+                    <img alt="Edit icon" src="images/d20-2.svg">
+                </button>
+
+                <div class="sidebar-popout" id="roll-popout">
+                    <button id="roll-dice-btn">Roll Dice</button>
+                </div>
+            </div>
+
+            <a class="blank-btn" id="s-book" title="Rules Compendium" href="compendium.html" target="_blank">
+                <img alt="Edit icon" src="images/book-4.svg">
+            </a>
+
+        </div>
 
         <div class="edit-menu hide">
             <div id="edit-div">
                 <button id="edit-btn">Edit</button>
                 <button id="edit-dropdown">
-                    <img src="images/triangle-drop-down.svg" alt="drop down button image">
+                    <img src="images/gold_triangle.svg" alt="drop down button image">
                 </button>
             </div>
             <button id="use-tutorial">Make a Character (Tutorial)</button>
@@ -347,7 +401,7 @@
             </div>
 
         </div>
-
+    
     </main>
 
     <script src="scripts/display.js"></script>

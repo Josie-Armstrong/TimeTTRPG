@@ -35,9 +35,10 @@
 
 <main class="compendium-page">
 
+    <div class="nav-grid">
     <div class="page-nav">
 
-        <div class="outer-nav">
+        <div class="outer-nav" id="intro-nav">
             <div class="outer-nav-controls">
                 <a href="#introduction">Introduction</a>
                 <button class="expand-nav-btn" id="en-btn1">
@@ -52,9 +53,12 @@
             </div>
         </div>
 
-        <div class="outer-nav">
+        <div class="outer-nav" id="cc-nav">
             <div class="outer-nav-controls">
                 <a href="#character-creation">Character Creation</a>
+                <button class="expand-nav-btn" id="en-btn2">
+                    <span class="arrow"></span>
+                </button>
             </div>
 
             <div class="inner-nav">
@@ -66,9 +70,12 @@
             </div>
         </div>
 
-        <div class="outer-nav">
+        <div class="outer-nav" id="combat-nav">
             <div class="outer-nav-controls">
                 <a href="#combat">Combat & Wounds</a>
+                <button class="expand-nav-btn" id="en-btn3">
+                    <span class="arrow"></span>
+                </button>
             </div>
 
             <div class="inner-nav">
@@ -82,41 +89,51 @@
             </div>
         </div>
 
-        <div class="outer-nav">
+        <div class="outer-nav" id="ttman-nav">
             <div class="outer-nav-controls">
                 <a href="#time-travel">Time Travel Manual</a>
+                <button class="expand-nav-btn" id="en-btn4">
+                    <span class="arrow"></span>
+                </button>
             </div>
 
             <div class="inner-nav">
                 <a href="#time-what-is">What is Time?</a>
                 <a href="#time-knox-engine">The Knox Engine</a>
                 <a href="#time-butterfly-eff">The Butterfly Effect</a>
-                <a href="#combat-paradoxes">Paradoxes & Tears/Holes in Time</a>
-                <a href="#combat-resolving-paradoxes">Resolving Paradoxes</a>
-                <a href="#combat-atoms">But the Atoms...</a>
-                <a href="#combat-regulations">Regulations & Laws Surrounding Time Travel</a>
-                <a href="#combat-faq">Frequently Asked Questions</a>
+                <a href="#time-paradoxes">Paradoxes & Tears/Holes in Time</a>
+                <a href="#time-resolving-paradoxes">Resolving Paradoxes</a>
+                <a href="#time-atoms">But the Atoms...</a>
+                <a href="#time-regulations">Regulations & Laws Surrounding Time Travel</a>
+                <a href="#time-faq">Frequently Asked Questions</a>
             </div>
         </div>
 
-        <div class="outer-nav">
+        <div class="outer-nav" id="gm-nav">
             <div class="outer-nav-controls">
                 <a href="#gm-guide">Game Master's Guide</a>
+                <button class="expand-nav-btn" id="en-btn5">
+                    <span class="arrow"></span>
+                </button>
             </div>
 
             <div class="inner-nav">
             </div>
         </div>
 
-        <div class="outer-nav">
+        <div class="outer-nav" id="appendix-nav">
             <div class="outer-nav-controls">
                 <a href="#appendices">Appendices</a>
+                <button class="expand-nav-btn" id="en-btn6">
+                    <span class="arrow"></span>
+                </button>
             </div>
 
             <div class="inner-nav">
             </div>
         </div>
 
+    </div>
     </div>
 
     <div class="main-book">
@@ -126,13 +143,144 @@
             <p><em>Everything you need to know to play the game</em></p>
         </div>
 
-        <div class="compendium-page">
-            <p>Home page for the compendium. Looks like a book cover of sorts.</p>
+        <div class="chapter" id="introduction">
+            <h3>Introduction</h3>
+
+            <div class="subsection" id="in-intro">
+                <h4>What is Rewind?</h4>
+                <p>This is text in a subsection</p>
+            </div>
+
+            <div class="subsection" id="in-time-travel">
+                <h4>Time Travel & You</h4>
+            </div>
+
+            <div class="subsection" id="in-base-mechanics">
+                <h4>Rolling & Basic Mechanics</h4>
+            </div>
+        </div>
+
+        <div class="chapter" id="character-creation">
+            <h3>Character Creation</h3>
+
+            <div class="subsection" id="cc-abilities">
+                <h4>Abilities</h4>
+            </div>
+
+            <div class="subsection" id="cc-eccentricities">
+                <h4>Eccentricities</h4>
+            </div>
+
+            <div class="subsection" id="cc-expertise">
+                <h4>Expertise</h4>
+            </div>
+
+            <div class="subsection" id="cc-gear">
+                <h4>Gear</h4>
+            </div>
+
+            <div class="subsection" id="cc-finishing">
+                <h4>Finishing Touches</h4>
+            </div>
+
+            <div class="subsection">
+                <p>This is text in a subsection</p>
+            </div>
+        </div>
+
+        <div class="chapter" id="combat">
+            <h3>Combat & Wounds</h3>
+
+            <div class="subsection" id="combat-initiative">
+                <h4>Initiative</h4>
+            </div>
+
+            <div class="subsection" id="combat-combat">
+                <h4>Combat & Turns</h4>
+            </div>
+
+            <div class="subsection" id="combat-attacking">
+                <h4>Attacking</h4>
+            </div>
+
+            <div class="subsection" id="combat-wounds">
+                <h4>Wounds</h4>
+            </div>
+
+            <div class="subsection" id="combat-adrenaline">
+                <h4>Adrenaline</h4>
+            </div>
+
+            <div class="subsection" id="combat-crit-condition">
+                <h4>Critial Condition & Stabilization</h4>
+            </div>
+
+            <div class="subsection" id="combat-death">
+                <h4>Character Death</h4>
+            </div>
+
+        </div>
+
+        <div class="chapter" id="time-travel">
+            <h3>Time Travel Manual</h3>
+
+            <div class="subsection" id="time-what-is">
+                <h4>What is Time?</h4>
+            </div>
+
+            <div class="subsection" id="time-knox-engine">
+                <h4>The Knox Engine</h4>
+            </div>
+
+            <div class="subsection" id="time-butterfly-eff">
+                <h4>The Butterfly Effect</h4>
+            </div>
+
+            <div class="subsection" id="time-paradoxes">
+                <h4>Paradoxes & Tears/Holes in Time</h4>
+            </div>
+
+            <div class="subsection" id="time-resolving-paradoxes">
+                <h4>Resolving Paradoxes</h4>
+            </div>
+
+            <div class="subsection" id="time-atoms">
+                <h4>But the Atoms...</h4>
+            </div>
+
+            <div class="subsection" id="time-regulations">
+                <h4>Regulations & Laws Surrounding Time Travel</h4>
+            </div>
+
+            <div class="subsection" id="time-faq">
+                <h4>Frequently Asked Questions</h4>
+            </div>
+
+        </div>
+
+        <div class="chapter" id="gm-guide">
+            <h3>Game Master's Guide</h3>
+
+            <div class="subsection" id="GM-1">
+                <h4>Header</h4>
+            </div>
+
+        </div>
+
+        <div class="chapter" id="appendices">
+            <h3>Appendices</h3>
+
+            <div class="subsection" id="app-1">
+                <h4>100 Eccentricities</h4>
+            </div>
+
         </div>
 
     </div>
 
 </main>
+
+<script src="scripts/compendium.js"></script>
 
 </body>
 </html>

@@ -8,7 +8,7 @@ let character = {
         1: "",
         2: "",
         3: "",
-        4: 1
+        4: 0
     },
 
     "wounds": 0,
@@ -123,6 +123,44 @@ document.getElementById("char-file").addEventListener('change', (event) => {assi
 document.getElementById("confirm-paste-btn").addEventListener('click',() => {checkIfSure("paste")})
 document.getElementById("cancel-paste").addEventListener('click', () => {togglePasteWindow()});
 
+// NEW NEW NEW Desktop Edit Buttons
+const download_btn_web = document.querySelector("#download-btn-po");
+const upload_btn_web = document.querySelector("#upload-btn-po");
+const edit_btn_web = document.querySelector("#edit-btn-po");
+const clear_btn_web = document.querySelector("#clear-storage-po");
+const tutorial_btn_web = document.querySelector("#use-tutorial-po");
+const rand_char_btn_web = document.querySelector("#rand-char-btn-po");
+const copy_btn_web = document.querySelector("#copy-btn-po");
+const paste_btn_web = document.querySelector("#paste-btn-po");
+download_btn_web.addEventListener('click', downloadFile);
+upload_btn_web.addEventListener('click', toggleUploadPopup);
+edit_btn_web.addEventListener('click', makeEdits);
+clear_btn_web.addEventListener('click', () => {checkIfSure("clear")});
+tutorial_btn_web.addEventListener('click', toggleCharTutorial);
+rand_char_btn_web.addEventListener('click', () => checkIfSure("rand char"));
+copy_btn_web.addEventListener('click', () => {copyCharacterJSON()});
+paste_btn_web.addEventListener('click', () => {togglePasteWindow()});
+
+// Sidebar and Expansion Buttons for Clicking (desktop only)
+const sidebar_btns = [
+    document.getElementById("s-edit"),
+    document.getElementById("s-export"),
+    document.getElementById("s-clear"),
+    document.getElementById("s-roll")
+];
+const sidebar_sections = [
+    document.getElementById("edit-nav"),
+    document.getElementById("export-nav"),
+    document.getElementById("clear-nav"),
+    document.getElementById("roll-nav")
+];
+
+// Event listeners for the sidebar btns
+for (let i = 0; i < sidebar_btns.length; i++) {
+    let temp_i = i;
+    sidebar_btns[i].addEventListener('click', () => {toggleSidebarNav(temp_i)});
+}
+
 // "Are you sure" warning menu stuff
 const overwrite_warning = document.querySelector("#overwrite-warning");
 const cancel_sure_btn = document.querySelector("#cancel-sure");
@@ -225,11 +263,13 @@ function makeEdits() {
 
     if (!editing) {
         EditDisplay();
+        edit_btn_web.textContent = "Finish Editing";
         editing = true;
     }
     else {
         if (saveEdits() == true) {
             NormalDisplay();
+            edit_btn_web.textContent = "Edit";
             editing = false;
         }
 
@@ -283,7 +323,11 @@ function NormalDisplay() {
 function saveEdits() {
     try {
         for (let i = 0; i < ability_inputs.length; i++) {
-            character["abilities"][i] = ability_inputs[i].value;
+            let temp_val = ability_inputs[i].value;
+            if (temp_val > 20) {
+                temp_val = 20;
+            }
+            character["abilities"][i] = temp_val;
         }
 
         for (let i = 0; i < header_inputs.length; i++) {
@@ -528,7 +572,7 @@ function clearStoredCharacter() {
             1: "",
             2: "",
             3: "",
-            4: 1
+            4: 0
         },
 
         "wounds": 0,
@@ -781,8 +825,10 @@ function copyCharacterJSON() {
         navigator.clipboard.write([clipboard_item]);
 
         copy_btn.textContent = "Copied!"
+        copy_btn_web.textContent = "Copied!"
         setTimeout(() => {
             copy_btn.textContent = "Copy Character JSON";
+            copy_btn_web.textContent = "Copy Character JSON";
             }, 2000);
     }
     catch (err) {
@@ -809,4 +855,8 @@ function pasteCharacterJSON() {
         window.alert("This is not a valid character sheet.")
     }
     togglePasteWindow();
+}
+
+function toggleSidebarNav(index) {
+    sidebar_sections[index].classList.toggle("show");
 }
