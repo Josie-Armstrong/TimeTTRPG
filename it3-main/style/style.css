@@ -1457,6 +1457,7 @@ button:hover {
         .disp-main {
             display: flex;
             flex-direction: column;
+            justify-content: center;
         }
 
         .sheet {
@@ -1470,7 +1471,7 @@ button:hover {
         .edit-menu {
             display: flex;
             height: auto;
-            max-width: 550px;
+            max-width: 700px;
 
             margin: 20px 20px 0px 20px;
 
