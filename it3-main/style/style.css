@@ -8,6 +8,7 @@
 
     --p-font: "EB Garamond", "Times New Roman";
     --h-font: "dm-serif-display", "Times New Roman";
+    --mono-font: "recursive-mono-linear-static";
 }
 
 @font-face {
@@ -52,6 +53,10 @@ header {
     /* border-bottom: 3px solid var(--light-gold); */
 }
 
+a {
+    color: var(--dark-red);
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -61,6 +66,7 @@ nav {
 
 nav a {
     color: var(--light-gold);
+    font-size: 1.2rem;
 
     padding: 10px;
 }
@@ -749,6 +755,40 @@ button:hover {
 }
 
 .gm-resources {
+
+    .header {
+        color: black;
+        background-color: var(--light-gold);
+        padding: 20px;
+        margin-top: 20px;
+
+        border-top: 5px solid var(--dark-red);
+        border-bottom: 5px solid var(--dark-red);
+
+        p {
+            max-width: 1000px;
+            text-align: center;
+            justify-self: center;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 0;
+            padding-bottom: 20px;
+            font-size: 2rem;
+            color: var(--dark-red);
+        }
+
+        hr {
+            border: 2px solid var(--gold);
+            max-width: 50%;
+            margin: auto;
+            margin-top: 0;
+            margin-bottom: 0;
+            text-align: center;
+        }
+    }
+
     .red-div {
         background-color: var(--dark-red);
         margin: 20px;
@@ -778,6 +818,160 @@ button:hover {
         display: flex;
         justify-content: center;
         gap: 20px;
+    }
+
+    .cream-div {
+        background-color: var(--light-gold);
+        border: 5px solid var(--light-red);
+        margin: 20px;
+        border-radius: 20px;
+        overflow: hidden;
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--dark-red);
+            text-align: center;
+            margin: 0px 0px 20px 0px;
+            padding: 0;
+        }
+
+        .lil-header {
+            background-color: var(--dark-red);
+            border-bottom: 5px solid var(--gold);
+            border-radius: 10px 10px 0px 0px;
+            padding: 20px;
+
+            h2 {
+                color: var(--gold);
+                line-height: 100%;
+                margin: 0;
+            }
+        }
+    }
+
+    #rand-char-generator {
+        .char-slots {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .character {
+            background-color: var(--fill-cream);
+            color: black;
+            border: 5px solid var(--light-red);
+
+            padding: 20px;
+            width: 20%;
+            min-width: 250px;
+
+            h3 {
+                color: black;
+                margin: 0;
+            }
+
+            h4 {
+                color: black;
+                font-size: 0.7rem;
+                font-family: var(--mono-font);
+                margin: 0;
+            }
+
+            p {
+                color: black;
+                font-size: 1rem;
+                font-family: var(--mono-font);
+                margin: 0;
+                text-align: center;
+            }
+
+            .abilities {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                gap: 5px;
+
+                margin: 10px 0px 10px 0px;
+
+                .ability {
+                    border: 3px solid var(--light-red);
+                    border-radius: 8px;
+                }
+
+                .sturdy {
+                    border: 3px solid var(--dark-red);
+                    background-color: var(--light-gold);
+                }
+            }
+
+            .eccentricities {
+                display: flex;
+                gap: 8px;
+
+                border: 3px solid var(--light-red);
+                border-radius: 8px;
+                padding: 8px;
+
+                h4, p {
+                    font-size: 0.8rem;
+                    text-align: justify;
+                }
+
+                strong {
+                    font-weight: bold;
+                }
+            }
+
+            .ab-in, .ecc-in, .name-in {
+                display: none;
+            }
+
+            .rand-ch-controls {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                margin-top: 10px;
+            }
+
+            button {
+                font-family: var(--mono-font);
+                font-size: 0.8rem;
+                font-weight: bold;
+                padding: 5px 8px 5px 8px;
+                box-sizing: border-box;
+
+                border: 2px solid var(--light-red);
+                background-color: var(--light-gold);
+                border-radius: 5px;
+
+                transition: 0.2s;
+            }
+
+            button:hover {
+                box-shadow: none;
+
+                background-color: var(--gold);
+                border: 2px solid var(--dark-red);
+
+                transition: 0.2s;
+            }
+
+            input {
+                text-align: center;
+            }
+        }
+
+        .character.edit {
+            .ab-in, .ecc-in, .name-in {
+                display: none;
+            }
+
+            .ab-val, .ecc-val, .name-val {
+                display: block;
+            }
+        }
     }
 }
 
