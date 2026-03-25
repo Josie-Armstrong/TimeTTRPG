@@ -1,0 +1,156 @@
+.compendium-page {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+
+    margin: 20px;
+    margin-left: 120px;
+    margin-right: 120px;
+
+    .page-nav {
+        position: sticky;
+        top: 124.31px;
+        flex-grow: 1;
+        min-width: 280px;
+
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        max-height: 84vh;
+        overflow: scroll;
+
+        a {
+            display: block;
+            margin: 0;
+            padding: 0;
+
+            font-size: 1.2rem;
+            color: var(--dark-red);
+        }
+
+        a:hover {
+            color: var(--light-red);
+        }
+
+        .outer-nav-controls {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            padding: 8px;
+            
+            background-color: var(--light-gold);
+
+            a {
+                font-weight: bold;
+            }
+
+            .expand-nav-btn {
+                background-color: transparent;
+                padding: 5px;
+                margin: 0;
+                width: auto;
+                height: auto;
+
+                .arrow {
+                    display: block;
+                    border-bottom: 4px solid var(--dark-red);
+                    border-right: 4px solid var(--dark-red);
+                    min-width: 8px;
+                    height: 8px;
+                }
+            }
+
+            .expand-nav-btn:hover {
+                box-shadow: none;
+                background-color: transparent;
+
+                .arrow {
+                    border-bottom: 4px solid var(--light-red);
+                    border-right: 4px solid var(--light-red);
+                }
+            }
+        }
+
+        .outer-nav {
+            background-color: var(--fill-cream);
+
+            .inner-nav {
+
+                max-height: 0px;
+                overflow: hidden;
+
+                transition: max-height 0.3s ease-out;
+
+                padding-left: 20px;
+
+                a {
+                    line-height: 100%;
+                    margin-top: 2px;
+                    margin-bottom: 5px;
+                }
+            }
+
+            .arrow {
+                rotate: -45deg;
+                transition: rotate 0.3s ease-in-out;
+            }
+        }
+
+        .outer-nav.expanded {
+            .inner-nav {
+                max-height: 500px;
+                transition: max-height 0.3s ease-in;
+            }
+
+            .arrow {
+                rotate: 45deg;
+                transition: rotate 0.3s ease-in-out;
+            }
+        }
+    }
+
+    .main-book {
+        flex-grow: 8;
+
+        background-color: var(--fill-cream);
+    }
+
+    .heading-card {
+        padding: 20px;
+        text-align: center;
+
+        background-color: var(--dark-red);
+        border-bottom: 5px solid var(--gold);
+
+        h2 {
+            margin: 0;
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        p {
+            margin: 0;
+            color: var(--light-gold);
+        }
+    }
+
+    .chapter {
+        padding: 20px;
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        h4 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        p {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+    }
+}

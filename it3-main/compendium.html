@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amarante&family=DM+Serif+Display:ital@0;1&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Faculty+Glyphic&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/compendium.css">
     <title>Character Sheet - Rewind</title>
 
 </head>
@@ -55,7 +56,7 @@
 
         <div class="outer-nav" id="cc-nav">
             <div class="outer-nav-controls">
-                <a href="#character-creation">Character Creation</a>
+                <a href="#character-creation">Creating Your Character</a>
                 <button class="expand-nav-btn" id="en-btn2">
                     <span class="arrow"></span>
                 </button>
@@ -67,6 +68,7 @@
                 <a href="#cc-expertise">Expertise</a>
                 <a href="#cc-gear">Gear</a>
                 <a href="#cc-finishing">Finishing Touches</a>
+                <a href="#cc-mult-char">Creating Multiple Characters</a>
             </div>
         </div>
 
@@ -79,7 +81,7 @@
             </div>
 
             <div class="inner-nav">
-                <a href="#combat-initiative">Initiative</a>
+                <a href="#combat-initiative">Rolling Initiative</a>
                 <a href="#combat-combat">Combat & Turns</a>
                 <a href="#combat-attacking">Attacking</a>
                 <a href="#combat-wounds">Wounds</a>
@@ -118,6 +120,17 @@
             </div>
 
             <div class="inner-nav">
+                <a href="#gm-welcome">Introduction</a>
+                <a href="#gm-first-adv">Running Your First Adventure</a>
+                <a href="#gm-prep-players">Preparing Your Players</a>
+                <a href="#gm-historical">Historical Characters</a>
+                <a href="#gm-other-notes">Character Creation Notes</a>
+                <a href="#gm-storytelling">Storytelling & Role-playing</a>
+                <a href="#gm-combat">Running Combat</a>
+                <a href="#gm-death">Player Character Death</a>
+                <a href="#gm-episodic">An Episodic System</a>
+                <a href="#gm-writing">Writing Your Own Adventures</a>
+                <a href="#gm-final">Final Notes</a>
             </div>
         </div>
 
@@ -148,15 +161,52 @@
 
             <div class="subsection" id="in-intro">
                 <h4>What is Rewind?</h4>
-                <p>This is text in a subsection</p>
+                <p>
+                    Rewind is an episodic sci-fi time travel tabletop role-playing game (TTRPG). You, as a time-traveling character, solve historical mysteries and prevent paradoxes one mission at a time.
+                </p>
             </div>
 
             <div class="subsection" id="in-time-travel">
                 <h4>Time Travel & You</h4>
+                <p>
+                    It is the year 20xx (current year + nine years). Nine years ago, the first known instance of time travel was recorded by Letitia Knox, an independent inventor. Knox disappeared shortly thereafter, and nobody really knows what happened. But she left behind schematics for her groundbreaking invention; the Knox Engine, a spatially- and temporally-transient machine, was iterated on by every research university, government, and corporation.
+                </p>
+
+                <p>
+                    In the years since, time travel has expanded—with limitations. Everyone <em>could</em> do it, given enough money and resources, but it’s dangerous even for experts. Incorrect coordinates could cause a Knox Engine to transport its travelers somewhere random in time, or even out of time altogether. An incautious hobbyist or tourist might cause a paradox, open up a hole in the very fabric of time, and get pulled into the void. It’s a risky pursuit.
+                </p>
+
+                <p>
+                    You, though, are trained in time travel. You work for a university known as LRU (Large Research University) in the Department of Temporal Research. You might be a professor, a technician, a student, or anyone else hired by the school. Yes, anyone—LRU has trained lots of people in time travel, including security guards, librarians, janitors, and more.
+                </p>
+
+                <p>
+                    Your job, along with your team, is to investigate oddities in time. Sometimes that means tackling an unsolved mystery; other times, it means chasing down a paradox and fixing it before the resulting hole in time becomes disastrous. You are all experts in one field or another, and you’ve been properly trained for time travel. Your means may be haphazard, and your backgrounds unconventional, but you’ve got the best interests of time at heart and the resources of LRU at your disposal.
+                </p>
             </div>
 
             <div class="subsection" id="in-base-mechanics">
                 <h4>Rolling & Basic Mechanics</h4>
+
+                <p>
+                    When your character does something complicated—or attempts anything where success isn’t guaranteed—you will have to roll one or more dice. Normally, you will roll one twenty-sided die (abbreviated as 1d20). To succeed, you must roll <em>at or under</em> the number of the <strong>ability</strong> you are using. That means it’s good to roll low! And it also means that the better you are at something, the higher your score is, and thus the easier it is to succeed.
+                </p>
+
+                <div class="subsub">
+                    <h5>Advantage and Disadvantage</h5>
+
+                    <p>
+                        If your character has a particular <strong>eccentricity</strong> or <strong>expertise</strong> (addressed later in character creation) that applies to the situation, your Game Master will grant you <strong>advantage</strong> on the roll. In that case, roll with 2d20 and take the <em>lower</em> of the two dice as your roll. Advantage makes it easier to succeed on your roll.
+                    </p>
+
+                    <p>
+                        On the other hand, if a situation is particularly difficult/tricky or your character is <em>really</em> exerting themselves to accomplish something, your Game Master may ask you to roll with <strong>disadvantage</strong>. In that case, roll 2d20 and take the <em>higher</em> of the two dice as your roll. Disadvantage makes it harder to succeed on your roll.
+                    </p>
+
+                    <p>
+                        <strong>Abilities</strong>, <strong>eccentricities</strong>, and <strong>expertise</strong> will all be addressed later in character creation, and all of them will have an impact on your rolls during the game.
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -165,26 +215,264 @@
 
             <div class="subsection" id="cc-abilities">
                 <h4>Abilities</h4>
+
+                <p>
+                    Your character has five core <strong>abilities</strong>, scores from 3-18, that determine how proficient they are at broad/basic things: Brawn, Agility, Wits, Charm, and Aware. The higher the score, the better your character is at that particular ability.
+                </p>
+
+                <p>
+                    The first step in creating your character is to roll for their abilities. You have two options here, with varying degrees of randomness.
+                </p>
+
+                <div class="subsub">
+                    <h5>Score Array:</h5>
+
+                    <p>
+                        If you want a character that is guaranteed to be balanced, you may assign your character the following five scores: <strong>7, 9, 10, 11, 13</strong>. You may assign these in any order you like, to whichever ability you like, but you may only use each score once.
+                    </p>
+                </div>
+
+                <div class="subsub">
+                    <h5>Random Rolls:</h5>
+
+                    <p>
+                        Alternatively, you may choose to roll for your attributes. If you choose to roll, you will roll five times and assign those scores as you like (same rules apply, you must only use each score once).
+                    </p>
+
+                    <p>
+                        Each time, roll 3d20 and take the middle number (the median) as your score. If the median is 1, 2, 19, or 20, re-roll all three dice and take the new median/middle number (keep re-rolling until the median is not 1, 2, 19, or 20).
+                    </p>
+
+                    <p>INSERT IMAGE FOR 3D20</p>
+
+                    <div class="blurb">
+                        <p>
+                            Say you roll 3d20 and get a 13, 2, and 7. The median number is 7, so you’ll write down 7 for one of your ability scores.
+                        </p>
+                    </div>
+
+                    <p>
+                        Write down those five numbers, and assign them to whichever abilities you’d like! Think about what your character might be good or bad at.
+                    </p>
+                </div>
+
+                <div class="subsub">
+                    <h5>Sturdy:</h5>
+
+                    <p>
+                        Sturdy is a special ability that you will only use in combat. It represents how well you withstand getting hit (the higher the number, the more resilient you are). Roll 3d20, re-rolling if you get a 1, 2, 19, or 20. Assign the median number to your Sturdy, found in the header of your character sheet.
+                    </p>
+
+                    <p>INSERT IMAGE OF STURDY</p>
+                </div>
+
             </div>
 
             <div class="subsection" id="cc-eccentricities">
                 <h4>Eccentricities</h4>
+
+                <p>
+                    Eccentricities are extra-specific, not-often-applicable things that your character is oddly good at. When you attempt to do something that aligns with one of your character’s eccentricities, you roll with <strong>advantage</strong>.
+                </p>
+
+                <p>
+                    To choose eccentricities, you can either pick (in which case you will <strong>pick two eccentricities</strong> from the list below) or <strong>roll 1d100 three times</strong> and take the eccentricities of the corresponding numbers. If you pick, you get two eccentricities; if you roll, you get three.
+                </p>
+
+                <div class="table">
+                    <h5>INSERT: ECCENTRICITIES TABLE</h5>
+                    <table>
+                    </table>
+                </div>
+
+                <div class="blurb">
+                    <h5>How do I roll a d100?</h5>
+
+                    <p>
+                       Rolling a d100 really means rolling two dice: one to determine the tens place, and one for the ones place. You’ll need two 10-sided dice (2d10). Ideally, you’d use one that has 0-9 on it, and one that has 00-90 on it, but any 2d10 will work. 
+                    </p>
+
+                    <p>
+                        <strong>Roll 1d10 for the tens place and 1d10 for the ones place.</strong>
+                    </p>
+
+                    <p>
+                        Then combine the numbers! For instance, if you roll a 2 (or 20) for the tens place and a 7 for the ones place, that’s a 27. If you roll a 00 for the tens place and a 0 for the ones place, that’s a 100.
+                    </p>
+                </div>
             </div>
 
             <div class="subsection" id="cc-expertise">
                 <h4>Expertise</h4>
+
+                <p>
+                    Everyone has some sort of historical expertise—something that your character is particularly knowledgeable about. They might have become an expert through years of study at LRU, it might be a separate hobby that they’re knowledgeable about, or they could’ve acquired their expertise in some other way. Pick which area of history your character is most knowledgeable about, and note it down under expertise.
+                </p>
+
+                <p>
+                    If you want to build a completely random character, roll 1d12 and take the corresponding expertise (Architecture is #1, and so on down the list). Re-roll if you roll a 12.
+                </p>
+
+                <div class="subsub">
+                    <h5>Areas of Historical Expertise:</h5>
+
+                    <dl>
+                        <dt>Architecture</dt>
+                        <dd>Your character understands the layout of historical buildings and cities, and has extensive knowledge of historical architectural design.
+                        </dd>
+
+                        <dt>Art</dt>
+                        <dd>Your character is a historical art expert and is good at art themselves. They understand historical styles and can often replicate them.
+                        </dd>
+
+                        <dt>Criminology</dt>
+                        <dd>Your character understands historical forensic procedure and is an expert at on-the-scene investigation no matter the time period.
+                        </dd>
+
+                        <dt>Fashion</dt>
+                        <dd>Your character is knowledgeable about all things historical fashion, and is always dressed for the occasion. They’re especially good at sewing and mending, and even makeup when necessary.
+                        </dd>
+
+                        <dt>Language</dt>
+                        <dd>Your character has an extensive knowledge of historical forms of language. They can read nearly any common historical language in front of them, and can write in common historical languages.
+                        </dd>
+
+                        <dt>Nature</dt>
+                        <dd>Your character is particularly in tune with nature, and is knowledgeable about medicinal herbs, dangerous plants, and more. When lost in the wilderness, they can usually find a landmark or some way to get out.
+                        </dd>
+
+                        <dt>Politics</dt>
+                        <dd>Your character has an understanding of historical political systems and bureaucracy. They can blend into politically delicate settings, and they understand the local laws/government.
+                        </dd>
+
+                        <dt>Religion</dt>
+                        <dd>Your character has an extensive knowledge of every major religion (and most minor ones, too). They understand customs, rituals, rules, and how to avoid looking like a heretic.
+                        </dd>
+
+                        <dt>Technology</dt>
+                        <dd>Your character has extensive knowledge about historical technologies. They can fix/tinker with old tech, and they understand the inner workings of many historical inventions.
+                        </dd>
+
+                        <dt>Warfare</dt>
+                        <dd>Your character is an expert at historical warfare tactics. This has more to do with strategy and historical battles/wars than with exact weaponry.
+                        </dd>
+
+                        <dt>Weaponry</dt>
+                        <dd>Your character is an expert at historical weaponry. They have extensive knowledge about (and a fair amount of training with) numerous historical weapons.
+                        </dd>
+                    </dl>
+                </div>
             </div>
 
             <div class="subsection" id="cc-gear">
                 <h4>Gear</h4>
+
+                <p>
+                    Your gear will depend on your expertise. All of your gear is assumed to be carried with you, and accessible to you at all times, unless you explicitly leave it somewhere during a mission.
+                </p>
+
+                <p>
+                    In addition to your expertise-specific gear, everyone has an <strong>in-ear communication</strong> device whose communication radius is ~1 mile, and will translate most spoken (not written) language. This is how you are able to speak with and understand people from other eras/places. You also have a <strong>modern phone</strong> that can take photos and record video/audio (and has a calculator, compass, etc). Cell phone service will not work in most historical periods, though.
+                </p>
+
+                <dl>
+                    <dt>Architecture:</dt>
+                    <dd><ul>
+                        <li>A set of measuring tools (ruler, protractor, etc) and pencils, and a sketchbook</li>
+                        <li>Basic historical map of the nearest town/city</li>
+                    </ul></dd>
+
+                    <dt>Art:</dt>
+                    <dd><ul>
+                        <li>A set of paintbrushes and small tubes of paint</li>
+                        <li>A set of period-appropriate pencils and pens, and a sketchbook</li>
+                    </ul></dd>
+
+                    <dt>Criminology:</dt>
+                    <dd><ul>
+                        <li>A fingerprint dusting kit</li>
+                        <li>Many, many ziploc baggies for evidence collecting</li>
+                        <li>A magnifying glass and flashlight</li>
+                    </ul></dd>
+
+                    <dt>Fashion:</dt>
+                    <dd><ul>
+                        <li>A spare set of clothing appropriate for the period (this will change by mission)</li>
+                        <li>A small sewing kit with two needles, thread, sewing scissors, and pins</li>
+                        <li>A small makeup kit</li>
+                    </ul></dd>
+
+                    <dt>Language:</dt>
+                    <dd><ul>
+                        <li>A pocket dictionary for a period/place-appropriate language</li>
+                        <li>Period-appropriate writing tools and a scroll of paper</li>
+                    </ul></dd>
+
+                    <dt>Nature:</dt>
+                    <dd><ul>
+                        <li>A bag of medicinal and poisonous herbs, berries, etc</li>
+                        <li>A small set of garden shears</li>
+                    </ul></dd>
+
+                    <dt>Politics:</dt>
+                    <dd><ul>
+                        <li>A period/place-appropriate signet ring or other identification (check with your GM)</li>
+                        <li>A short note of introduction from a relevant political figure (forged, of course)</li>
+                    </ul></dd>
+
+                    <dt>Religion:</dt>
+                    <dd><ul>
+                        <li>A small collection of period-appropriate religious trinkets</li>
+                        <li>A period-appropriate religious book of your choosing</li>
+                    </ul></dd>
+
+                    <dt>Technology:</dt>
+                    <dd><ul>
+                        <li>A small recording/listening device (about the size of a quarter, one inch thick) that syncs to your phone within ~1 mile</li>
+                        <li>A wristwatch that can remotely communicate with your time travel capsule</li>
+                    </ul></dd>
+
+                    <dt>Warfare:</dt>
+                    <dd><ul>
+                        <li>A period-appropriate mid- or high-ranking officer’s uniform/badge</li>
+                        <li>A period-appropriate weapon of your choice, non-ranged (sword, knife, etc)</li>
+                    </ul></dd>
+
+                    <dt>Weaponry:</dt>
+                    <dd><ul>
+                        <li>A period-appropriate weapon of your choice (set of daggers, gun/pistol, bow, sword, etc)</li>
+                        <li>A small bag of ammunition for historical ranged weapons</li>
+                    </ul></dd>
+                </dl>
             </div>
 
             <div class="subsection" id="cc-finishing">
                 <h4>Finishing Touches</h4>
+
+                <p>
+                    Now that you’ve selected your character’s mechanical abilities, it’s time to flesh them out. Give your character a <strong>name</strong>, <strong>age</strong>, and <strong>pronouns</strong>. Your character will start healthy (no wounds).
+                </p>
+
+                <p>
+                    Decide: what is your character’s <strong>position</strong> at LRU? Are they a tenured professor, a lecturer, a student, a security guard, a janitor, a librarian, administrative staff, or something else? If you’re wondering whether or not the position you’ve picked is appropriate for the setting, 1) it probably is, you are encouraged to pick an unusual position! And 2) check with your GM.
+                </p>
+
+                <p>
+                    And finally, give your character a <strong>background</strong>! Jot down a few sentences about who they are, where they came from, and what their goals are.
+                </p>
+
+                <p>
+                    If you are having trouble figuring out your background, or want to create a completely random character, you can roll for your background! Use the tables below to randomly pick a few key traits and facts about your character.
+                </p>
+
+                <p>INSERT BACKGROUND AND OCCUPATION TABLES</p>
             </div>
 
-            <div class="subsection">
-                <p>This is text in a subsection</p>
+            <div class="subsection" id="cc-mult-char">
+                <h4>Creating Multiple Characters</h4>
+                <p>
+                    Though characters don’t level up in <em>Rewind</em>, you are encouraged to develop and change your character as you play. In addition to developing your starting character’s backstory and personality, you may find that you want to play more than one character. That is great! The episodic nature of <em>Rewind</em> means that you can have a rotating cast of 2-3 (or even more) characters, and choose which one you’d like to play for each adventure.
+                </p>
             </div>
         </div>
 
@@ -192,31 +480,163 @@
             <h3>Combat & Wounds</h3>
 
             <div class="subsection" id="combat-initiative">
-                <h4>Initiative</h4>
+                <h4>Rolling Initiative</h4>
+
+                <p>
+                    Occasionally, your party might end up in a fight, known as <strong>combat</strong>. When that happens, your Game Master (GM) will need to determine who will act in what order. To do that, you will roll <strong>initiative</strong>.
+                </p>
+
+                <p>
+                    Each player will roll a d20. The player with the highest roll goes first, and so on down the list. If two players tie, the one with the higher agility score goes first (and if they have the same agility score, then they may choose who acts first).
+                </p>
+
+                <p>
+                    <strong>Example:</strong> Milan rolls a 18, and Evie rolls a 13. Milan goes first. But Katie rolled an 18, too. Since Katie’s agility score is higher than Milan, Katie will go before Milan.
+                </p>
+
+                <p>
+                    Initiative rolls only last the duration of the combat. Once you exit combat, as determined by your GM (or when there is simply nobody left to fight), your initiative scores no longer apply. You may act in any order you choose outside of combat. If you find yourselves in another fight, you will roll initiative again and use that score to determine turn order—as in other TTRPG systems, your turn order is not static across multiple different combats/encounters.
+                </p>
             </div>
 
             <div class="subsection" id="combat-combat">
                 <h4>Combat & Turns</h4>
+
+                <p>
+                    After your turn order is determined, you will proceed to combat. Each turn, you may take an <strong>action</strong> and <strong>movement</strong>. You may also talk on your turn. If you are talking in order to persuade/deceive/otherwise influence someone, and you will need to roll to determine your success, that counts as your action for that turn. Other talking (communicating information, planning, trash talking, etc) is free, and can be done at any time.
+                </p>
+
+                <div class="subsub">
+                    <h5>Actions:</h5>
+                    <p>
+                        Your action can either be a ranged/close-combat attack, or an interaction of some other sort within the space. You could try to restrain an opponent, for instance, or steal something, or grab a weapon. If you have to roll for it, it’s probably an action (with the exception of jumping/climbing; see movement).
+                    </p>
+                </div>
+
+                <div class="subsub">
+                    <h5>Movement:</h5>
+
+                    <p>
+                        In one turn, you may move up to 10 feet in any direction (that includes up and down, but you may have to make an Agility check to climb or jump). If you want to move more than 10 feet in your turn, <strong>you may use your action to move another 10 feet</strong>.
+                    </p>
+                </div>
+
+                <div class="blurb">
+                    <h5>Example: Taking a Turn in Combat</h5>
+                    <p>
+                        Katie’s character, Sciona, takes a turn on her initiative. Sciona tries to pick the lock on a door she needs to get through, so Katie rolls for Agility. Her roll fails, so she can’t pick the lock. Then, Sciona uses her movement to dart a few feet away to hide behind a bookcase.
+                    </p>
+                </div>
             </div>
 
             <div class="subsection" id="combat-attacking">
                 <h4>Attacking</h4>
+
+                <p>
+                    To attack an opponent, roll for the appropriate ability (usually Brawn for close combat, and Agility for ranged combat). If you succeed, you hit your opponent. If you fail, you miss. Simple as that!
+                </p>
+
+                <p>
+                    If you hit, though, your opponent has the chance to withstand/minimize the hit. They will roll for <strong>Sturdy</strong>. If they fail their Sturdy roll, they take the appropriate wound level for your attack (see <strong>“Wounds”</strong>). If they succeed, they don’t take a wound. Regardless of whether they succeed or fail, their movement on their next turn is halved. If they are hit a second time before their next turn, they will take disadvantage if they attack on their next turn. They will not take disadvantage on any non-attack action they choose to do.
+                </p>
+
+                <p>
+                    This works in reverse, too. If you are targeted by another character, they will roll to hit. If they succeed, you’ll have to roll under your own Sturdy to withstand/minimize the hit. If you succeed on your Sturdy roll, you don’t take any wounds. If you fail, you take the appropriate wound level. Regardless of your Sturdy roll, your movement is halved (and, if hit more than once before your next turn, you take disadvantage if you attack on your next turn).
+                </p>
+
+                <div class="subsub">
+                    <h5>Level of Damage:</h5>
+                    <p>
+                        Hand-to-hand combat will always deal Scrape wounds, unless you are intentionally doing something (choking, gouging out eyes, etc) that would deal Severe damage. Blades will do Slash damage by default, unless you are intentionally going for the kill. Firearms will always do Severe damage. See <strong>"Wounds"</strong> for more information on damage.
+                    </p>
+                </div>
+
+                <div class="subsub">
+                    <h5>Accidental Mishaps:</h5>
+                    <p>
+                        When you wound someone (or something), roll 1d20. If you roll a nat 1, you deal a level of damage one higher than intended. If the intended level of damage was Severe, the target <strong>immediately</strong> dies. There is no saving them. <em>Only player characters (PCs) roll for Accidental Mishaps. Non-player characters (NPCs) do not.</em>
+                    </p>
+                </div>
+
+                <div class="blurb">
+                    <h5>Example: Attacking</h5>
+                    <p>
+                        Evie’s character tries to attack an NPC (non-player character) with a dagger. Evie rolls for Agility to hit the NPC, and succeeds. The NPC then rolls for Sturdy, but fails. They take a slash wound (see “Wounds”), if they haven’t already, and their movement on their next turn is halved. Evie also has to roll 1d20 for an <strong>Accidental Mishap</strong>. They roll a 5, so nothing happens.
+                    </p>
+                    <p>
+                        On the NPC’s next turn, they try to attack Evie’s character with a sword. The GM rolls  to see if the NPC will hit. They succeed, but Evie’s Sturdy roll also succeeds. Evie’s movement is halved on their next turn, but they don’t take a wound—they successfully withstood the hit.
+                    </p>
+                </div>
             </div>
 
             <div class="subsection" id="combat-wounds">
                 <h4>Wounds</h4>
+
+                <p>
+                    It’s important to note here that combat is dangerous, and shouldn’t happen too often. Most (if not all) of your characters are not meant to withstand combat for long.
+                </p>
+
+                <p>
+                    You only have three <strong>wound levels</strong>. Each wound level represents a different intensity/severity of attack. When you are hit (or hit someone in battle), the level of wound that you/they will take depends on the kind of weapon used. You cannot take the same wound level more than once—so if you are punched repeatedly, for instance, you will only take a scrape wound level once, though the other negative effects of getting hit (reduced movement and disadvantage) still apply.
+                </p>
+
+                <div class="subsub">
+                    <h5>Scrape:</h5>
+                    <p>
+                        Take this wound level when you are punched, slapped, kicked, or otherwise injured in hand-to-hand combat, or if you take a short/medium fall, faceplant, etc. This is a minor wound. You’re beat up, but still very able to fight back or flee.
+                    </p>
+
+                    <h5>Slash:</h5>
+                    <p>
+                        Take this wound level when you are stabbed, cut, or otherwise injured by a sharp object or blunt weapon. Think knives, daggers, swords, hammers, etc. This is a medium-intensity wound. It’s bad, but it would take a more lethal hit or a worse attack to seriously injure you.
+                    </p>
+
+                    <h5>Severe:</h5>
+                    <p>
+                        Take this wound level when you are seriously, near-fatally or fatally injured. Think explosions, a blade stabbed directly through your ribcage, a gunshot, etc. Something that, if left untreated, would lead pretty quickly to death. When severely injured, you must <strong>lean on an object or person for stability</strong> and <strong>every check is made with disadvantage</strong> (not just your attacks).
+                    </p>
+                </div>
             </div>
 
             <div class="subsection" id="combat-adrenaline">
                 <h4>Adrenaline</h4>
+
+                <p>
+                        If you take a Severe wound, you are near death—but still on your feet for just a little longer. Adrenaline propels you into one last furious turn, which you take <strong>immediately</strong> upon becoming severely injured. You may take an action and movement, and any checks you make during your adrenaline-fueled turn are made with <strong>advantage</strong>. Afterwards, you collapse. See the <strong>Severe</strong> wound section and <strong>Critical Condition</strong> for more information on what occurs after being severely injured.
+                    </p>
             </div>
 
             <div class="subsection" id="combat-crit-condition">
                 <h4>Critial Condition & Stabilization</h4>
+
+                <p>
+                        If you are injured again after getting a <strong>Severe</strong> wound, and that injury is of <strong>Slash</strong> wound level or higher, you enter <strong>Critical Condition</strong>. You lose consciousness and are moments away from death. This  also happens if you spend <strong>more than 3 turns (or one minute of non-combat time) at Severe</strong> without treatment. If you enter Critical Condition, you have 3 turns, or one minute in non-combat situations, before you die. Yes, that means permanent death. You can, however, be <strong>stabilized</strong> in order to stave off death a little longer.
+                    </p>
+
+                <div class="subsub">
+                    <h5>Stabilizing:</h5>
+                    <p>
+                        Your team (any player character or non-player character) can attempt to stabilize your condition before you die. To do this, they must acquire or use medical tools. If they have a modern first aid kit with them, they will roll with <strong>advantage</strong>. Otherwise, improvised medical aid can suffice. To stabilize someone, roll a <strong>raw luck check</strong> (10 and under succeeds, 11 and over fails). If you fail, one other person may attempt the check before the critically injured person dies.
+                    </p>
+
+                    <p>
+                        If you succeed, your patient is stabilized and will live up to three more hours. They’ll still need hospital care, but will be fine for the time being. However, a stabilized character <strong>remains Severely wounded</strong>. If they take another wound of Slash or higher, they return to critical condition.
+                    </p>
+                </div>
             </div>
 
             <div class="subsection" id="combat-death">
-                <h4>Character Death</h4>
+                <h4>Death of Player Characters</h4>
+
+                <p>
+                    In this system, death is a genuine possibility—though it should not be a common one. Your characters may die, especially if they get into particularly dangerous combat or attempt something especially reckless time and again. That is okay!
+                </p>
+                <p>
+                    Because of the episodic nature of your time travel adventures, if your character dies, you can (and should) build a new one! They may join the team immediately, or at the start of the next session. That is up to you and your GM.
+                </p>
+                <p>
+                    If you as a player are particularly opposed to your character dying, then 1) don’t get into especially dangerous combat or put yourself in particularly hazardous situations, and 2) talk to your GM ahead of time. Remember: in this system, death of your character does not mean you’re out of the game. You can and should continue to play as a new character.
+                </p>
             </div>
 
         </div>
@@ -226,34 +646,140 @@
 
             <div class="subsection" id="time-what-is">
                 <h4>What is Time?</h4>
+
+                <p>
+                    Spacetime in <em>Rewind</em> is a roughly static four-dimensional continuum. It’s usually visualized at LRU as a very long cylinder of coordinates at each infinitesimally small moment of Earth’s history. In slightly simpler terms: time is (mostly) set in stone. Big events must happen as they originally did, or the fabric of time cannot sustain the change and creates a <strong>paradox</strong>—a hole/tear in time.
+                </p>
             </div>
 
             <div class="subsection" id="time-knox-engine">
                 <h4>The Knox Engine</h4>
+
+                <p>
+                    The Knox Engine is a relatively small core that is set into a larger people-carrying capsule. Its computer, in tandem with its time travelers, calculates coordinates for a temporal and spatial destination (four coordinates: three for position in space, and once for position in time). The capsules are of varying sizes and capabilities, but can’t make more than a few jumps at a time before needing to recalibrate.
+                </p>
+
+                <p>
+                    The Knox Engine keeps track of your original/starting coordinates, which is how you are able to return to the present. Should it decalibrate or otherwise destabilize, you may find yourself unable to return to the present, and will become stuck in time. That is incredibly dangerous, so LRU travelers are advised to return after every 2-3 jumps, or after every jump when nearing a paradox.
+                </p>
+
+                <p>
+                    The Knox Engine <em>cannot</em> take you forward beyond its anchor in the present day, because we (and the engine) remain incapable of calculating coordinates in a forward temporal direction.
+                </p>
             </div>
 
             <div class="subsection" id="time-butterfly-eff">
                 <h4>The Butterfly Effect</h4>
+
+                <p>
+                    …Isn’t a thing. Or <em>mostly</em> isn’t a thing. That is, if you step on a butterfly whose wings flapping would’ve led to the extinction of the dinosaurs, that’s okay. Another butterfly will take its place. Small changes to the timeline don’t tend to affect the fabric of time; time is flexible to a point. Even affecting small things around a major event is fine, and will usually not have major impacts. But when you <em>do</em> affect a major event, or manipulate time such that it breaks, you get a <strong>paradox</strong>.
+                </p>
             </div>
 
             <div class="subsection" id="time-paradoxes">
                 <h4>Paradoxes & Tears/Holes in Time</h4>
+
+                <p>
+                    Sometimes, time travelers have such an impact on the timeline that time cannot resolve itself. It could be because a major event doesn’t happen as it should’ve, a minor event is messed up so badly it affects all of time itself, or something else goes catastrophically wrong. In an attempt to fix the problem, time will warp itself so badly that it rips open. This causes a <strong>tear in time</strong>, and the resulting void (which looks like a rapidly expanding fracture/crack in the very fabric of reality, beyond which is nothingness) is called a <strong>hole in time</strong>. The tear is the initial event, the hole is the resulting void.
+                </p>
+
+                <p>
+                    If left unfixed, a hole in time will continue to expand throughout the location and time in which it began, and later forward and backward through time. Paradoxes are, as a result, incredibly dangerous and destructive. Nobody knows what happens when you touch one (or fall into one, or are consumed by one), except that you cease to exist. You just… disappear.
+                </p>
             </div>
 
             <div class="subsection" id="time-resolving-paradoxes">
                 <h4>Resolving Paradoxes</h4>
+
+                <p>
+                    Resolving paradoxes is a delicate thing, especially around a major temporal/historical event. In order to fix the paradox, you must stop, undo, or otherwise negate the event that caused it. In order for the paradox to resolve itself, events must return to very nearly how they originally occurred.
+                </p>
+
+                <p>
+                    Time <em>wants</em> to fix itself. Paradoxes are an enormous problem for the stability of the timeline, so time will tend toward resolution (this is why the butterfly effect generally doesn’t exist). When you, as time travelers, affect small things about the timeline in your efforts to prevent a paradox, that is okay. Time deals with it, because your prevention of the paradox fixes the largest issue.
+                </p>
             </div>
 
             <div class="subsection" id="time-atoms">
                 <h4>But the Atoms...</h4>
+
+                <p>
+                    Remember how you can change little things in order to fix a paradox? There is one exception to this: atoms displaced in time become unstable the longer they are removed from their original time. Multiple jumps back in time without returning to the original time makes this destabilization worse. This is why the Knox Engine has a tendency to destabilize and decalibrate when it jumps too many times before returning to its original time—and why it is dangerous for you, as time travelers, to go back too many times before returning to the present.
+                </p>
+
+                <p>
+                    Normally, you’d have to spend hundreds of years back in time before your atoms would start to destabilize time. You could leave a pen behind in ancient Greece and, in almost every case, there would be no impact on time. Eventually, when destabilized enough, the pen would just disappear into the void. That is different around paradoxes.
+                </p>
+
+                <p>
+                    Generally, the Knox Engine can only handle 1-2 jumps near a paradox before it begins to destabilize and decalibrate. And, more importantly, resolving a paradox requires ensuring that anything involved in the major event (or other paradoxical issue) is of the original time. For instance, say the Declaration of Independence was stolen right before its signing, and that caused a paradox. You couldn’t just go back and replace the document with a counterfeit, because the atoms in it would destabilize exponentially faster around the paradox—and as a result, the paradox would never resolve itself. You’d have to go find the <em>original</em> Declaration of Independence or make a counterfeit entirely of materials from the right time period.
+                </p>
             </div>
 
             <div class="subsection" id="time-regulations">
                 <h4>Regulations & Laws Surrounding Time Travel</h4>
+
+                <p>
+                    Time travel only became possible nine years ago, and only became <em>really</em> doable by anyone but the absolute richest governments and corporations a few years ago. Generally, time is unregulated. Most countries have some form of anti-paradox law, but there is no license required to travel, and what you do when back in time is largely unpunishable. However, murder (see FAQ), stealing state secrets, and a few other present-day-connected crimes are occasionally prosecutable in the country in which they historically occurred, or in the country of origination (as designated by the Knox Engine’s anchor point).
+                </p>
             </div>
 
             <div class="subsection" id="time-faq">
                 <h4>Frequently Asked Questions</h4>
+
+                <ul>
+                    <li>
+                        <h5>What if I kill my parents?</h5>
+                        <p>
+                            First of all, don’t. You’re a trained time traveler at LRU, and you surely must understand the stupidity of killing your own parents.
+                        </p>
+                        <p>
+                            That said, this is an easy one. Time wants to resolve itself, and the easiest way to do that is to keep your parents dead… and also you. There are no records of someone actually doing this, but if you did, you would just pop out of time altogether. Welcome to the void.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h5>What if a little tiny thing <em>does</em> affect something major?</h5>
+                        <p>
+                            It would have to be a medium thing to do that. Generally, little things cannot make or break a major event. Medium things can, and that’s why we have you all! Your job is to fix those medium (and larger) things.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h5>I went back in time <em>because</em> there was a paradox. I solved it, so there was never a paradox. Isn’t that a paradox in itself?</h5>
+
+                        <p>
+                            Look. We don’t 100% know how time works. What we <em>do</em> know is that time tends toward resolution when possible. Paradoxes are really, <em>really</em> bad for the timestream. According to all existing research, when you travel back in time because of a paradox, and then prevent that paradox, nothing about your journey is erased. So the paradox is still resolved. Anything you picked up in the paradox timeline (or near the paradox) does disappear, though, so don’t go looking for trinkets.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h5>If my colleague dies while on a mission, can I go back and save them?</h5>
+                        <p>
+                            Pending department approval, you may be allowed to retrieve a colleague in the moments before their death. You will, however, need to show that the undoing of their death will not cause a paradox. If it is the case that their un-death will not significantly affect time, research shows it is a safe enough thing to do. But be careful about interacting with yourself and your colleagues when you do that—paradoxes can and have formed this way.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h5>What happens if I injure or kill someone while on a mission?</h5>
+
+                        <p>
+                            Time-wise, as long as you’ve not injured or killed a major historical figure, that is fine.
+                        </p>
+
+                        <p>
+                            University-wise, injuries are generally excusable. Death is… it depends. Did you kill a contemporary (someone from our present time)? That is a lot of paperwork, and occasionally a criminal trial. However, according to current legal precedent, you must be tried in the country where you committed the murder—unless they agree to move your trial to the country in which your Knox Engine existed before its time travel. The country in which the murder was committed will often decline to prosecute if the death directly enabled the resolution of a hole-in-time-causing paradox.
+                        </p>
+
+                        <p>
+                            If you kill someone from the past whose death does <em>not</em> significantly affect the timeline, open a paradox, etc, that is generally excusable following a mountain of paperwork and a brief hearing at LRU to establish the facts and the necessity of the death.
+                        </p>
+
+                        <p>
+                            Do not injure or kill without reason. If you have a significant reason, though, and at least one witness to back up said reason, LRU does not explicitly forbid accidental or necessary death.
+                        </p>
+                    </li>
+                </ul>
             </div>
 
         </div>
@@ -261,8 +787,184 @@
         <div class="chapter" id="gm-guide">
             <h3>Game Master's Guide</h3>
 
-            <div class="subsection" id="GM-1">
-                <h4>Header</h4>
+            <a href="#gm-welcome">Introduction</a>
+                <a href="#gm-first-adv">Running Your First Adventure</a>
+                <a href="#gm-prep-players">Preparing Your Players</a>
+                <a href="#gm-historical">Historical Player Characters</a>
+                <a href="#gm-other-notes">Character Creation Notes</a>
+                <a href="#gm-storytelling">Storytelling & Role-playing</a>
+                <a href="#gm-combat">Running Combat</a>
+                <a href="#gm-death">Player Character Death</a>
+                <a href="#gm-episodic">An Episodic System</a>
+                <a href="#gm-writing">Writing Your Own Adventures</a>
+                <a href="#gm-final">Final Notes</a>
+
+            <div class="subsection" id="gm-welcome">
+                <h4>Welcome to the Game Master's Guide!</h4>
+
+                <p>
+                    Here, you will find tools, tips, and tricks for being a Game Master (GM). Whether you’re a seasoned GM just looking for <em>Rewind</em>-specific story and mechanics tips, or a first-time GM looking for guidance on how to lead a game, you’ve come to the right place. It is important to know that everything included in this guide is a suggestion. At the end of the day, what matters most is that you and your players have fun!
+                </p>
+            </div>
+
+            <div class="subsection" id="gm-first-adv">
+                <h4>Running Your First Adventure</h4>
+
+                <p>
+                    <em>The Day the Emperor Died</em> is a great first adventure to run for your players. Everything you need is available in book form and on the website. A few resources (like a map, for instance) that your players might need are also available on the website, locked until you give your players the password (see the physical or digital copy of the first adventure for passwords).
+                </p>
+
+                <p>
+                    Before you run the adventure, read through the entire module and take a look at the resources. These will include character sheets, any relevant visuals, and a few sections that explain how particular characters think & how you might roleplay them. If you’re a first-time GM, read through this guide as well! You may find it helpful to read this first, and then turn your attention to the adventure itself.
+                </p>
+
+                <p>
+                    Throughout the first adventure, there are numerous points of flexibility. You might skip over some scenes or pieces of scenes if your players are moving particularly slowly, or you might add in and adjust things as needed to fit your group. All of this is okay and encouraged! You, as the GM, should feel free to tailor this adventure to work with your own GMing style and the play style of your group.
+                </p>
+            </div>
+
+            <div class="subsection" id="gm-prep-players">
+                <h4>Preparing Your Players</h4>
+
+                <p>
+                    In order to run an adventure, you’ll need to have at least one player. You can play the first adventure (and any story you design in this system) with any number of players, though it tends to work best with 2-6 players. Stories you design in this system can be run for any number of players, and because of the episodic nature of the system, the same players/characters do not have to show up for each session (more on this later).
+                </p>
+
+                <p>
+                    To prepare your players for their first mission back in time, have them read through the Rules Compendium (this thing you’re reading right now). Players only need to be familiar with the introduction, character creation, and combat & wounds sections. Alternatively, you (the GM) can explain the rules to your players when they arrive for their first session. Either works!
+                </p>
+
+                <p>
+                    Then, have your players create their characters. You can either do this physically, by printing out copies of the character sheet and having your players write everything down, or digitally, by directing your players to the digital character sheet. There, they can follow a tutorial on how to create a character from scratch. Or, if they are feeling particularly spontaneous, they can generate a completely random character.
+                </p>
+
+                <p>
+                    Encourage your players to think of their characters as imperfect, perhaps unusual people. They don’t all have to be expert time travelers or tenured professors—they can, and should, think outside the box.
+                </p>
+            </div>
+
+            <div class="subsection" id="gm-historical">
+                <h4>Historical Player Characters</h4>
+
+                <p>
+                    It is up to you whether or not you wish to allow historical player characters—that is, characters who come from the past and have somehow wound up at LRU working for the Department of Temporal Research. You may choose to allow historical characters but not <em>named</em> historical figures, you may allow both, or you may not allow historical characters at all. This is <strong>100% a GM decision</strong>. It is up to you! Though the system was originally built with contemporary characters in mind, you can (and should) opt for the most interesting thing. Want to run a game where everyone plays historic US Presidents suddenly working for LRU? Go right ahead!
+                </p>
+
+                <p>
+                    As with almost everything in this system, your choice about whether or not to allow historical characters, how many of them to allow, etc. should depend on what is a) most interesting and b) most comedic. Don’t be afraid to bend the rules a little bit if it’s funny.
+                </p>
+            </div>
+
+            <div class="subsection" id="gm-other-notes">
+                <h4>Other Player Character Creation Notes</h4>
+
+                <p>
+                    Your players, especially if they are new, may need a little extra guidance on making their characters. In the character creation section there are a few optional rolling tables for occupation, background, etc. which you can direct your players to if they want to create a random character (or draw a little inspiration from the options).
+                </p>
+
+                <p>
+                    You can also encourage people to try out a character for a one-shot, and if they don’t like that character, make a new one! The episodic nature of this system means that they aren’t stuck with the character they make first (see later discussion on episodic structure and flexibility).
+                </p>
+            </div>
+
+            <div class="subsection" id="gm-storytelling">
+                <h4>Storytelling & Role-playing</h4>
+
+                <p>
+                    If you’re a new GM, storytelling and role-playing can feel daunting. Don’t worry! You’ve got this. Below are a few tips and tricks for running the adventures, whether pre-written or created by you. The most important thing to remember is: you don’t need to (and shouldn’t) be perfect, nor must you stick to the script exactly. Aim to create a fun experience for you and your players above all else.
+                </p>
+
+                <p>
+                    When it comes to role-playing, it’s up to you whether you do voices, whether you speak as non-player characters (NPCs) at all, or whether you stick to narration alone. What you prefer will shift over time—many GMs (and players) start out uncomfortable with role-play, and learn to love it over time. Whether you come into GMing as a master voice actor or you’ve never acted/improvised in your life, you can succeed and have fun! The first adventure contains short guides for roleplaying the major characters, which give you information about their appearance, personality, and what they might say/do in response to the players. Make sure you’ve read these before running the adventure, and don’t be afraid to try out speaking as each character beforehand (if you decide to use direct dialogue to tell parts of the story).
+                </p>
+
+                <p>
+                    As you move past the first adventure and create your own characters, you might find it helpful to write down a few notes about their personality and behaviors, which will help you transition to role-playing as NPCs that you’ve created.
+                </p>
+
+                <p>
+                    Storytelling can also feel tricky. What pieces of the story can you skip? What is essential? What if players are taking too long, or moving too quickly? What if the players just keep missing something you need them to know? A lot of this can be solved by improvising, but if you’re new to GMing, that may not feel natural. That is okay!
+                </p>
+
+                <p>
+                    The first adventure contains particular pieces of information and story beats that are flexible/skippable depending on your players—but don’t be afraid to play around with other beats of the story and change details as you like.
+                </p>
+
+                <p>
+                    Once again, when it comes to role-playing, storytelling, and everything else GM-related, your number one goal is for you and your players to have fun—everything else is flexible.
+                </p>
+            </div>
+
+            <div class="subsection" id="gm-combat">
+                <h4>Running Combat</h4>
+
+                <p>
+                    When your players encounter combat, first ask them to roll initiative (discussed in the “Combat & Wounds” section of this book). You’ll also need to roll initiative for any non-player characters (NPCs) who are involved in the combat. Note down everyone’s scores, including the NPCs, from highest to lowest. The highest score goes first (takes a turn), and so on down the list. When you get to the bottom, repeat!
+                </p>
+
+                <p>
+                    When running combat in <em>Rewind</em>, the “rule of cool” applies. That means if your players have a crazy idea, perhaps related to an eccentricity of theirs or otherwise wild, it is good to encourage that! Let them roll for whatever wild action they’re doing—just make sure it doesn’t exceed what they could reasonably do on a turn (for instance, crossing a large room, stealing a key out of a safe and unlocking a door would be far more than one turn of action).
+                </p>
+
+                <p>
+                    When it’s time for your NPCs to take turns, don’t focus on killing the player characters (PCs). Instead, think about what that particular NPC might do. Are they a guard, and intent on arresting someone or protecting someone else? Are they likely to flee from combat, or face it head on? Your goal is not to go as hard as possible on your players, but rather to further the narrative and push players toward their end goal.
+                </p>
+
+                <p>
+                    And on that note, combat generally shouldn’t last for very long. Eventually, someone will likely flee, or get grievously injured, or achieve what they were trying to do. Don’t be afraid of a short combat.
+                </p>
+
+                <p>
+                    In <em>Rewind</em>, the best combat is a goal-oriented combat, in which the players have some goal other than “kill all the bad guys.” That makes for a more interesting and fun experience, and works better with the combat & wound mechanics of <em>Rewind</em>. When designing your own combats/encounters, keep this in mind! It is okay (good, even) for combat to end because the enemy is restrained, or got away, was talked down, or is otherwise no longer able or willing to fight.
+                </p>
+            </div>
+
+            <div class="subsection" id="gm-death">
+                <h4>Handling Player Character Death</h4>
+
+                <p>
+                    Every now and then, a PC might die. That is part of the system, but how okay you as a GM are with death will vary based on your own style and the preferences of your players. Encourage that player to quickly roll up a new character who can show up, if it’s a longer adventure—or you can even hand them an NPC to play, if you want! Alternatively, they can make a new character before the next adventure. Death means that particular character can’t show up anymore, but it doesn’t mean the player is out of the group. Make sure your players understand that 1) death is possible and 2) death is okay. These characters are, largely, normal-ish people; they’re not meant to be indestructible.
+                </p>
+
+                <p>
+                    If you <em>really</em> don’t want to kill any player characters, you can fudge time. See the Time Travel Manual’s FAQ for one option (going back to save that character in the moments before they die). You may scale back combat if it’s proving too difficult, or introduce something that gives the players an advantage, or even send some emergency medics from LRU to the scene to save them. While death is part of <em>Rewind</em>, it’s okay if you and your party want to circumvent it at times. That is up to you, the GM.
+                </p>
+            </div>
+
+            <div class="subsection" id="gm-episodic">
+                <h4>An Episodic System</h4>
+
+                <p>
+                    <em>Rewind</em>, unlike many popular TTRPG systems, is not meant to be a campaign-focused system. That is, you don’t need the same players with the same characters to show up every week, and you don’t even need the same GM across every adventure. This is meant to help new players get into the system easier (without the commitment of many months or years of playing) and to help you, the GM, run your adventures without endless scheduling hurdles.
+                </p>
+
+                <p>
+                    Each adventure, or mission, is meant to last one session of 1-4 hours. The starter adventure, for instance, is generally a 2-3 hour adventure (depending on the number of players and what they choose to do). At the end of most sessions/missions, your PCs will return to LRU to report on the results of their mission and rest up for the next one. This means that players (and characters) can shift between missions. In-universe, LRU puts various different people on different missions—so the players/characters who aren’t present for a session simply aren’t assigned to that mission. The intention here is to be flexible, and to allow you to run many adventures with varying groups of people over time.
+                </p>
+
+                <p>
+                    For instance, you might run the first adventure with a group of four people. Two of those people can’t make it to the next session, but one other person wants to join. That is absolutely okay! Those two missing players’ characters just weren’t assigned to the next adventure, but the new player’s character was.
+                </p>
+
+                <p>
+                    Or, say one of your players wants to try out a new character. Encourage them to! Players can have a rotating cast of 2-3 (or more) characters they play depending on the mission. GMs could even change between missions—you might have a few who all want to write and run adventures, and those GMs can rotate who GMs and who plays.
+                </p>
+
+                <p>
+                    All of this is meant to make Rewind a flexible, episodic system in which players and characters can shift between adventures. That said, if you want to write an adventure that takes 2-3 sessions to run, or want to weave a longer story into episodic missions, that can also be fun and engaging. You might add in small pieces of story in each mission that point to one big bad guy (or organization, etc) over time, or do something else to build a long-term story, and that can be an excellent way to create a thread of continuity between each adventure.
+                </p>
+            </div>
+
+            <div class="subsection" id="gm-writing">
+                <h4>Writing Your Own Adventures</h4>
+
+                <p>
+                    So: you’ve played the first adventure, your players had fun and want to keep playing, and now you’ve got to come up with your own stories. How do you do that?
+                </p>
+            </div>
+
+            <div class="subsection" id="gm-1">
+                <h4>100 Eccentricities</h4>
             </div>
 
         </div>
