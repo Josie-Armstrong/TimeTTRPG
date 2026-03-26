@@ -36,22 +36,24 @@
         margin: 20px;
 
         position: sticky;
-        top: 110px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        top: 200px;
+        display: flex;
+        flex-direction: row;
         gap: 20px;
+        align-items: start;
     }
 
-    .text-boxes {
+    .text-boxes, .resources {
         display: flex;
         flex-direction: column;
+        flex: 1 1 0;
+        overflow: scroll;
     }
 
     .adv-block {
-        overflow: hidden;
         display: block;
-        max-height: 5000px;
         margin-bottom: 20px;
+        overflow: hidden;
 
         border-radius: 20px;
         border: 3px solid var(--light-red);
@@ -68,6 +70,7 @@
         padding: 20px;
         color: var(--dark-red);
         border-radius: 10px 10px 0px 0px;
+        transition: border 0.3s ease-in;
 
         display: flex;
         justify-content: space-between;
@@ -101,15 +104,19 @@
     }
 
     .block-content {
+        max-height: 5000px;
+        overflow: hidden;
         background-color: var(--fill-cream);
-        padding: 20px;
         border-radius: 0px 0px 10px 10px;
+    }
+
+    .content-padding {
+        padding: 20px;
     }
 
     .adv-block.collapsed {
         .block-content {
             max-height: 0;
-            display: none;
 
             transition: max-height 0.3s ease-out;
         }
@@ -117,6 +124,8 @@
         .block-header {
             border-radius: 10px;
             border-bottom: none;
+
+            transition: border 0.3s ease-out;
         }
 
         .drop-down-btn {
