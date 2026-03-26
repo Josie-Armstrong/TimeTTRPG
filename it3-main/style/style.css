@@ -6,6 +6,8 @@
     --light-gold: #FFF0D4;
     --med-cream: #E0C593;
 
+    --half-gold: rgba(255, 208, 120, 0.5);
+
     --p-font: "EB Garamond", "Times New Roman";
     --h-font: "dm-serif-display", "Times New Roman";
     --mono-font: "recursive-mono-linear-static";
@@ -976,141 +978,6 @@ button:hover {
     }
 }
 
-.first-adv-gm-page {
-    #header {
-        color: black;
-        background-color: var(--light-gold);
-        padding: 20px;
-        margin-top: 20px;
-
-        border-top: 5px solid var(--dark-red);
-        border-bottom: 5px solid var(--dark-red);
-
-        p {
-            max-width: 1000px;
-            text-align: center;
-            justify-self: center;
-        }
-
-        h2 {
-            text-align: center;
-            margin: 0;
-            padding-bottom: 20px;
-            font-size: 2rem;
-            color: var(--dark-red);
-        }
-
-        hr {
-            border: 2px solid var(--gold);
-            max-width: 50%;
-            margin: auto;
-            margin-top: 0;
-            margin-bottom: 0;
-            text-align: center;
-        }
-    }
-
-    .resources-container {
-        margin: 20px;
-
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-
-    .text-boxes {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .adv-block {
-        overflow: hidden;
-        display: block;
-        max-height: 5000px;
-        margin-bottom: 20px;
-
-        border-radius: 20px;
-        border: 3px solid var(--light-red);
-
-        transition: max-height 0.3s ease-out;
-
-        .block-header {
-            border-bottom: 5px solid var(--gold);
-        }
-    }
-
-    .block-header {
-        background-color: var(--light-gold);
-        padding: 20px;
-        color: var(--dark-red);
-        border-radius: 10px 10px 0px 0px;
-
-        display: flex;
-        justify-content: space-between;
-
-        h2 {
-            line-height: 100%;
-            margin: 0;
-        }
-
-        .drop-down-btn {
-            background-color: transparent;
-            border-radius: 0px;
-            padding: 0;
-            margin: 0;
-
-            height: 20px;
-            rotate: 0deg;
-
-            img {
-                height: 20px;
-            }
-
-            transition-duration: 0.5s;
-
-        }
-
-        .drop-down-btn:hover {
-            background-color: transparent;
-            box-shadow: none;
-        }
-    }
-
-    .block-content {
-        background-color: var(--fill-cream);
-        padding: 20px;
-        border-radius: 0px 0px 10px 10px;
-    }
-
-    .adv-block.collapsed {
-        .block-content {
-            max-height: 0;
-            display: none;
-
-            transition: max-height 0.3s ease-out;
-        }
-
-        .block-header {
-            border-radius: 10px;
-            border-bottom: none;
-        }
-
-        .drop-down-btn {
-            rotate: 180deg;
-        }
-    }
-
-    p {
-        font-size: 1.2rem;
-        text-align: justify;
-        padding: 0;
-    }
-
-    img {
-        max-width: 100%;
-    }
-}
-
 .player-resources-page {
     #intro {
         color: black;
@@ -1265,16 +1132,6 @@ button:hover {
             max-height: 500px;
             transition: max-height 0.3s ease-in;
         }
-    }
-}
-
-
-@media (max-width: 1500px) {
-    .compendium-page {
-        margin-left: 20px;
-        margin-right: 20px;
-
-        gap: 20px;
     }
 }
 
