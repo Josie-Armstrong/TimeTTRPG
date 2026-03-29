@@ -11,7 +11,9 @@ let character = {
         4: 0
     },
 
-    "wounds": 0,
+    "wounds": {
+        0: false, 1: false, 2: false, 3: false
+    },
 
     "abilities": {
         0: 0,
@@ -75,11 +77,18 @@ const header_display = [
     document.querySelector("#sturdy-val")
 ];
 
+// Wound input fields/checkboxes
 const wound_inputs = [
     document.querySelector("#wound1"),
     document.querySelector("#wound2"),
-    document.querySelector("#wound3")
+    document.querySelector("#wound3"),
+    document.querySelector("#wound4")
 ];
+
+// Adding event listeners to each wound checkbox
+for (let i = 0; i < wound_inputs.length; i++) {
+    wound_inputs[i].addEventListener('click', checkWounds);
+}
 
 // Input fields
 const eccentricities_in = document.querySelector("#ecc-in");
@@ -192,11 +201,6 @@ const tutorial_text = [
     document.querySelector("#end-tt-1")
     ];
 
-// Nav hamburger button stuff
-const hamburger = document.querySelector(".hamburger-menu");
-const nav_bar = document.querySelector("nav");
-hamburger.addEventListener("click", toggleNavMenu);
-
 let editing = false;
 let uploading = false;
 let upload_event;
@@ -228,11 +232,106 @@ let tutorial_section_highlight = [
     abilities, eccentricities, expertise, gear, sheet_head, background
 ];
 
-let eccs_list = ["Animal Whispering", "Archery", "Baking", 
-    "Card Counting/Gambling", "Carpentry", "Computer Hacking", "Explosives",
-    "Farming", "Fishing", "Forgery", "Gardening", "Hand-to-Hand Combat", "Hospitality",
-    "Knife Throwing", "Lockpicking", "Musical Performance", "Nature & Wilderness",
-    "Networking", "Pottery", "Sewing"
+let eccs_list = ['Acrobatics',
+    'Acting',
+    'Administration',
+    'Animal Whispering',
+    'Archery',
+    'Baking',
+    'Baseball',
+    'Basket Weaving',
+    'Calligraphy',
+    'Camping',
+    'Car Mechanics',
+    'Card-Counting/Gaming',
+    'Carpentry',
+    'Climbing',
+    'Clockmaking',
+    'Clowning',
+    'Cocktail Mixing',
+    'Computer Hacking',
+    'Contortion',
+    'Cooking',
+    'Crocheting',
+    'Dancing',
+    'Darts',
+    'Decoding/Ciphers',
+    'Drinking',
+    'Eidetic memory',
+    'Embroidery',
+    'Explosives',
+    'Farming',
+    'Filmmaking',
+    'Fire Starting',
+    'Firearms',
+    'Fishing',
+    'Flower Arranging',
+    'Foraging',
+    'Forgery',
+    'Game Design',
+    'Gardening',
+    'Ghost Hunting',
+    'Glassblowing',
+    'Gymnastics',
+    'Hairdressing',
+    'Hand-to-Hand Combat',
+    'Helicopter/Plane Piloting',
+    'Hospitality',
+    'Hunting',
+    'Improv Comedy',
+    'Instrument Making',
+    'Jewelry Making',
+    'Jigsaw Puzzle Solving',
+    'Jousting',
+    'Key Copying',
+    'Knife Throwing',
+    'Knitting',
+    'Leatherworking',
+    'Lip Reading',
+    'Lockpicking',
+    'Logic Puzzles',
+    'Magic Tricks',
+    'Makeup',
+    'Marathon Running',
+    'Medicine',
+    'Metalworking',
+    'Millinery (Hat Making)',
+    'Musical Composition',
+    'Musical Performance',
+    'Nature & Wilderness',
+    'Networking',
+    'Origami',
+    'Painting',
+    'Photography',
+    'Pickpocketing',
+    'Pocketknife Tricks',
+    'Poisons',
+    'Pottery',
+    'Sculpture',
+    'Sewing',
+    'Ship Piloting',
+    'Skating',
+    'Sketching/Drawing',
+    'Soccer',
+    'Spear Fishing',
+    'Speed Reading',
+    'Spotless Cleaning',
+    'Sprinting',
+    'Stamp Carving',
+    'Stunt Driving',
+    'Swimming',
+    'Swordsmanship',
+    'Thievery',
+    'Tinkering',
+    'Unicycling',
+    'Video Gaming',
+    'Voice Throwing',
+    'Walking on your hands',
+    'Water Polo',
+    'Weightlifting',
+    'Whistling',
+    'Whitewater Rafting',
+    'Whittling'
 ]
 
 let expertise_list = ["Architecture", "Fashion", "Art", "Religion",
@@ -319,7 +418,7 @@ function NormalDisplay() {
 
 }
 
-// NEW save function for WHOLE character sheet (in progress)
+// NEW save function for WHOLE character sheet
 function saveEdits() {
     try {
         for (let i = 0; i < ability_inputs.length; i++) {
@@ -552,11 +651,13 @@ function assignDisplayVals() {
         header_display[i].textContent = character["header"][i];
     }
 
-    eccentricities_val.textContent = character["eccentricities"];
-    expertise_val.textContent = character["expertise"];
-    background_val.textContent = character["background"];
-    gear_val.textContent = character["gear"];
-    notes_val.textContent = character["notes"];
+    eccentricities_val.innerHTML = character["eccentricities"].replace(/\n/g, '<br>');
+    expertise_val.innerHTML = character["expertise"].replace(/\n/g, '<br>');
+    background_val.innerHTML = character["background"].replace(/\n/g, '<br>');
+    gear_val.innerHTML = character["gear"].replace(/\n/g, '<br>');
+    notes_val.innerHTML = character["notes"].replace(/\n/g, '<br>');
+
+    assignWounds();
 }
 
 // Literally just clears character from local storage
@@ -575,7 +676,9 @@ function clearStoredCharacter() {
             4: 0
         },
 
-        "wounds": 0,
+        "wounds": {
+            0: false, 1: false, 2: false, 3: false
+        },
 
         "abilities": {
             0: 0,
@@ -599,21 +702,6 @@ function clearStoredCharacter() {
 
     assignDisplayVals();
     assignInputVals();
-}
-
-// Show/hide nav menu on mobile
-function toggleNavMenu() {
-    let shown = nav_bar.classList.toggle("show");
-    console.log(shown);
-
-    if(!shown) {
-        hamburger.style.transform = "rotate(0deg)";
-        hamburger.style.backgroundColor = "var(--gold)";
-    }
-    else {
-        hamburger.style.transform = "rotate(180deg)";
-        hamburger.style.backgroundColor = "var(--light-gold)";
-    }
 }
 
 // Shows/hides tutorial popup
@@ -770,26 +858,26 @@ function generateRandomCharacter() {
     character["header"][4] = sturdy_roll;
 
     // Generating Talents
-    let talent_text = "";
-    let talents = [];
+    let ecc_text = "";
+    let eccs = [];
 
     for (let i = 0; i < 3; i++) {
-        let temp_talent = Math.floor(Math.random() * 20);
+        let temp_ecc = Math.floor(Math.random() * eccs_list.length);
 
-        while (talents.includes(temp_talent)) {
-            temp_talent = Math.floor(Math.random() * 20);
+        while (eccs.includes(temp_ecc)) {
+            temp_ecc = Math.floor(Math.random() * eccs_list.length);
         }
 
-        talents.push(temp_talent);
-        talent_text = talent_text + talents_list[temp_talent];
+        eccs.push(temp_ecc);
+        ecc_text = ecc_text + eccs_list[temp_ecc];
 
         if (i < 2) {
-            talent_text = talent_text + ", ";
+            ecc_text = ecc_text + ", ";
         }
     }
 
     //console.log(talents);
-    character["talents"] = talent_text;
+    character["eccentricities"] = ecc_text;
 
     // Generating Expertise
     let temp_i = Math.floor(Math.random() * 11);
@@ -858,5 +946,37 @@ function pasteCharacterJSON() {
 }
 
 function toggleSidebarNav(index) {
+    for (let i = 0; i < sidebar_sections.length; i++) {
+        if (sidebar_sections[i].classList.contains("show") && i != index) {
+            sidebar_sections[i].classList.remove("show");
+        }
+    }
+
     sidebar_sections[index].classList.toggle("show");
+    console.log("worked");
+}
+
+function checkWounds() {
+
+    for (let i = 0; i < wound_inputs.length; i++) {
+        if (wound_inputs[i].checked) {
+            character["wounds"][i] = true;
+        }
+        else {
+            character["wounds"][i] = false;
+        }
+    }
+
+    localStorage.setItem("char_sheet", JSON.stringify(character));
+}
+
+function assignWounds() {
+    for (let i = 0; i < wound_inputs.length; i++) {
+        if (character["wounds"][i] == true) {
+            wound_inputs[i].checked = true;
+        }
+        else {
+            wound_inputs[i].checked = false;
+        }
+    }
 }

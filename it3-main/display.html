@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="https://use.typekit.net/vxu0obh.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amarante&family=DM+Serif+Display:ital@0;1&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Faculty+Glyphic&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/char-sheet.css">
     <title>Character Sheet - Rewind</title>
 
 </head>
@@ -313,7 +315,9 @@
 
                 <div id="wounds" class="sheet-header-item">
                     <h3>Wounds:</h3>
+
                     <div class="wound-big-div">
+                        <hr id="wound-bg">
                         <div class="wound-div">
                             <input type="checkbox" name="scrape" id="wound1" class="wound-check">
                             <label for="wound1" id="wound-label-1" class="wound-label">Scrape</label>
@@ -331,6 +335,7 @@
                             <label for="wound4" id="wound-label-4" class="wound-label">Critical</label>
                         </div>
                     </div>
+    
                 </div>
 
             </div>
@@ -408,6 +413,7 @@
     
     </main>
 
+    <script src="scripts/mobile-nav.js"></script>
     <script src="scripts/display.js"></script>
 
 </body>
