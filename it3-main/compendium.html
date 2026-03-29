@@ -14,13 +14,12 @@
     <title>Character Sheet - Rewind</title>
 
 </head>
-
-<body class="char-sheet-page">
+<body>
 
 <header>
     <h1>Rewind</h1>
 
-    <button class="hamburger-menu">
+    <button class="hamburger-menu" id="hamburger-menu">
         <span></span>
         <span></span>
         <span></span>
@@ -36,113 +35,121 @@
 
 <main class="compendium-page">
 
-    <div class="nav-grid">
-    <div class="page-nav">
-
-        <div class="outer-nav" id="intro-nav">
-            <div class="outer-nav-controls">
-                <a href="#introduction">Introduction</a>
-                <button class="expand-nav-btn" id="en-btn1">
-                    <span class="arrow"></span>
-                </button>
-            </div>
-
-            <div class="inner-nav">
-                <div class="linkss">
-                    <a href="#in-intro">What is <em>Rewind?</em></a>
-                    <a href="#in-time-travel">Time Travel & You</a>
-                    <a href="#in-base-mechanics">Rolling & Basic Mechanics</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="outer-nav" id="cc-nav">
-            <div class="outer-nav-controls">
-                <a href="#character-creation">Creating Your Character</a>
-                <button class="expand-nav-btn" id="en-btn2">
-                    <span class="arrow"></span>
-                </button>
-            </div>
-
-            <div class="inner-nav">
-                <div class="linkss">
-                    <a href="#cc-abilities">Abilities</a>
-                    <a href="#cc-eccentricities">Eccentricities</a>
-                    <a href="#cc-expertise">Expertise</a>
-                    <a href="#cc-gear">Gear</a>
-                    <a href="#cc-finishing">Finishing Touches</a>
-                    <a href="#cc-mult-char">Creating Multiple Characters</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="outer-nav" id="combat-nav">
-            <div class="outer-nav-controls">
-                <a href="#combat">Combat & Wounds</a>
-                <button class="expand-nav-btn" id="en-btn3">
-                    <span class="arrow"></span>
-                </button>
-            </div>
-
-            <div class="inner-nav">
-                <div class="linkss">
-                    <a href="#combat-initiative">Rolling Initiative</a>
-                    <a href="#combat-combat">Combat & Turns</a>
-                    <a href="#combat-attacking">Attacking</a>
-                    <a href="#combat-wounds">Wounds</a>
-                    <a href="#combat-adrenaline">Adrenaline</a>
-                    <a href="#combat-crit-condition">Critical Condition & Stabilization</a>
-                    <a href="#combat-death">Character Death</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="outer-nav" id="ttman-nav">
-            <div class="outer-nav-controls">
-                <a href="#time-travel">Time Travel Manual</a>
-                <button class="expand-nav-btn" id="en-btn4">
-                    <span class="arrow"></span>
-                </button>
-            </div>
-
-            <div class="inner-nav">
-                <div class="linkss">
-                    <a href="#time-what-is">What is Time?</a>
-                    <a href="#time-knox-engine">The Knox Engine</a>
-                    <a href="#time-butterfly-eff">The Butterfly Effect</a>
-                    <a href="#time-paradoxes">Paradoxes & Tears/Holes in Time</a>
-                    <a href="#time-resolving-paradoxes">Resolving Paradoxes</a>
-                    <a href="#time-atoms">But the Atoms...</a>
-                    <a href="#time-regulations">Regulations & Laws Surrounding Time Travel</a>
-                    <a href="#time-faq">Frequently Asked Questions</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="outer-nav" id="gm-nav">
-            <div class="outer-nav-controls">
-                <a href="#gm-guide">Game Master's Guide</a>
-                <button class="expand-nav-btn" id="en-btn5">
-                    <span class="arrow"></span>
-                </button>
-            </div>
-
-            <div class="inner-nav">
-                <div class="linkss">
-                    <a href="#gm-welcome">Introduction</a>
-                    <a href="#gm-first-adv">Running Your First Adventure</a>
-                    <a href="#gm-prep-players">Preparing Your Players</a>
-                    <a href="#gm-storytelling">Storytelling & Role-playing</a>
-                    <a href="#gm-combat">Running Combat</a>
-                    <a href="#gm-death">Player Character Death</a>
-                    <a href="#gm-episodic">An Episodic System</a>
-                    <a href="#gm-writing">Writing Your Own Adventures</a>
-                    <a href="#gm-final">Final Notes</a>
-                </div>
-            </div>
-        </div>
-
+    <div class="nav-menu-2">
+        <button class="hamburger-2">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </div>
+
+    <div class="nav-grid expanded">
+        <div class="page-nav">
+
+            <div class="outer-nav" id="intro-nav">
+                <div class="outer-nav-controls">
+                    <a href="#introduction">Introduction</a>
+                    <button class="expand-nav-btn" id="en-btn1">
+                        <span class="arrow"></span>
+                    </button>
+                </div>
+
+                <div class="inner-nav">
+                    <div class="linkss">
+                        <a href="#in-intro">What is <em>Rewind?</em></a>
+                        <a href="#in-time-travel">Time Travel & You</a>
+                        <a href="#in-base-mechanics">Rolling & Basic Mechanics</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="outer-nav" id="cc-nav">
+                <div class="outer-nav-controls">
+                    <a href="#character-creation">Creating Your Character</a>
+                    <button class="expand-nav-btn" id="en-btn2">
+                        <span class="arrow"></span>
+                    </button>
+                </div>
+
+                <div class="inner-nav">
+                    <div class="linkss">
+                        <a href="#cc-abilities">Abilities</a>
+                        <a href="#cc-eccentricities">Eccentricities</a>
+                        <a href="#cc-expertise">Expertise</a>
+                        <a href="#cc-gear">Gear</a>
+                        <a href="#cc-finishing">Finishing Touches</a>
+                        <a href="#cc-mult-char">Creating Multiple Characters</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="outer-nav" id="combat-nav">
+                <div class="outer-nav-controls">
+                    <a href="#combat">Combat & Wounds</a>
+                    <button class="expand-nav-btn" id="en-btn3">
+                        <span class="arrow"></span>
+                    </button>
+                </div>
+
+                <div class="inner-nav">
+                    <div class="linkss">
+                        <a href="#combat-initiative">Rolling Initiative</a>
+                        <a href="#combat-combat">Combat & Turns</a>
+                        <a href="#combat-attacking">Attacking</a>
+                        <a href="#combat-wounds">Wounds</a>
+                        <a href="#combat-adrenaline">Adrenaline</a>
+                        <a href="#combat-crit-condition">Critical Condition & Stabilization</a>
+                        <a href="#combat-death">Character Death</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="outer-nav" id="ttman-nav">
+                <div class="outer-nav-controls">
+                    <a href="#time-travel">Time Travel Manual</a>
+                    <button class="expand-nav-btn" id="en-btn4">
+                        <span class="arrow"></span>
+                    </button>
+                </div>
+
+                <div class="inner-nav">
+                    <div class="linkss">
+                        <a href="#time-what-is">What is Time?</a>
+                        <a href="#time-knox-engine">The Knox Engine</a>
+                        <a href="#time-butterfly-eff">The Butterfly Effect</a>
+                        <a href="#time-paradoxes">Paradoxes & Tears/Holes in Time</a>
+                        <a href="#time-resolving-paradoxes">Resolving Paradoxes</a>
+                        <a href="#time-atoms">But the Atoms...</a>
+                        <a href="#time-regulations">Regulations & Laws Surrounding Time Travel</a>
+                        <a href="#time-faq">Frequently Asked Questions</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="outer-nav" id="gm-nav">
+                <div class="outer-nav-controls">
+                    <a href="#gm-guide">Game Master's Guide</a>
+                    <button class="expand-nav-btn" id="en-btn5">
+                        <span class="arrow"></span>
+                    </button>
+                </div>
+
+                <div class="inner-nav">
+                    <div class="linkss">
+                        <a href="#gm-welcome">Introduction</a>
+                        <a href="#gm-first-adv">Running Your First Adventure</a>
+                        <a href="#gm-prep-players">Preparing Your Players</a>
+                        <a href="#gm-storytelling">Storytelling & Role-playing</a>
+                        <a href="#gm-combat">Running Combat</a>
+                        <a href="#gm-death">Player Character Death</a>
+                        <a href="#gm-episodic">An Episodic System</a>
+                        <a href="#gm-writing">Writing Your Own Adventures</a>
+                        <a href="#gm-final">Final Notes</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <div class="main-book">

@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amarante&family=DM+Serif+Display:ital@0;1&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Faculty+Glyphic&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/first-adv-gm.css">
+    <link rel="stylesheet" href="style/NEW-gm.css">
     <title>Character Sheet - Rewind</title>
 
 </head>
@@ -20,7 +20,7 @@
 <header>
     <h1>Rewind</h1>
 
-    <button class="hamburger-menu">
+    <button class="hamburger-menu" id="hamburger-menu">
         <span></span>
         <span></span>
         <span></span>
@@ -34,14 +34,16 @@
     </nav>
 </header>
 
-<main class="first-adv-gm-page">
+<main>
 
     <div id="header">
-        <h2>The Day The Emperor Died - GM Guide</h2>
+        <h2><em>The Day The Emperor Died</em> - GM Guide</h2>
         <hr>
         <p><em>Here, you will find everything you need to run the pre-written first adventure, "The Day The Emperor Died". Make sure to read through this material before running this adventure for your players--and check out the <a href="compendium.html#gm-guide">Game Master's Guide</a> in the Rules Compendium!
         </em></p>
     </div>
+
+<div class="first-adv-gm-page">
 
     <div class="page-nav">
 
@@ -61,6 +63,7 @@
 
             <div class="inner-nav">
                 <div class="linkss">
+                    <a href="#gearing">Gearing Up</a>
                     <a href="#eaton">Role-playing Dr. Naomi Eaton</a>
                 </div>
             </div>
@@ -69,12 +72,6 @@
         <div class="outer-nav" id="first-trip-nav">
             <div class="outer-nav-controls">
                 <a href="#first-trip">The First Trip Back to Rome</a>
-            </div>
-        </div>
-
-        <div class="outer-nav" id="return-nav">
-            <div class="outer-nav-controls">
-                <a href="#return">Return to LRU</a>
                 <button class="expand-nav-btn" id="en-btn2">
                     <span class="arrow"></span>
                 </button>
@@ -82,6 +79,22 @@
 
             <div class="inner-nav">
                 <div class="linkss">
+                    <a href="#tear">The Tear Opens</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="outer-nav" id="return-nav">
+            <div class="outer-nav-controls">
+                <a href="#return">Return to LRU</a>
+                <button class="expand-nav-btn" id="en-btn3">
+                    <span class="arrow"></span>
+                </button>
+            </div>
+
+            <div class="inner-nav">
+                <div class="linkss">
+                    <a href="#plutarch">Plutarch's History</a>
                     <a href="#replica">The Replica Dagger</a>
                 </div>
             </div>
@@ -90,7 +103,7 @@
         <div class="outer-nav" id="second-trip-nav">
             <div class="outer-nav-controls">
                 <a href="#second-trip">The Night of March 14th, 44 BCE</a>
-                <button class="expand-nav-btn" id="en-btn3">
+                <button class="expand-nav-btn" id="en-btn4">
                     <span class="arrow"></span>
                 </button>
             </div>
@@ -108,7 +121,7 @@
         <div class="outer-nav" id="what-if-nav">
             <div class="outer-nav-controls">
                 <a href="#what-if">“What Ifs” and Important Points</a>
-                <button class="expand-nav-btn" id="en-btn4">
+                <button class="expand-nav-btn" id="en-btn5">
                     <span class="arrow"></span>
                 </button>
             </div>
@@ -119,6 +132,7 @@
                     <a href="#mac-rp">Roleplaying MacMillan</a>
                     <a href="#guard-combat">Combat with the Guards</a>
                     <a href="#mac-combat">Combat with MacMillan</a>
+                    <a href="#timeline">MacMillan’s Heist Timeline</a>
                 </div>
             </div>
         </div>
@@ -126,7 +140,7 @@
         <div class="outer-nav" id="end-nav">
             <div class="outer-nav-controls">
                 <a href="#end">After the Heist</a>
-                <button class="expand-nav-btn" id="en-btn5">
+                <button class="expand-nav-btn" id="en-btn6">
                     <span class="arrow"></span>
                 </button>
             </div>
@@ -147,32 +161,297 @@
         </div>
 
         <div class="chapter" id="how-to">
+            <h3>How to Run This Adventure</h3>
+
             <div class="subsection">
+
+                <p>This adventure contains material for a 2-3 hour session in which players will complete a time travel mission back into Ancient Rome and prevent a paradox caused by Caesar not being assassinated. Included is the main storyline and guidance to keep your players on track, critical plot points, modules for combat and other possible encounters, pieces of narration for important beats of the story, guidance for playing the important non-player characters (NPCs), and every character sheet and stat block you will need.</p>
+
+                <p>You should read through this adventure at least once before running it and make sure you are familiar with the main modules and encounters before you begin your session. Practice the most important bits of narration and make sure you know what to do when your players (inevitably) make a crazy decision and try something unusual. That is good! This adventure is meant to encourage problem-solving and ingenious thinking on the part of the players.</p>
             </div>
         </div>
 
         <div class="chapter" id="start">
-            <div class="subsection">
-            </div>
 
-            <div class="subsection" id="eaton">
+            <h3>Starting the Adventure</h3>
+
+            <div class="subsection">
+
+                <p>It is just past two on a Tuesday morning in early spring when the players each get an emergency call from Dr. Naomi Eaton, Assistant Director of the Department of Temporal Research at LRU. Start the adventure as the players arrive at LRU in the capsule bay, a warehouse-like building partially underneath the campus.</p>
+
+                <p>The time capsule bay is modern, but is built in the basement of a much older building that still has columns and an engraved motto on the outside. The bay itself has a grey concrete floor and matching grey concrete walls, and in the center of the enormous room sit three capsules, each some 12-14 feet tall, in shades of silver and gold metal, with blue light spilling out from inside. Large lamps attached to the ceiling of the bay light up automatically as the players enter.</p>
+
+                <div class="subsub style-2">
+                <p>As the players arrive at the bay, it is a good time to ask each of them to introduce and describe their characters. As part of their introduction, ask them to describe what their character was doing just before they got the call and headed to LRU/the capsule bay.</p>
+                </div>
+
+                <p>At one door, a security guard is nodding off, a book of sudoku puzzles in hand. Dr. Eaton is already in the analytics booth above the main bay, a smaller room accessed by a small metal staircase on the far side of the capsule bay. She explains that she wasn’t the one who was on duty, the security guard was. The large flashing red light above the analytics booth and the siren woke him up, and he called her immediately. She tells the players they’ve got to come take a look at the problem.</p>
+
+                <div class="subsub style-3">
+                    <p><em>Note: You may choose to describe what Dr. Eaton tells the players, or play her yourself and do this intro piece as dialogue. Most likely, you will want to use a combination of the two. It is completely up to you and your players how much banter & dialogue happens in this section! If your players want to banter with Dr. Eaton, encourage that! It can set a fun and collaborative tone for the adventure.</em></p>
+                </div>
+
+                <p>Large glass windows on one side of the analytics booth look out over the bay, and the rest of the room is covered in computers and monitors. Dr. Eaton shows the players a diagram projected onto one wall of the timestream. A black dot has appeared in the year 44 BCE in Ancient Rome. She shows the players a zoomed-in view, and they can see that a tear in time is forming on March 15th, 44 BCE. Dr. Eaton mentions that this is the date of Julius Caesar’s assassination, and the location of the tear looks like it could be related.</p>
+
+                <p>Dr. Eaton hands the players a device called a Paradox Sensor, which is a mechanical Geiger-counter-esque device that ticks faster as it nears a tear in time. This, Dr. Eaton explains, will help the players locate exactly where the source of the problem is. Their first job is to identify the issue. Their second is to solve it. Dr. Eaton warns them that this may involve multiple trips, which are more likely to de-calibrate the Knox Engine when they’re close to a paradox. After they’ve figured out what caused the problem, they should head straight back to LRU to figure out what to do. Dr. Eaton tells them that if they need other resources or information at that time, she’ll do some digging to prepare.</p>
+
+                <div class="subsub style-1" id="gearing">
+                    <h5>Gearing Up</h5>
+
+                    <p>Dr. Eaton heads back down to the capsule bay, where she throws open the cabinets of gear and clothing. At this point, you can slyly let players know that if they want particular weaponry, protection, costumes, or any other gear, they can ask Dr. Eaton. She will approve <em>some</em> weaponry (including 1-2 firearms among the party), but very little ammunition. It is up to you what else she approves—generally, though, the “rule of cool” applies. Think it could be interesting or funny? Dr. Eaton can approve it, then! Try to keep it to period-accurate gear, though, unless you’re intentionally aiming for an anachronistic adventure.</p>
+                </div>
+
+                <p>The players gather anything they may need for a trip back in time, don costumes appropriate for Ancient Rome, and get into their capsule. The players travel back to Rome on the day where the tear has appeared.</p>
+
+                <div class="subsub style-5" id="eaton">
+                    <h4>Role-playing Dr. Naomi Eaton</h4>
+
+                    <p>Dr. Naomi Eaton is the players’ first introduction to the world of LRU. She is in her 50s, and her black hair dotted with grey is pulled tight into a bun. She has glasses that sit at the edge of her nose, wears a long grey coat over a button up and suit pants, and carries her computer with her in one hand at all times. She floats back and forth between being a distracted academic and a detailed manager. On this particular day, she’s frazzled. Like everyone else, she’s been woken up in the middle of the night and is suddenly trying to prevent the spacetime continuum from ripping itself apart.</p>
+
+                    <p>She will raise her eyebrow at whatever schemes the players are planning, but she trusts them to fix the problem. And, when they return from their first trip, she will ask them questions that lead them toward what’s gone wrong (if they’re still struggling to figure out what happened). She’s observant, and thinking ahead—so when she sees the post asking for Brutus’s dagger on a collector’s forum, she starts to put the pieces together.</p>
+                </div>
             </div>
         </div>
 
         <div class="chapter" id="first-trip">
+
+            <h3>The First Trip Back to Rome</h3>
+
             <div class="subsection">
+
+                <p>The players arrive in Ancient Rome and step out of their pod into a small plaza, or forum. Immediately, it is clear that something has gone wrong. There is chaos; Roman denizens run through the plaza shouting and waving their hands. From doorways of shops and homes, nervous and scared faces peek out, unwilling to venture into the chaos.</p>
+
+                <p>Even from here, the players’ Paradox Sensor is already ticking. Remind them that their in-ear comms will translate any language spoken (if nearby/in earshot). If they choose to investigate before following the sensor’s ticking, they will hear snippets of conversation that point to a great tragedy having unfolded, though they can’t catch exactly what happened.</p>
+
+                <p>When the players follow the sensor’s ticking, it leads them to a large house. This is not the time for particularly crazy antics, but players may investigate as they like in the following scene and during pauses in the narration. Discoverable clues and useful witnesses are described throughout the following section.</p>
+
+                <div class="subsub style-2">
+                    <h5>Narration (once the players arrive at the grand residence that their Paradox Sensor points them toward):</h5>
+
+                    <p><em>In front of you is a palatial home. Marble frescos decorate the entrance. Your sensors click faster the closer you get. Whatever happened to cause a tear in time happened here.</em></p>
+
+                    <p><em>But it doesn’t take a sensor to know something is wrong. People sit on the steps of the building, weeping. The door is cracked open and unguarded.</em></p>
+
+                    <p><em>You walk into a grand courtyard. It’s crowded with people, panicking, wailing. You push through the crowd, and as you do, you see the problem. In the center of the room lie two well-dressed men, both stabbed through the heart, blood pooling around them. A single dagger lies between them.</em></p>
+
+                    <p><em>You hear names amongst the panic of the crowd. Marcus Junius Brutus. Gaius Cassius Longinus. Brutus and Cassius, Caesar’s would-be assassins, dead on the floor, on the morning of the Ides of March.</em></p>
+                </div>
+
+                <p>You may choose to have players roll perception checks to notice particular pieces of potential evidence/witnesses, or you may choose to narrate them regardless. At the edge of the crowd, clutching Cassius’s hand, is a woman in elegant clothing with a circlet on her head. She looks distressed and panicked. This appears to be a relation of Cassius’s—his wife. If the players speak to her, she explains reluctantly that her husband had been distracted with some large plan, and laid his dagger out the night before. He was supposed to go to the Senate this morning.</p>
+
+                <p>Around the edges of the room stand servants and guards who appear to be standing watch. They also look distressed, but have not joined the chaotic crowd around the bodies. The servants and guards will report that early this morning, Brutus arrived looking frantic. Shortly after, they were sent out to carry messages to other Senators with the words “we are discovered.” They don’t know what happened afterward, but when they returned, Cassius and Brutus were already dead.</p>
+
+                <p>If players inspect Cassius and Brutus, they notice that Brutus is still in a cloak, as though he was traveling through the city and arrived shortly before his death. Both senators are dressed well, like they were going somewhere important (to the senate). Both have wounds through their hearts, and a bloody dagger lies between them with Cassius’s initials on it (you may wish to make the player investigating roll for Aware to notice that it is Cassius’s dagger/initials). It appears that both men were stabbed with the same dagger.</p>
+
+                <div class="subsub style-3">
+                    <p><strong>Note:</strong> though you shouldn’t volunteer this information to players (or highlight it) just yet, if players ask, Brutus’s dagger is nowhere to be found.</p>
+                </div>
+
+                <div class="subsub" id="tear">
+                    <h4>The Tear Opens</h4>
+
+                    <p>As players are investigating, pick a moment to have them all roll for Aware. Read the following (or your adaptation of it) aloud, with the idea that everyone who succeeded sees this immediately. Make sure that the players have sufficient evidence to return to LRU before you narrate the tear in time, so that if they choose to flee immediately, they still leave with enough.</p>
+                </div>
+
+                <div class="subsub style-2">
+                    <h5>Narration:</h5>
+
+                    <p><em>And then, above the bodies, you see it. At first it’s just a ripple in the air, but then it splinters open. A crack, a void just a few feet above the bodies. Your sensors go wild. You all stumble backwards as the tear in time expands through the air and the crowd rushes, afraid, toward the doors.</em></p>
+                </div>
+
+                <p>Ask your players what they are all doing in this moment. Are they going to run with the crowd? Stay to investigate just a little more? Pursue some other course of action? Follow your players in what they choose to do, and have the hole in time expand as slowly or as quickly as you need it to for the sake of the plot. Narrate its expansion, which becomes increasingly dangerous for the players to be around.</p>
+
+                <div class="subsub style-3">
+                <p>If the players attempt to go to the senate, to Julius Caesar’s house, or anywhere else, you may a) choose to allow it, and improvise that scene, or b) remind them that the hole in time is destabilizing time itself around them, and they need to return to LRU soon lest their Knox Engine destabilize.</p>
+                </div>
+
+                <div class="subsub style-2">
+                    <h5>Narration (as the players return to their capsule; this is optional):</h5>
+
+                    <p><em>As you fly back through the alleys toward your capsule, you catch words from the citizens of Rome, just close enough for your in-ear comms to translate. More than 60 senators, found dead in their homes, stabbed by their own daggers.</em></p>
+                </div>
+
+                <p>If the players have any last-minute things they want to do, let them. Then, they shut their capsule and tell it to head for home.</p>
             </div>
         </div>
 
         <div class="chapter" id="return">
-            <div class="subsection">
-            </div>
+            <h3>Return to LRU</h3>
 
-            <div class="subsection" id="replica">
+            <div class="subsection">
+
+                <p>The crew returns to LRU having discovered the source of the paradox, and likely with theories about what happened. Dr. Eaton helps them out of the capsule and asks them what they found. If they mention the dagger, Dr. Eaton first confirms: “Wait. There was only one dagger?”</p>
+
+                <div class="subsub style-2" id="plutarch">
+                    <h5>Plutarch’s History</h5>
+
+                    <p>Dr. Eaton pulls up Plutarch’s History and explains a few things to the players (you may omit anything that your players evidently already know):</p>
+
+                    <ul>
+                        <li>Cassius, Brutus, and more than 60 other senators planned to assassinate Caesar to prevent his rise as an emperor.</li>
+                        <li>They intended to do so each with their own dagger, on March 15th, 44 BCE, when Caesar arrived at the Senate—which was, at the time, held at the Theater of Pompey, as the usual venue had burned down.</li>
+                        <li>Caesar arrived late, and almost didn’t show, but when he did arrive, the 60+ senators carried out their assassination as planned.</li>
+                        <li><strong>However:</strong> Cassius had a contingency plan. If their plot was discovered, the senators were to turn their daggers on themselves.</li>
+                    </ul>
+                </div>
+
+                <p>Then, as players discuss (give this a moment, your players will likely want to think this through out loud and/or in-character), Dr. Eaton says she’s been scouring the internet for information on the assassination and saw a post in one common artifact hunter forum where someone requested Brutus’s dagger as a collector’s item. It looks like someone may have stolen the dagger, and that led to his belief that he had been discovered (let your players come to this realization on their own, if possible). Only one person left a comment on the post: someone named MacMillan. If your players try to investigate his identity, it is up to you whether or not this can succeed. If you’d like, you can provide more information about him—but be wary of improvising too much information here, lest your players try to travel within the present to stop him from ever going back in time at all.</p>
+
+                <div class="subsub style-3">
+                    <p><strong>Note:</strong> If at all possible, the players should make the final connections to realize that Brutus’s dagger was stolen, and as a result he thought he’d been found out (and went to Cassius, and then they stabbed themselves). But Dr. Eaton is there to scaffold the players’ discovery, and can give them suggestions/support if they are stuck.</p>
+                </div>
+
+                <p>At this point, the players should be able to piece together that Brutus believed he had been discovered, told Cassius, and they killed themselves. And, with the prompting of Dr. Eaton, if needed, players should reach the conclusion that Brutus’s panic had something to do with his dagger, which seems to have potentially been stolen for a present-day collector.</p>
+
+                <div class="subsub style-6" id="replica">
+                    <h4>The Replica Dagger</h4>
+
+                    <p>After the players realize what caused the paradox, Dr. Eaton tells them to wait a moment. A few minutes later, she comes back and shows them a replica dagger she requisitioned (read: purloined, assuming she <em>would</em> have been granted permission if she had the time to ask) from the LRU Museum of History. The dagger, a copy of Brutus’s, was commissioned based on data from a previous mission back in time to after the assassination. It is made from similar materials, but is not the original dagger. Dr. Eaton hands this over to the players along with their <em>real</em> mission: travel back to the night before Caesar’s assassination and prevent Brutus’s real dagger from being stolen by whatever artifact hunter intended to sell it to a collector.</p>
+
+                    <p>How they do this is completely up to them, but Dr. Eaton makes it very clear that they must make sure Brutus wakes the next morning and takes the <em>real</em> dagger. There is a clear and present danger in leaving a modern replica somewhere in ancient history, because its modernity could upset time and cause another, smaller, compounding paradox (look at the Time Travel Manual in the Rules Compendium for more information on the temporal mechanics going on here). Dr. Eaton mentions, though, that if the replica dagger is lost in their adventures, as long as Brutus ends up with the real dagger (not the replica), that is okay. She says the university museum will probably forgive her little indiscretion if the players prevent time from being ripped apart.</p>
+                </div>
+
+                <p>Ask the players if they are making any preparations or planning anything. If they require extra weaponry, tools, etc, Dr. Eaton allows them to take what they need—though she still doesn’t allow them to take too much ammunition for any weapon. This is to encourage players to eventually trap MacMillan through more ingenious methods than just… shooting him. Although that is a valid way of doing things. It’s also to build Dr. Eaton’s character as someone in charge of the department who can’t/won’t freely approve all weapons/ammunition.</p>
+
+                <p>Then, have the players describe when and where they are headed in time. They are free to look at a map of Rome in 44 BCE (this resource does not actually exist, but you can narrate that they have access to it) to land in an ideal location. The time of day is important to inquire about, since it will affect their interaction with MacMillan’s original heist timeline.</p>
+            </div>
+        </div>
+
+        <div class="chapter" id="second-trip">
+            <h3>The Night of March 14th, 44 BCE</h3>
+
+            <div class="subsection">
+                <p>The players arrive in their capsule near Brutus’s house. From here, it is up to the players what they will do. They know there is a time traveler who will show up some time after Brutus has gone to bed to steal the dagger, and they have the replica dagger (or should have it, unless they refused it).</p>
+
+                <div class="subsub style-2" id="house">
+                    <h4>Layout of Brutus’s House</h4>
+
+                    <p>There are two guards outside the main entrance to Brutus’s house. The back entrance has only one guard. Two other guards circle the building together—it takes about five to seven minutes for them to make a complete round.  All the guards are armed with spears and swords. Both doors are strong, wooden and reinforced with iron. The main door leads to an atrium (open-air courtyard). There are windows around the house, on both the first and second floors, but they are covered by ornamental iron grilles that cannot be opened on the first floor, and by wooden lattice shutters on the second. The walls on the side of the house are plastered over and decorated, which makes them not-that-climable. Inside, rooms surround the main courtyard. To the left is the study, where (unbeknownst to the players) Brutus has laid his dagger. To the right is a large dining room. The back holds chairs in an outdoor lounge, and an entrance to the open-air garden. The kitchen is adjacent to the garden in the back right.</p>
+
+                    <p>The players will not know the layout of the house initially. They’ll only know where the entrances are (by circling the building and staking it out). Once they are inside, they will be able to explore the various rooms and get a feeling for the layout—if they sneak throughout the house successfully, give them the <strong>house map</strong>. You can find the map and player access code below..</p>
+                </div>
+
+                <div class="subsub" id="house-map">
+                    <h4>Map of Brutus's House</h4>
+
+                    <h5>Player Access Code: Brutus!!!</h5>
+
+                    <p>INSERT HOUSE MAP</p>
+                </div>
+
+                <div class="subsub" id="getting-in">
+                    <h4>Getting Into Brutus’s House</h4>
+
+                    <p>There are a number of ways to do this. The players can distract guards at one of the entrances, convince the guards to let them in, get into a fight and incapacitate the guards, or try something completely different. Roll with your players here—the guards at the entrances will be somewhat distractable, but the guards rounding the house may see the players if they’re not careful. They will be harder to convince than to distract, and fighting (if loud) will draw the attention of the circling guards. <strong>Use the guards’ character sheet</strong> (same for all five guards) and roll to see if they notice, should players try a sneakier method. </p>
+
+                    <div class="subsub style-3">
+                        <p><strong>Note:</strong> The guard at the back of the house will lock the back entrance and join the two circling guards around the time that MacMillan starts to sneak into the study (~12:30). This is so players can pick/break the lock and get into the house in time for a potential confrontation with MacMillan; no player should be absolutely and permanently stuck outside the house once MacMillan shows up. You may modify this timeline to suit the needs of your group—though getting into the house is intended to be a puzzle, if your players are particularly frustrated, you may give them a nice opportunity to sneak in when a guard shift changes, or when a guard goes to use the bathroom, etc. <strong>Make sure all players have the opportunity to get inside the house before confronting MacMillan.</strong> Some players may intentionally stay outside, and that is okay, but encourage everyone to get into the house eventually.</p>
+                    </div>
+                </div>
+
+                <div class="subsub" id="run-in">
+                    <h4>Running into MacMillan</h4>
+
+                    <p>The players will not know this, but MacMillan is already in the house. He snuck in an hour or so before Brutus went to bed, and has been hiding in the house since. It is up to you, the Game Master, as to where exactly in the house he has been hiding. He’s disguised as a servant. That means that the players, try as they might, cannot prevent MacMillan from ever getting in. By the time they show up, he’s already lying in wait.</p>
+
+                    <div class="subsub style-3">
+                    <p>The players don’t know exactly when MacMillan will “arrive” (show up in the study, since he’s already in the house). Leave this up to chance and the players’ strategy.</p>
+                    </div>
+
+                    <p>If the players aim to arrive <em>after</em> MacMillan, they can do so easily by waiting until they see movement in the study. Waiting for someone to sneak in through the entrances won’t work, though, so if the players try that, hours will pass and they may start to wonder. At that point, MacMillan might sneak <em>out</em> and the players will have to follow him.</p>
+
+                    <p>If they want to arrive before him, they’ll need to stake out the house and sneak in. No matter what time they do this, ensure that they eventually run into MacMillan. If they arrive before he does, he shows up while they are in the study. If they arrive after (or while he is leaving), they cross paths unexpectedly. You may need to bend the rules (or fudge MacMillan’s timeline) in order to get the players to encounter him. That is okay! The most important thing is that at some point MacMillan and the players will run into each other.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter" id="what-if">
+            <h3>“What Ifs” and Important Points</h3>
+
+            <div class="subsection">
+                <p>What follows is a list of plot pieces and events that you may run into while running the second half of this adventure, when the players return to Rome to reverse heist the dagger back to its place. This includes a complete timeline of MacMillan’s heist, combat tips and tricks, etc.</p>
+
+                <div class="subsub style-6" id="guard-rp">
+                    <h4>Roleplaying the Guards</h4>
+
+                    <p>The guards are uptight and well-trained, suspicious of everyone but not particularly smart. All of them will be hesitant to believe the players (if players attempt to lie), but can be convinced if the players succeed on their rolls. If they can tell the players are trying to sneak in, they will respond with minimal force. See <strong>Combat with the Guards</strong>.</p>
+                </div>
+
+                <div class="subsub style-5" id="mac-rp">
+                    <h4>Roleplaying MacMillan</h4>
+
+                    <p>MacMillan is a slimy artifact hunter who makes his living by disrupting history without any regard for historical integrity. He hasn’t thought far enough ahead to realize that there will be a huge tear in time tomorrow; he is solely focused on taking the dagger and getting paid. He dislikes LRU because they’re too controlling, and dislikes every historical and governmental institution for the same reason. He’s in it for himself. He’s tricky, though, and cunning—or he wouldn’t have made it this far in his profession. He’s not going to be easily persuaded, and he’s going to try to weasel his way out of any confrontation. He does not want to kill the players unless there is no alternative—but he does carry a pistol and a knife in case he needs them (see MacMillan’s character sheet).</p>
+                </div>
+
+                <div class="subsub style-1" id="guard-combat">
+                    <h4>Combat with the Guards</h4>
+
+                    <p>The guards are determined to keep Brutus and family safe. If the players appear to be a danger or are caught trying to break in, the guards will fight them. Initially, the guards will only threaten the players and tell them to leave. Should they keep trying, the guards will draw weapons. Eventually, if the players make a move, are aggressive, or refuse to leave, the guards will draw blood. See the guards’ character sheet.</p>
+
+                    <ul>
+                        <li>If this battle is too loud (have players roll for stealth) or lasts more than three rounds, the guards call for backup.</li>
+                        <li>It will take their backup one round to arrive. At that point, the two circling guards will show up and join the fight.</li>
+                        <li>The guards’ objective is initially to incapacitate and tie up the players. If the fight lasts long enough for backup to arrive, their objective shifts: they now want to kill the players, who they see as fierce enemies.</li>
+                    </ul>
+
+                </div>
+
+                <div class="subsub style-2" id="mac-combat">
+                    <h4>Combat with MacMillan</h4>
+
+                    <p>Players may encounter MacMillan in a variety of locations, at a variety of points in the heist. Most likely, they will either: enter the study while MacMillan is already there, MacMillan will enter while they are there, or the players and MacMillan will have a confrontation on the street after MacMillan has already taken the dagger. If one of the players enters the library after Brutus has gone to bed, MacMillan is hiding there and will immediately pull his gun and threaten the character who has run into him. In all cases, <strong>refer to MacMillan’s character sheet for stats</strong>.</p>
+
+                    <ul>
+                        <li>MacMillan is getting paid for fetching the real dagger, so that is his singular goal. Whatever he has to do to get the dagger and flee, he will. He is not, however, likely to spot the difference between the fake dagger and the real one.</li>
+                        <li>MacMillan will threaten the players with a gun, which is in his gear, but he’s unlikely to shoot at any of them unless he is severely wounded. If he enters an Adrenaline turn, he does as much damage as he can to whoever wounded him severely.</li>
+                        <li>The players should be able to take down MacMillan without too much trouble, but they’ll have to be inventive. He wants to escape, not stay and fight, so they’ll need to stop him.</li>
+                        <li>The guards are part of this combat. Roll for their initiative (they all act on the same turn). Each turn, roll for the guards to notice the commotion in the house. If they succeed, they begin moving into the house and towards the study as fast as they can.</li>
+                    </ul>
+
+                </div>
+                
+                <div class="subsub" id="timeline">
+                    <h4>MacMillan’s Heist Timeline (before player intervention)</h5>
+
+                    <div class="subsub style-3" id="note-on-timeline">
+                        <p><strong>Note:</strong> you may change any of this, whether it is in the moment or beforehand. This heist timeline is a guide, but not a strict ruleset on how to run the adventure. Like the rest of this adventure, and the system itself, comedy and interest should come before adherence to specific rules.</p>
+                    </div>
+
+                    <p>Around midnight, Brutus goes to bed. Unbeknownst to anyone in the house, MacMillan has already snuck in. He’s hiding out in the garden, library, or elsewhere (wherever is convenient and/or funny), waiting for the house to quiet down before he tries to steal.</p>
+
+                    <p>At around 12:30 or so (you can move this to any time after Brutus goes to bed), he is convinced that the house has settled down, so he sneaks into the study. There, he takes the dagger from its ceremonial perch where Brutus laid it out and shoves it in his satchel.</p>
+
+                    <p>He returns to the courtyard, where he waits for the two circling guards to go around the front of the building. Then, because he is dressed like a servant, he bribes the guard at the back, claims he’s going out for a drink, and sneaks out the back entrance. His capsule is parked a few blocks away, so he goes around front and heads into the night.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="chapter" id="end">
+            <h3>After the Heist</h3>
+
+            <div class="subsection">
+                <p>Having succeeded in stopping MacMillan, the players return to their capsule (they may be taking MacMillan, living or dead, with them) and head back to LRU. There, Dr. Eaton greets them and shows them that the timeline is no longer in danger. They’ve done it!</p>
+
+                <p>If any of the players took Cassius’s dagger from the first trip back to Rome, narrate that they check their pocket (or wherever they put it), but the dagger is gone. Vanished into thin air, because the paradox never existed, so they never picked up the dagger. Time resolves this by disappearing the dagger, because the paradox’s resolution re-stabilizes time.</p>
+
+                <p>If the players did anything particularly paperwork-causing, like killing MacMillan or similar antics, Dr. Eaton asks them what happened. She acts exasperated, but a little amused. If the players kill MacMillan, she mentions that she’s got a lot of paperwork to fill out, but she doubts Italy will care to prosecute, since the players fixed a paradox that would’ve changed history forever and torn time apart completely.</p>
+
+                <div class="subsub style-1" id="fail">
+                    <h5>What if my players fail?</h5>
+
+                    <p>If you’re wondering about this, good for you for thinking ahead! Because this is a first mission, you don’t want your players to fail. Ideally, this module is written such that with the help of you, the GM, the players will succeed and return home triumphant.</p>
+
+                    <p>If your players completely mess things up, improvise a little! Give them a second chance, or even another trip back in time to fix the bits they messed up terribly. But in pursuit of player success, don’t be afraid to change some of the module up to make things easier, harder, or just <em>different</em>. And if you need to improvise to help your players out of a tough spot, that is okay.</p>
+                </div>
             </div>
         </div>
 
     </div>
+</div>
 </main>
+
+<script src="scripts/NEW-first-adv.js"></script>
+
 </body>
 </html>
