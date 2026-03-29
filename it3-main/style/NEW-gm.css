@@ -8,6 +8,10 @@
     margin-right: 120px;
 }
 
+.nav-menu-2 {
+    display: none;
+}
+
 .page-nav {
     position: sticky;
     top: 124.31px;
@@ -321,10 +325,120 @@ ul {
 }
 
 @media (max-width: 1500px) {
-    .compendium-page {
+    .first-adv-gm-page {
         margin-left: 20px;
         margin-right: 20px;
 
         gap: 20px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .first-adv-gm-page {
+        display: flex;
+        flex-direction: column;
+
+        .nav-grid {
+            display: none;
+        }
+
+        .nav-menu-2 {
+            display: block;
+            position: fixed;
+            top: 134.31px;
+            left: 30px;
+            
+            height: 50px;
+            width: min-content;
+
+            .hamburger-2 {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                align-self: center;
+                flex-direction: column;
+
+                padding: 5px;
+                border-radius: 5px;
+                border: 0px;
+                background-color: var(--light-gold);
+                border: 3px solid var(--light-red);
+
+                transition-duration: 0.5s;
+
+                span {
+                    background-color: var(--dark-red);
+                    height: 6px;
+                    width: 40px;
+                    border-radius: 20px;
+                    /* border: 1px solid #000000; */
+                    padding: 0;
+                    margin: 3px;
+                }
+            }
+        }
+
+        .nav-grid.expanded {
+            display: block;
+            position: fixed;
+            top: 194.31px;
+            left: 30px;
+
+            background-color: var(--light-gold);
+            border: 3px solid var(--light-red);
+
+            width: 250px;
+
+            .page-nav {
+                max-width: 100%;
+                min-width: min-content;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+
+    dl {
+        column-count: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .subsection {
+        padding: 0px 40px 0px 40px;
+    }
+
+    p, dl, h5 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    #header {
+        margin-bottom: 20px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .first-adv-gm-page {
+        margin: 0;
+
+        .heading-card {
+            display: none;
+        }
+
+        .nav-menu-2, .nav-grid.expanded {
+            left: 10px;
+        }
+
+        .nav-menu-2 {
+            top: 114.31px;
+        }
+
+        .nav-grid.expanded {
+            top: 174.31px;
+        }
     }
 }

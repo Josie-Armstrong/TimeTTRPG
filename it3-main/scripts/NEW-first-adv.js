@@ -25,3 +25,23 @@ function expandNav(index) {
     outer_navs[index].classList.toggle("expanded");
     console.log("ran");
 }
+
+// First Adv mobile nav selectors
+const ham_2 = document.querySelector(".hamburger-2");
+const page_menu = document.querySelector(".nav-grid");
+ham_2.addEventListener('click',togglePageNav);
+
+// Expand and hide the mobile nav
+function togglePageNav() {
+    let shown = page_menu.classList.toggle("expanded");
+    console.log(shown);
+
+    if(!shown) {
+        ham_2.style.transform = "rotate(0deg)";
+        ham_2.style.backgroundColor = "var(--light-gold)";
+    }
+    else {
+        ham_2.style.transform = "rotate(180deg)";
+        ham_2.style.backgroundColor = "var(--light-red)";
+    }
+}
