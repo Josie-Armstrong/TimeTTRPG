@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amarante&family=DM+Serif+Display:ital@0;1&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Faculty+Glyphic&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/gm-resources.css">
     <title>GM Resources</title>
 
 </head>
@@ -46,7 +47,10 @@
         </div>
 
         <div class="red-div">
-            <h2>The Day the Emperor Died</h2>
+            <div class="lil-header">
+                <h2>The Day the Emperor Died</h2>
+                <p><em>Everything you need to play the pre-written first adventure</em></p>
+            </div>
             <div id="gm-nav">
                 <a href="NEW-first-adv.html"><button id="adv-gm-btn">First Adventure - GM Guide</button></a>
                 <a href="compendium/player-resources.html"><button id="adv-player-btn">First Adventure - Player Resources</button></a>
@@ -60,7 +64,7 @@
             
             <div class="char-slots">
                 <div class="character" id="char-1">
-                    <h3 class="name-val" id="ch1-name-val">NPC Slot #1</h3>
+                    <h3 class="name-val" id="ch1-name-val">NPC Slot #1 (Name Here)</h3>
                     <input class="name-in" id="ch1-name-in">
 
                     <div class="abilities">
@@ -95,16 +99,41 @@
                         </div>
 
                         <div class="ability sturdy" id="ch1-sturdy">
-                            <p class="ab-val" id="ch1-abval-6">8</p>
-                            <input class="ab-in" id="ch1-abin-6" type="number" min="0" max="20">
+                            <p class="ab-val" id="sturdy-val">8</p>
+                            <input class="ab-in" id="sturdy-in" type="number" min="0" max="20">
                             <h4>STURDY</h4>
                         </div>
 
                     </div>
 
                     <div class="eccentricities">
-                        <p class="ecc-val" id="ch1-ecc">ECCENTRICITIES:</p>
+                        <h4>ECCENTRICITIES:</h4>
+                        <p class="ecc-val" id="ch1-ecc">ecc here</p>
                         <input class="ecc-in" id="ch1-ecc-in">
+                    </div>
+
+                    <div class="wounds">
+                        <h4>WOUNDS:</h4>
+                        <hr class="beneath-wounds">
+                        <div class="wound-big-div">
+                            <hr class="wound-bg">
+                            <div class="wound-div">
+                                <input type="checkbox" name="scrape" id="ch1-wound1" class="wound-check">
+                                <label for="ch1-wound1" class="wound-label">SCRAPE</label>
+                            </div>
+                            <div class="wound-div">
+                                <input type="checkbox" name="slash" id="ch1-wound2" class="wound-check">
+                                <label for="ch1-wound2" class="wound-label">SLASH</label>
+                            </div>
+                            <div class="wound-div">
+                                <input type="checkbox" name="severe" id="ch1-wound3" class="wound-check">
+                                <label for="ch1-wound3" class="wound-label">SEVERE</label>
+                            </div>
+                            <div class="wound-div">
+                                <input type="checkbox" name="critical" id="ch1-wound4" class="wound-check">
+                                <label for="ch1-wound4" class="wound-label">CRITICAL</label>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="rand-ch-controls" id="ch1-controls">
@@ -116,9 +145,36 @@
                 </div>
             </div>
         </div>
+
+        <div class="cream-div" id="dice-roller">
+            <div class="lil-header">
+                <h2>Dice Roller</h2>
+            </div>
+
+            <div class="sidebar-popout" id="roll-popout">
+                <div class="mid-popout">
+                    <h4>How many dice do you want to roll?</h4>
+                <div class="inner-popout">
+                    <label for="num_dice">Roll</label>
+                    <input type="number" placeholder="# dice" id="num-dice">
+                    <input type="number" placeholder="sides" id="sides-dice">
+                    <label for="sides_dice">-sided dice</label>
+
+                </div>
+
+                <div class="rolly-results">
+                    <h5>Result: </h5>
+                    <p id="roll-dice-result"></p>
+                </div>
+
+                <button id="roll-dice-btn">Roll Dice</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script src="scripts/mobile-nav.js"></script>
     <script src="scripts/gm-resources.js"></script>
+    <script src="scripts/roll-dice.js"></script>
 </body>
 </html>
