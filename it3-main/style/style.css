@@ -105,8 +105,9 @@ button {
     border: none;
     border-radius: 5px;
 
-    font-family: var(--h-font);
-    font-size: 1rem;
+    font-family: var(--p-font);
+    font-size: 1.2rem;
+    font-weight: bold;
 
     padding: 10px;
 

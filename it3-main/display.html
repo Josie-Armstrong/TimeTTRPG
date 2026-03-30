@@ -38,6 +38,7 @@
     <main class="disp-main">
 
         <div class="edit-sidebar">
+            <div class="inner-side">
             <div class="sn-sect" id="edit-nav">
                 <button class="blank-btn" id="s-edit" title="Edit Sheet">
                     <img alt="Edit icon" src="images/edit-icon.svg">
@@ -81,7 +82,24 @@
                 </button>
 
                 <div class="sidebar-popout" id="roll-popout">
+                    <div class="mid-popout">
+                    <h4>Roll Dice</h4>
+                    <div class="inner-popout">
+                        <label for="num_dice">Roll</label>
+                        <input type="number" placeholder="# dice" id="num-dice">
+                        <br>
+                        <input type="number" placeholder="sides" id="sides-dice">
+                        <label for="sides_dice">-sided dice</label>
+
+                    </div>
+
+                    <div class="rolly-results">
+                        <h5>Result: </h5>
+                        <p id="roll-dice-result"></p>
+                    </div>
+
                     <button id="roll-dice-btn">Roll Dice</button>
+                    </div>
                 </div>
             </div>
 
@@ -92,6 +110,7 @@
             <a class="blank-btn" id="s-adv" title="First Adventure Player Resources" href="compendium/player-resources.html" target="_blank">
                 <img alt="Edit icon" src="images/adventure.svg">
             </a>
+            </div>
 
         </div>
 
@@ -122,6 +141,7 @@
         </div>
 
         <div class="popup hide" id="upload-popup">
+            <h3>Upload Character Sheet</h3>
             <input id="char-file" type="file" accept="applications/json">
             <button id="finish-upload">Upload Character Sheet</button>
             <button id="cancel-upload">Cancel</button>
@@ -415,6 +435,7 @@
 
     <script src="scripts/mobile-nav.js"></script>
     <script src="scripts/display.js"></script>
+    <script src="scripts/roll-dice.js"></script>
 
 </body>
 </html>

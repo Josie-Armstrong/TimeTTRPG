@@ -332,12 +332,25 @@ let eccs_list = ['Acrobatics',
     'Whistling',
     'Whitewater Rafting',
     'Whittling'
-]
+];
 
-let expertise_list = ["Architecture", "Fashion", "Art", "Religion",
-    "Nature", "Language", "Politics", "Warfare", "Weaponry",
-    "Criminology", "Technology"
-]
+let expertise_list = [
+    "Architecture", "Art", "Criminology", "Fashion", "Language", "Nature", "Politics", "Religion", "Technology", "Warfare", "Weaponry"
+];
+
+let gear_list = [
+    "- A set of measuring tools (ruler, protractor, etc) and pencils, and a sketchbook\n- Basic historical map of the nearest town/city",
+    "- A set of paintbrushes and small tubes of paint/n- A set of period-appropriate pencils and pens, and a sketchbook",
+    "- A fingerprint dusting kit\n- Many, many ziploc baggies for evidence collecting\n- A magnifying glass and flashlight",
+    "- A spare set of clothing appropriate for the period (this will change by mission)\n- A small sewing kit with two needles, thread, sewing scissors, and pins\n- A small makeup kit",
+    "- A pocket dictionary for a period/place-appropriate language\n- Period-appropriate writing tools and a scroll of paper",
+    "- A bag of medicinal and poisonous herbs, berries, etc\n- A small set of garden shears",
+    "- A period/place-appropriate signet ring or other identification (check with your GM)\n- A short note of introduction from a relevant political figure (forged, of course)",
+    "- A small collection of period-appropriate religious trinkets\n- A period-appropriate religious book of your choosing",
+    "- A small recording/listening device (about the size of a quarter, one inch thick) that syncs to your phone within ~1 mile\n- A wristwatch that can remotely communicate with your time travel capsule",
+    "- A period-appropriate mid- or high-ranking officer’s uniform/badge\n- A period-appropriate weapon of your choice, non-ranged (sword, knife, etc)",
+    "- A period-appropriate weapon of your choice (set of daggers, gun/pistol, bow, sword, etc)\n- A small bag of ammunition for historical ranged weapons"
+];
 
 window.onload = on_load_page();
 
@@ -869,11 +882,12 @@ function generateRandomCharacter() {
         }
 
         eccs.push(temp_ecc);
-        ecc_text = ecc_text + eccs_list[temp_ecc];
 
-        if (i < 2) {
-            ecc_text = ecc_text + ", ";
+        if (i > 0) {
+            ecc_text = ecc_text + "\n";
         }
+
+        ecc_text = ecc_text + "- " + eccs_list[temp_ecc];
     }
 
     //console.log(talents);
@@ -886,13 +900,14 @@ function generateRandomCharacter() {
     //console.log(temp_expertise);
     character["expertise"] = temp_expertise;
 
-    // Filling in gear based on expertise
-    character["gear"] = "Check for your gear based on your expertise";
+    // Assigning gear based on expertise
+    character["gear"] = gear_list[temp_i];
 
     console.log(character);
 
     assignDisplayVals();
     assignInputVals();
+    localStorage.setItem("char_sheet", JSON.stringify(character));
 }
 
 function mobileEditToggle() {
