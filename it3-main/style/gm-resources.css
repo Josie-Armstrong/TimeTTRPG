@@ -137,6 +137,7 @@
         padding: 20px;
         width: 20%;
         min-width: 250px;
+        height: min-content;
 
         h3 {
             color: black;
@@ -278,10 +279,11 @@
             display: none;
         }
 
-        .rand-ch-controls {
+        .rand-ch-controls, .save-controls {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            gap: 5px;
 
             margin-top: 10px;
         }
@@ -407,4 +409,96 @@
             border: 3px solid var(--light-red);
             justify-self: center;
         }
+}
+
+#overwrite-warning {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 500px;
+
+    h3 {
+        font-size: 2rem;
+        margin: 0;
+        text-align: center;
     }
+
+    p {
+        margin: 0;
+    }
+}
+
+#paste-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    gap: 20px;
+
+    max-width: 90vw;
+    min-width: 30vw;
+    text-align: center;
+
+    h3 {
+        margin: 0;
+    }
+
+    button {
+        max-width: 100%;
+        align-self: center;
+        width: auto;
+        flex-grow: 1;
+    }
+
+    textarea {
+        align-self: center;
+        width: 100%;
+        min-height: 100px;
+    }
+
+    #paste-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 20px;
+    }
+}
+
+#upload-popup {
+    position: fixed;
+    width: 500px;
+    height: 30%;
+    justify-self: center;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    h3 {
+        font-size: 1.5rem;
+        margin: 0;
+        text-align: center;
+        line-height: 100%;
+    }
+
+    input[type="file"]::file-selector-button {
+        background-color: var(--light-gold);
+        border: 3px solid var(--light-red);
+        border-radius: 10px;
+        padding: 5px;
+        font-family: var(--p-font);
+        font-weight: bold;
+    }
+
+    input[type="file"]::file-selector-button:hover {
+        background-color: var(--gold);
+    }
+
+    input[type="file"] {
+        padding: 10px;
+        border: 3px solid var(--light-red);
+    }
+}

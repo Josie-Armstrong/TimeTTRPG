@@ -331,6 +331,14 @@ const wound_arr = [
     ],
 ];
 
+// Adding wound array event listeners
+for (let i = 0; i < wound_arr.length; i++) {
+    for (let j = 0; j < wound_arr[i].length; j++) {
+        let temp_index = i;
+        wound_arr[i][j].addEventListener('click', e => {checkWounds(temp_index)});
+    }
+}
+
 // BIG INPUT ARRAYS
 const name_in_arr = [
     document.querySelector("#ch1-name-in"),
@@ -490,7 +498,7 @@ let gear_list = [
 ];
 
 // Editing buttons
-let edit_btns = [
+const edit_btns = [
     document.querySelector("#ch1-edit-btn"),
     document.querySelector("#ch2-edit-btn"),
     document.querySelector("#ch3-edit-btn"),
@@ -504,6 +512,73 @@ for (let i = 0; i < edit_btns.length; i++) {
     edit_btns[i].addEventListener('click', e => {makeEdits(temp_index)});
 }
 
+// Upload, download, copy, paste btns
+const upload_btns = [
+    document.querySelector("#ch1-upload-btn"),
+    document.querySelector("#ch2-upload-btn"),
+    document.querySelector("#ch3-upload-btn"),
+    document.querySelector("#ch4-upload-btn"),
+    document.querySelector("#ch5-upload-btn")
+];
+
+const download_btns = [
+    document.querySelector("#ch1-download-btn"),
+    document.querySelector("#ch2-download-btn"),
+    document.querySelector("#ch3-download-btn"),
+    document.querySelector("#ch4-download-btn"),
+    document.querySelector("#ch5-download-btn")
+];
+
+const copy_btns = [
+    document.querySelector("#ch1-copy-btn"),
+    document.querySelector("#ch2-copy-btn"),
+    document.querySelector("#ch3-copy-btn"),
+    document.querySelector("#ch4-copy-btn"),
+    document.querySelector("#ch5-copy-btn")
+];
+
+const paste_btns = [
+    document.querySelector("#ch1-paste-btn"),
+    document.querySelector("#ch2-paste-btn"),
+    document.querySelector("#ch3-paste-btn"),
+    document.querySelector("#ch4-paste-btn"),
+    document.querySelector("#ch5-paste-btn")
+];
+
+// Event listeners for upload/download/etc btns
+for (let i = 0; i < upload_btns.length; i++) {
+    let temp_i = i;
+    upload_btns[i].addEventListener('click', e => {toggleUploadPopup(temp_i)});
+}
+
+for (let i = 0; i < download_btns.length; i++) {
+    let temp_i = i;
+    download_btns[i].addEventListener('click', e => {downloadFile(temp_i)});
+}
+
+for (let i = 0; i < copy_btns.length; i++) {
+    let temp_i = i;
+    copy_btns[i].addEventListener('click', e => {copyCharacterJSON(temp_i)});
+}
+
+for (let i = 0; i < paste_btns.length; i++) {
+    let temp_i = i;
+    paste_btns[i].addEventListener('click', e => {togglePasteWindow(temp_i)});
+}
+
+// Transfer stuff needed for uploading
+const cancel_up_btn = document.querySelector("#cancel-upload");
+const finish_upload = document.querySelector("#finish-upload");
+cancel_up_btn.addEventListener('click',toggleUploadPopup(0));
+finish_upload.addEventListener('click', () => {checkIfSure("upload")});
+
+let uploading = false;
+let upload_event;
+let event_type = "none";
+let paste_string = "";
+
+window.onload = on_load_page();
+
 // Loading locally stored characters
 function on_load_page() {
     if (localStorage.getItem("char_slots") != null) {
@@ -511,7 +586,7 @@ function on_load_page() {
         let temp_chars = JSON.parse(localStorage.getItem("char_slots"));
         console.log(temp_chars);
 
-        for (let i = 0; i < temp_chars.length; i++) {
+        for (let i = 0; i < num_chars; i++) {
             char_arr[i] = temp_chars[i];
         }
         // character = JSON.parse(localStorage.getItem("char_sheet"));
@@ -520,7 +595,7 @@ function on_load_page() {
     assignDisplayVals();
     assignInputVals();
 
-    console.log(char_arr);
+    // console.log(char_arr);
 }
 
 // Update input fields to reflect the char display vals
@@ -559,11 +634,16 @@ function assignDisplayVals() {
 
         // Abilities
         for (let j = 0; j < ab_val_arr.length; j++) {
-            ab_val_arr[j].textContent = char_arr[i]["abilities"][j];
+            ab_val_arr[i][j].textContent = char_arr[i]["abilities"][j];
         }
 
         // Name
-        name_val_arr[i].textContent = char_arr[i]["header"][0];
+        if (char_arr[i]["header"][0] != "") {
+            name_val_arr[i].textContent = char_arr[i]["header"][0];
+        }
+        else {
+            name_val_arr[i].textContent = default_name_arr[i];
+        }
 
         // Sturdy
         sturdy_val_arr[i].textContent = char_arr[i]["header"][4];
@@ -599,12 +679,14 @@ function assignWounds() {
 function checkWounds(index) {
 
     for (let i = 0; i < wound_arr[index].length; i++) {
+        // console.log(wound_arr[index][i]);
         if (wound_arr[index][i].checked) {
             char_arr[index]["wounds"][i] = true;
         }
         else {
             char_arr[index]["wounds"][i] = false;
         }
+        console.log(char_arr[index]);
     }
 
     localStorage.setItem("char_slots", JSON.stringify(char_arr));

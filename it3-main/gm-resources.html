@@ -46,6 +46,31 @@
             </em></p>
         </div>
 
+        <div class="popup hide" id="paste-popup">
+            <h3>Paste your character JSON here:</h3>
+            <textarea placeholder="Paste here" id="paste-textarea"></textarea>
+
+            <div id="paste-buttons">
+                <button id="confirm-paste-btn">Paste Character JSON</button>
+                <button id="cancel-paste">Cancel</button>
+            </div>
+        </div>
+
+        <div class="popup hide" id="upload-popup">
+            <h3>Upload Character Sheet</h3>
+            <input id="char-file" type="file" accept="applications/json">
+            <button id="finish-upload">Upload Character Sheet</button>
+            <button id="cancel-upload">Cancel</button>
+        </div>
+
+        <div class="popup hide" id="overwrite-warning">
+            <h3>WARNING</h3>
+            <p>You are about to overwrite your existing character. Anything currently entered in this page will be lost. Are you sure?</p>
+            <button id="cancel-sure">Cancel</button>
+            <button id="download-curr-char">Download Current Character</button>
+            <button id="im-sure">I'm Sure, Overwrite My Character</button>
+        </div>
+
         <div class="red-div">
             <div class="lil-header">
                 <h2>The Day the Emperor Died</h2>
@@ -142,6 +167,13 @@
                         <button id="ch1-edit-btn">Edit</button>
                     </div>
 
+                    <div class="save-controls">
+                        <button id="ch1-upload-btn">Upload</button>
+                        <button id="ch1-download-btn">Download</button>
+                        <button id="ch1-copy-btn">Copy</button>
+                        <button id="ch1-paste-btn">Paste</button>
+                    </div>
+
                 </div>
 
                 <div class="character" id="ch2">
@@ -221,6 +253,13 @@
                         <button id="ch2-rand-btn">Roll Random Character</button>
                         <button id="ch2-reset-btn">Reset</button>
                         <button id="ch2-edit-btn">Edit</button>
+                    </div>
+
+                    <div class="save-controls">
+                        <button id="ch2-upload-btn">Upload</button>
+                        <button id="ch2-download-btn">Download</button>
+                        <button id="ch2-copy-btn">Copy</button>
+                        <button id="ch2-paste-btn">Paste</button>
                     </div>
 
                 </div>
@@ -304,6 +343,13 @@
                         <button id="ch3-edit-btn">Edit</button>
                     </div>
 
+                    <div class="save-controls">
+                        <button id="ch3-upload-btn">Upload</button>
+                        <button id="ch3-download-btn">Download</button>
+                        <button id="ch3-copy-btn">Copy</button>
+                        <button id="ch3-paste-btn">Paste</button>
+                    </div>
+
                 </div>
 
                 <div class="character" id="ch4">
@@ -385,6 +431,13 @@
                         <button id="ch4-edit-btn">Edit</button>
                     </div>
 
+                    <div class="save-controls">
+                        <button id="ch4-upload-btn">Upload</button>
+                        <button id="ch4-download-btn">Download</button>
+                        <button id="ch4-copy-btn">Copy</button>
+                        <button id="ch4-paste-btn">Paste</button>
+                    </div>
+
                 </div>
 
                 <div class="character" id="ch5">
@@ -464,6 +517,13 @@
                         <button id="ch5-rand-btn">Roll Random Character</button>
                         <button id="ch5-reset-btn">Reset</button>
                         <button id="ch5-edit-btn">Edit</button>
+                    </div>
+
+                    <div class="save-controls">
+                        <button id="ch5-upload-btn">Upload</button>
+                        <button id="ch5-download-btn">Download</button>
+                        <button id="ch5-copy-btn">Copy</button>
+                        <button id="ch5-paste-btn">Paste</button>
                     </div>
 
                 </div>
