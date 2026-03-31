@@ -512,6 +512,36 @@ for (let i = 0; i < edit_btns.length; i++) {
     edit_btns[i].addEventListener('click', e => {makeEdits(temp_index)});
 }
 
+// Reset btns
+const clear_btns = [
+    document.querySelector("#ch1-reset-btn"),
+    document.querySelector("#ch2-reset-btn"),
+    document.querySelector("#ch3-reset-btn"),
+    document.querySelector("#ch4-reset-btn"),
+    document.querySelector("#ch5-reset-btn")
+]
+
+// Reset btns event listeners
+for (let i = 0; i < clear_btns.length; i++) {
+    let temp_i = i;
+    clear_btns[i].addEventListener('click', () => {checkIfSure("clear", temp_i)});
+}
+
+// Random generator btns
+const rand_btns = [
+    document.querySelector("#ch1-rand-btn"),
+    document.querySelector("#ch2-rand-btn"),
+    document.querySelector("#ch3-rand-btn"),
+    document.querySelector("#ch4-rand-btn"),
+    document.querySelector("#ch5-rand-btn")
+]
+
+// Random generator btns event listeners
+for (let i = 0; i < rand_btns.length; i++) {
+    let temp_i = i;
+    rand_btns[i].addEventListener('click', () => {checkIfSure("rand char", temp_i)});
+}
+
 // Upload, download, copy, paste btns
 const upload_btns = [
     document.querySelector("#ch1-upload-btn"),
@@ -566,16 +596,39 @@ for (let i = 0; i < paste_btns.length; i++) {
     paste_btns[i].addEventListener('click', e => {togglePasteWindow(temp_i)});
 }
 
-// Transfer stuff needed for uploading
-const cancel_up_btn = document.querySelector("#cancel-upload");
-const finish_upload = document.querySelector("#finish-upload");
-cancel_up_btn.addEventListener('click',toggleUploadPopup(0));
-finish_upload.addEventListener('click', () => {checkIfSure("upload")});
-
 let uploading = false;
 let upload_event;
 let event_type = "none";
+let event_index = -1;
 let paste_string = "";
+
+// Transfer stuff needed for uploading
+const cancel_up_btn = document.querySelector("#cancel-upload");
+const finish_upload = document.querySelector("#finish-upload");
+cancel_up_btn.addEventListener('click',() => {toggleUploadPopup(-1)});
+finish_upload.addEventListener('click', () => {checkIfSure("upload", event_index)});
+document.getElementById("char-file").addEventListener('change', (event) => {assignFile(event)});
+document.getElementById("confirm-paste-btn").addEventListener('click',() => {checkIfSure("paste")})
+document.getElementById("cancel-paste").addEventListener('click', () => {togglePasteWindow(-1)});
+
+// "Are you sure" warning menu stuff
+const overwrite_warning = document.querySelector("#overwrite-warning");
+const cancel_sure_btn = document.querySelector("#cancel-sure");
+const download_sure_btn = document.querySelector("#download-curr-char");
+const im_sure_btn = document.querySelector("#im-sure");
+const download_alt_all_btn = document.querySelector("#download-alt-btn");
+cancel_sure_btn.addEventListener('click', cancelOverwrite);
+download_sure_btn.addEventListener('click', e => {downloadFile(event_index)});
+im_sure_btn.addEventListener('click', executeOverwrite);
+download_alt_all_btn.addEventListener('click', downloadAll);
+
+// Subheader menu for "all" btns
+const download_all_btn = document.querySelector("#download-all-btn");
+download_all_btn.addEventListener('click', downloadAll);
+const clear_all_btn = document.querySelector("#clear-all-btn");
+clear_all_btn.addEventListener('click', () => {checkIfSure("clear all", -1)});
+const rand_all_btn = document.querySelector("#rand-all-btn");
+rand_all_btn.addEventListener('click', () => {checkIfSure("rand all", -1)});
 
 window.onload = on_load_page();
 
@@ -756,4 +809,493 @@ function saveEdits(index) {
     // console.log(character);
 
     return true;
+}
+
+// Downloading the JS file
+function downloadFile(index, content, name, type) {
+    if(!editing_arr[index]) {
+        // Making the blob for json export
+        const new_content = JSON.stringify(char_arr[index], null, 2)
+        const file = new Blob([new_content], { type: "application/json" });
+        // console.log(file);
+
+        // Placeholder element to get the download to happen
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(file);
+        a.download = "CharacterSheet.json";
+        a.click();
+    }
+    else {
+        let temp_message = "You must exit out of editing mode first."
+        window.alert(temp_message);
+    }
+
+}
+
+// For upload show/hide
+function toggleUploadPopup(index) {
+    // console.log("toggled");
+
+    document.getElementById("upload-popup").classList.toggle("hide");
+    
+    // If we are about to upload
+    if (!document.getElementById("upload-popup").classList.contains("hide")) {
+        event_index = index;
+        uploading = true;
+    }
+
+    if(editing_arr[index]) {
+        let temp_message = "You must exit out of editing mode first.";
+        window.alert(temp_message);
+    }
+
+    if (!document.getElementById("paste-popup").classList.contains("hide")) {
+        document.getElementById("paste-popup").classList.toggle("hide");
+        console.log("toggled");
+    }
+    if (!document.getElementById("overwrite-warning").classList.contains("hide")) {
+        document.getElementById("overwrite-warning").classList.toggle("hide");
+    }
+}
+
+// Happens when user selects a file, stores the event for later handling
+function assignFile(event) {
+    upload_event = event;
+    // console.log(event);
+}
+
+// Opens the "are you sure" warning window and sets event type
+function checkIfSure(event_t, index) {
+    event_type = event_t;
+    
+    if (event_type == "clear" || event_type == "rand char") {
+        event_index = index;
+    }
+
+    if (event_type == "clear all" || event_type == "rand all") {
+        if(!download_sure_btn.classList.contains("hide")) {
+            download_sure_btn.classList.toggle("hide");
+        }
+        if(download_alt_all_btn.classList.contains("hide")) {
+            download_alt_all_btn.classList.toggle("hide")
+        }
+    }
+    else {
+        if(download_sure_btn.classList.contains("hide")) {
+            download_sure_btn.classList.toggle("hide");
+        }
+        if(!download_alt_all_btn.classList.contains("hide")) {
+            download_alt_all_btn.classList.toggle("hide")
+        }
+    }
+
+    overwrite_warning.classList.toggle("hide");
+}
+
+// Closes popup windows
+function cancelOverwrite() {
+    event_index = -1;
+
+    // checks if we need to hide the upload menu or not
+    if(!document.getElementById("upload-popup").classList.contains("hide")) {
+        document.getElementById("upload-popup").classList.toggle("hide");
+    }
+
+    overwrite_warning.classList.toggle("hide");
+}
+
+// If user clicks "I'm sure," executes the relevant function
+function executeOverwrite() {
+    overwrite_warning.classList.toggle("hide");
+    // console.log(overwrite_warning.classList);
+
+    if (event_type == "upload") {
+        uploadFile();
+        uploading = false;
+    }
+    else if (event_type == "clear") {
+        clearStoredCharacter(event_index);
+    }
+    else if (event_type == "rand char") {
+        generateRandomCharacter(event_index);
+    }
+    else if (event_type == "paste") {
+        paste_string = document.getElementById("paste-textarea").value;
+        pasteCharacterJSON();
+        // TODO: Add call to paste function once that is done
+    }
+    else if (event_type == "clear all") {
+        clearAll();
+    }
+    else if (event_type == "rand all") {
+        randomizeAll();
+    }
+}
+
+// Uses the file that user has selected, tries to import as character sheet
+function uploadFile() {
+    if(!editing_arr[event_index]) {
+        try {
+            let files = upload_event.target.files;
+
+            // console.log(files);
+
+            if(!files.length) {
+                alert("No file selected");
+                return;
+            }
+
+            let file = files[0];
+            let reader = new FileReader();
+
+            // Check for file type
+            if (file.type == "application/json") {
+
+                reader.onload = (event) => {
+                    // Checks for valid sheet
+                    checkValidCharSheet(JSON.parse(reader.result));
+                    // console.log("Character", character)
+                };
+
+                // This is needed to get the onload thing to run for the reader
+                let temp = reader.readAsText(file);
+            }
+            else {
+                window.alert("Please select a JSON file.")
+            }
+            
+        }
+        catch (err) {
+            console.log(err);
+            window.alert("There was a problem with your file upload. Please try again.");
+        }
+    }
+    else {
+        let temp_message = "You must exit out of editing mode first.";
+        window.alert(temp_message);
+    }
+}
+
+// Checking that the JSON file is actually a character sheet
+function checkValidCharSheet(char_json) {
+    try {
+        if (char_json["valid_sheet"]) {
+            console.log("This is a valid character sheet");
+            char_arr[event_index] = char_json;
+            console.log(char_arr[event_index]);
+
+            replaceCharSheet(event_index);
+        }
+        else {
+            window.alert("This is not a valid character sheet. Please try again.");
+        }
+    }
+    catch (err) {
+        window.alert("This is not a valid character sheet. Please try again.")
+    }
+}
+
+// After upload: parse int for char abilities and update display
+function replaceCharSheet(index) {
+    try {
+
+        // abilities (as ints)
+        for (let i = 0; i < ab_val_arr[index].length; i++) {
+            let temp_val = char_arr[index]["abilities"][i];
+            temp_val = parseInt(temp_val);
+            char_arr[index]["abilities"][i] = temp_val;
+            // console.log(character["abilities"][i]);
+        }
+
+        // sturdy (as int)
+        let sturdy_val = char_arr[index]["header"][4]
+        sturdy_val = parseInt(sturdy_val);
+        char_arr[index]["header"][4] = sturdy_val;
+
+        // console.log("This is your character", character);
+
+        assignDisplayVals();
+        assignInputVals();
+        localStorage.setItem("char_slots", JSON.stringify(char_arr));
+
+        // Hiding upload popup if it is shown
+        if (!document.getElementById("upload-popup").classList.contains("hide")) {
+            toggleUploadPopup();
+        }
+    }
+    catch (err) {
+        window.alert("This is not a valid character sheet. Please try again.");
+    }
+}
+
+// Literally just clears character from local storage
+function clearStoredCharacter(index) {
+
+    
+    char_arr[index] = {
+
+        "valid_sheet": true,
+
+        "header": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: 0
+        },
+
+        "wounds": {
+            0: false, 1: false, 2: false, 3: false
+        },
+
+        "abilities": {
+            0: 0,
+            1: 0,
+            2: 0,
+            3: 0,
+            4: 0
+        },
+
+        "eccentricities": "",
+
+        "expertise": "",
+
+        "background": "",
+
+        "gear": "",
+
+        "notes": ""
+
+    }
+
+    localStorage.setItem("char_slots", JSON.stringify(char_arr));
+
+    assignDisplayVals();
+    assignInputVals();
+
+    event_index = -1;
+}
+
+function copyCharacterJSON(index) {
+    try {
+        const type = "text/plain";
+        const temp_text = JSON.stringify(char_arr[index]);
+        // console.log(temp_text);
+
+        const clip_data = {
+            [type]: temp_text
+        };
+
+        const clipboard_item = new ClipboardItem(clip_data);
+        navigator.clipboard.write([clipboard_item]);
+
+        copy_btns[index].textContent = "Copied!"
+        // copy_btns[index].style.fontSize = "0.5rem"
+        setTimeout(() => {
+            copy_btns[index].textContent = "Copy";
+            // copy_btns[index].style.fontSize = "0.8rem"
+            }, 2000);
+    }
+    catch (err) {
+        console.log(err);
+    }
+
+}
+
+function togglePasteWindow(index) {
+    event_index = index;
+    document.getElementById("paste-popup").classList.toggle("hide");
+    document.getElementById("paste-textarea").value = "";
+
+    if (!document.getElementById("upload-popup").classList.contains("hide")) {
+        document.getElementById("upload-popup").classList.toggle("hide");
+        // console.log("toggled");
+    }
+    if (!document.getElementById("overwrite-warning").classList.contains("hide")) {
+        document.getElementById("overwrite-warning").classList.toggle("hide");
+    }
+}
+
+function pasteCharacterJSON() {
+    console.log(paste_string);
+
+    try {
+        let test_json = JSON.parse(paste_string);
+        if (checkValidCharSheet(test_json)) {
+            replaceCharSheet(event_index);
+        }
+    }
+    catch (err) {
+        window.alert("This is not a valid character sheet.")
+    }
+    togglePasteWindow();
+}
+
+function downloadAll() {
+    for (let i = 0; i < num_chars; i++) {
+        downloadFile(i);
+    }
+}
+
+function clearAll() {
+
+    for (let i = 0; i < num_chars; i++) {
+        char_arr[i] = {
+
+            "valid_sheet": true,
+
+            "header": {
+                0: "",
+                1: "",
+                2: "",
+                3: "",
+                4: 0
+            },
+
+            "wounds": {
+                0: false, 1: false, 2: false, 3: false
+            },
+
+            "abilities": {
+                0: 0,
+                1: 0,
+                2: 0,
+                3: 0,
+                4: 0
+            },
+
+            "eccentricities": "",
+
+            "expertise": "",
+
+            "background": "",
+
+            "gear": "",
+
+            "notes": ""
+
+        }
+    }
+
+    localStorage.setItem("char_slots", JSON.stringify(char_arr));
+
+    assignDisplayVals();
+    assignInputVals();
+
+    event_index = -1;
+}
+
+function generateRandomCharacter(index) {
+    clearStoredCharacter(index);
+
+    // Generating abilities
+    for (let i = 0; i < 5; i++) {
+        let med_roll = 0;
+        
+        // While med_roll is not a valid score, keep rolling
+        while (med_roll < 3 || med_roll > 18) {
+
+            let roll = [];
+
+            for (let j = 0; j < 3; j++) {
+                let temp_roll = Math.floor(Math.random() * 21);
+                
+                roll.push(temp_roll);
+            }
+
+            // Roll 0, 1, and 2 in order as median
+            if ((roll[0] <= roll[1] && roll[0] >= roll[2]) || (roll[0] >= roll[1] && roll[0] <= roll[2])) {
+                med_roll = roll[0];
+            }
+            else if ((roll[1] <= roll[0] && roll[1] >= roll[2]) || (roll[1] >= roll[0] && roll[1] <= roll[2])) {
+                med_roll = roll[1];
+            }
+            else if ((roll[2] <= roll[0] && roll[2] >= roll[1]) || (roll[2] >= roll[0] && roll[2] <= roll[1])) {
+                med_roll = roll[2];
+            }
+
+            // console.log("Rolls: ", roll[0], ", ", roll[1], ", ", roll[2]);
+            // console.log("Median roll: ", med_roll);
+
+        }
+
+        char_arr[index]["abilities"][i] = med_roll;
+        med_roll = 0;
+    }
+
+    // Generating Sturdy
+    let sturdy_roll = 0;
+
+    while (sturdy_roll < 3 || sturdy_roll > 18) {
+
+        let roll = [];
+
+        for (let j = 0; j < 3; j++) {
+            let temp_roll = Math.floor(Math.random() * 21);
+            
+            roll.push(temp_roll);
+        }
+
+        // Roll 0, 1, and 2 in order as median
+        if ((roll[0] <= roll[1] && roll[0] >= roll[2]) || (roll[0] >= roll[1] && roll[0] <= roll[2])) {
+            sturdy_roll = roll[0];
+        }
+        else if ((roll[1] <= roll[0] && roll[1] >= roll[2]) || (roll[1] >= roll[0] && roll[1] <= roll[2])) {
+            sturdy_roll = roll[1];
+        }
+        else if ((roll[2] <= roll[0] && roll[2] >= roll[1]) || (roll[2] >= roll[0] && roll[2] <= roll[1])) {
+            sturdy_roll = roll[2];
+        }
+
+        // console.log("Rolls: ", roll[0], ", ", roll[1], ", ", roll[2]);
+        // console.log("Sturdy roll: ", sturdy_roll);
+
+    }
+
+    char_arr[index]["header"][4] = sturdy_roll;
+
+    // Generating Talents
+    let ecc_text = "";
+    let eccs = [];
+
+    for (let i = 0; i < 3; i++) {
+        let temp_ecc = Math.floor(Math.random() * eccs_list.length);
+
+        while (eccs.includes(temp_ecc)) {
+            temp_ecc = Math.floor(Math.random() * eccs_list.length);
+        }
+
+        eccs.push(temp_ecc);
+
+        if (i > 0) {
+            ecc_text = ecc_text + "\n";
+        }
+
+        ecc_text = ecc_text + "- " + eccs_list[temp_ecc];
+    }
+
+    //console.log(talents);
+    char_arr[index]["eccentricities"] = ecc_text;
+
+    // Generating Expertise
+    let temp_i = Math.floor(Math.random() * 11);
+    let temp_expertise = expertise_list[temp_i];
+    //console.log(temp_i);
+    //console.log(temp_expertise);
+    char_arr[index]["expertise"] = temp_expertise;
+
+    // Assigning gear based on expertise
+    char_arr[index]["gear"] = gear_list[temp_i];
+
+    // console.log(char_arr[index]);
+
+    assignDisplayVals();
+    assignInputVals();
+    localStorage.setItem("char_slots", JSON.stringify(char_arr));
+}
+
+function randomizeAll() {
+    for (let i = 0; i < num_chars; i++) {
+        generateRandomCharacter(i);
+    }
 }
