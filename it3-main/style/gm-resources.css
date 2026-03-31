@@ -123,8 +123,10 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 20px;
         padding: 20px;
+
+        justify-content: center;
     }
 
     .character {
@@ -176,8 +178,6 @@
         }
 
         .eccentricities {
-            display: flex;
-            gap: 8px;
 
             border: 3px solid var(--light-red);
             border-radius: 8px;
@@ -204,6 +204,7 @@
                 font-size: 0.8rem;
                 text-align: center;
                 font-weight: bold;
+                margin-bottom: 0;
             }
 
             label {
@@ -216,6 +217,7 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr;
                 justify-content: space-evenly;
+                position: relative;
             }
 
             .wound-div {
@@ -256,14 +258,19 @@
 
             }
 
-            .wound-bg {
-                border: 10px solid var(--light-red);
-                width: 100%;
+            .beneath-wounds {
+                color: var(--light-red);
+                border: 1px solid var(--light-red);
+                margin: 0;
+                margin-bottom: 5px;
+            }
 
+            .wound-bg {
                 position: absolute;
-                top: 3px;
-                left: 0px;
-                text-align: center;
+                border: 2px solid var(--light-red);
+                top: 7px;
+                left: 10%;
+                width: 76%;
             }
         }
 
@@ -309,11 +316,26 @@
 
     .character.edit {
         .ab-in, .ecc-in, .name-in {
-            display: none;
+            display: block;
+            text-align: center;
+            justify-self: center;
+            font-family: var(--mono-font);
+            font-size: 1rem;
+            padding: 0;
+            margin: 2px;
+        }
+
+        .ecc-in {
+            text-align: left;
+            justify-self: left;
+            max-width: 100%;
+            width: calc(100% - 8px);
+            font-size: 0.8rem;
+            overflow: scroll;
         }
 
         .ab-val, .ecc-val, .name-val {
-            display: block;
+            display: none;
         }
     }
 }

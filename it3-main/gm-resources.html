@@ -63,7 +63,7 @@
             </div>
             
             <div class="char-slots">
-                <div class="character" id="char-1">
+                <div class="character" id="ch1">
                     <h3 class="name-val" id="ch1-name-val">NPC Slot #1 (Name Here)</h3>
                     <input class="name-in" id="ch1-name-in">
 
@@ -99,8 +99,8 @@
                         </div>
 
                         <div class="ability sturdy" id="ch1-sturdy">
-                            <p class="ab-val" id="sturdy-val">8</p>
-                            <input class="ab-in" id="sturdy-in" type="number" min="0" max="20">
+                            <p class="ab-val" id="ch1-sturdy-val">8</p>
+                            <input class="ab-in" id="ch1-sturdy-in" type="number" min="0" max="20">
                             <h4>STURDY</h4>
                         </div>
 
@@ -108,8 +108,8 @@
 
                     <div class="eccentricities">
                         <h4>ECCENTRICITIES:</h4>
-                        <p class="ecc-val" id="ch1-ecc">ecc here</p>
-                        <input class="ecc-in" id="ch1-ecc-in">
+                        <p class="ecc-val" id="ch1-ecc-val">ecc here</p>
+                        <textarea class="ecc-in" id="ch1-ecc-in"></textarea>
                     </div>
 
                     <div class="wounds">
@@ -140,6 +140,330 @@
                         <button id="ch1-rand-btn">Roll Random Character</button>
                         <button id="ch1-reset-btn">Reset</button>
                         <button id="ch1-edit-btn">Edit</button>
+                    </div>
+
+                </div>
+
+                <div class="character" id="ch2">
+                    <h3 class="name-val" id="ch2-name-val">NPC Slot #1 (Name Here)</h3>
+                    <input class="name-in" id="ch2-name-in">
+
+                    <div class="abilities">
+                        <div class="ability" id="ch2-brawn">
+                            <p class="ab-val" id="ch2-abval-1">8</p>
+                            <input class="ab-in" id="ch2-abin-1" type="number" min="0" max="20">
+                            <h4>BRAWN</h4>
+                        </div>
+
+                        <div class="ability" id="ch2-agility">
+                            <p class="ab-val" id="ch2-abval-2">8</p>
+                            <input class="ab-in" id="ch2-abin-2" type="number" min="0" max="20">
+                            <h4>AGILITY</h4>
+                        </div>
+
+                        <div class="ability" id="ch2-wits">
+                            <p class="ab-val" id="ch2-abval-3">8</p>
+                            <input class="ab-in" id="ch2-abin-3" type="number" min="0" max="20">
+                            <h4>WITS</h4>
+                        </div>
+
+                        <div class="ability" id="ch2-charm">
+                            <p class="ab-val" id="ch2-abval-4">8</p>
+                            <input class="ab-in" id="ch2-abin-4" type="number" min="0" max="20">
+                            <h4>CHARM</h4>
+                        </div>
+
+                        <div class="ability" id="ch2-aware">
+                            <p class="ab-val" id="ch2-abval-5">8</p>
+                            <input class="ab-in" id="ch2-abin-5" type="number" min="0" max="20">
+                            <h4>AWARE</h4>
+                        </div>
+
+                        <div class="ability sturdy" id="ch2-sturdy">
+                            <p class="ab-val" id="ch2-sturdy-val">8</p>
+                            <input class="ab-in" id="ch2-sturdy-in" type="number" min="0" max="20">
+                            <h4>STURDY</h4>
+                        </div>
+
+                    </div>
+
+                    <div class="eccentricities">
+                        <h4>ECCENTRICITIES:</h4>
+                        <p class="ecc-val" id="ch2-ecc-val">ecc here</p>
+                        <textarea class="ecc-in" id="ch2-ecc-in"></textarea>
+                    </div>
+
+                    <div class="wounds">
+                        <h4>WOUNDS:</h4>
+                        <hr class="beneath-wounds">
+                        <div class="wound-big-div">
+                            <hr class="wound-bg">
+                            <div class="wound-div">
+                                <input type="checkbox" name="scrape" id="ch2-wound1" class="wound-check">
+                                <label for="ch2-wound1" class="wound-label">SCRAPE</label>
+                            </div>
+                            <div class="wound-div">
+                                <input type="checkbox" name="slash" id="ch2-wound2" class="wound-check">
+                                <label for="ch2-wound2" class="wound-label">SLASH</label>
+                            </div>
+                            <div class="wound-div">
+                                <input type="checkbox" name="severe" id="ch2-wound3" class="wound-check">
+                                <label for="ch2-wound3" class="wound-label">SEVERE</label>
+                            </div>
+                            <div class="wound-div">
+                                <input type="checkbox" name="critical" id="ch2-wound4" class="wound-check">
+                                <label for="ch2-wound4" class="wound-label">CRITICAL</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rand-ch-controls" id="ch2-controls">
+                        <button id="ch2-rand-btn">Roll Random Character</button>
+                        <button id="ch2-reset-btn">Reset</button>
+                        <button id="ch2-edit-btn">Edit</button>
+                    </div>
+
+                </div>
+
+                <div class="character" id="ch3">
+                    <h3 class="name-val" id="ch3-name-val">NPC Slot #1 (Name Here)</h3>
+                    <input class="name-in" id="ch3-name-in">
+
+                    <div class="abilities">
+                        <div class="ability" id="ch3-brawn">
+                            <p class="ab-val" id="ch3-abval-1">8</p>
+                            <input class="ab-in" id="ch3-abin-1" type="number" min="0" max="20">
+                            <h4>BRAWN</h4>
+                        </div>
+
+                        <div class="ability" id="ch3-agility">
+                            <p class="ab-val" id="ch3-abval-2">8</p>
+                            <input class="ab-in" id="ch3-abin-2" type="number" min="0" max="20">
+                            <h4>AGILITY</h4>
+                        </div>
+
+                        <div class="ability" id="ch3-wits">
+                            <p class="ab-val" id="ch3-abval-3">8</p>
+                            <input class="ab-in" id="ch3-abin-3" type="number" min="0" max="20">
+                            <h4>WITS</h4>
+                        </div>
+
+                        <div class="ability" id="ch3-charm">
+                            <p class="ab-val" id="ch3-abval-4">8</p>
+                            <input class="ab-in" id="ch3-abin-4" type="number" min="0" max="20">
+                            <h4>CHARM</h4>
+                        </div>
+
+                        <div class="ability" id="ch3-aware">
+                            <p class="ab-val" id="ch3-abval-5">8</p>
+                            <input class="ab-in" id="ch3-abin-5" type="number" min="0" max="20">
+                            <h4>AWARE</h4>
+                        </div>
+
+                        <div class="ability sturdy" id="ch3-sturdy">
+                            <p class="ab-val" id="ch3-sturdy-val">8</p>
+                            <input class="ab-in" id="ch3-sturdy-in" type="number" min="0" max="20">
+                            <h4>STURDY</h4>
+                        </div>
+
+                    </div>
+
+                    <div class="eccentricities">
+                        <h4>ECCENTRICITIES:</h4>
+                        <p class="ecc-val" id="ch3-ecc-val">ecc here</p>
+                        <textarea class="ecc-in" id="ch3-ecc-in"></textarea>
+                    </div>
+
+                    <div class="wounds">
+                        <h4>WOUNDS:</h4>
+                        <hr class="beneath-wounds">
+                        <div class="wound-big-div">
+                            <hr class="wound-bg">
+                            <div class="wound-div">
+                                <input type="checkbox" name="scrape" id="ch3-wound1" class="wound-check">
+                                <label for="ch3-wound1" class="wound-label">SCRAPE</label>
+                            </div>
+                            <div class="wound-div">
+                                <input type="checkbox" name="slash" id="ch3-wound2" class="wound-check">
+                                <label for="ch3-wound2" class="wound-label">SLASH</label>
+                            </div>
+                            <div class="wound-div">
+                                <input type="checkbox" name="severe" id="ch3-wound3" class="wound-check">
+                                <label for="ch3-wound3" class="wound-label">SEVERE</label>
+                            </div>
+                            <div class="wound-div">
+                                <input type="checkbox" name="critical" id="ch3-wound4" class="wound-check">
+                                <label for="ch3-wound4" class="wound-label">CRITICAL</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rand-ch-controls" id="ch3-controls">
+                        <button id="ch3-rand-btn">Roll Random Character</button>
+                        <button id="ch3-reset-btn">Reset</button>
+                        <button id="ch3-edit-btn">Edit</button>
+                    </div>
+
+                </div>
+
+                <div class="character" id="ch4">
+                    <h3 class="name-val" id="ch4-name-val">NPC Slot #1 (Name Here)</h3>
+                    <input class="name-in" id="ch4-name-in">
+
+                    <div class="abilities">
+                        <div class="ability" id="ch4-brawn">
+                            <p class="ab-val" id="ch4-abval-1">8</p>
+                            <input class="ab-in" id="ch4-abin-1" type="number" min="0" max="20">
+                            <h4>BRAWN</h4>
+                        </div>
+
+                        <div class="ability" id="ch4-agility">
+                            <p class="ab-val" id="ch4-abval-2">8</p>
+                            <input class="ab-in" id="ch4-abin-2" type="number" min="0" max="20">
+                            <h4>AGILITY</h4>
+                        </div>
+
+                        <div class="ability" id="ch4-wits">
+                            <p class="ab-val" id="ch4-abval-3">8</p>
+                            <input class="ab-in" id="ch4-abin-3" type="number" min="0" max="20">
+                            <h4>WITS</h4>
+                        </div>
+
+                        <div class="ability" id="ch4-charm">
+                            <p class="ab-val" id="ch4-abval-4">8</p>
+                            <input class="ab-in" id="ch4-abin-4" type="number" min="0" max="20">
+                            <h4>CHARM</h4>
+                        </div>
+
+                        <div class="ability" id="ch4-aware">
+                            <p class="ab-val" id="ch4-abval-5">8</p>
+                            <input class="ab-in" id="ch4-abin-5" type="number" min="0" max="20">
+                            <h4>AWARE</h4>
+                        </div>
+
+                        <div class="ability sturdy" id="ch4-sturdy">
+                            <p class="ab-val" id="ch4-sturdy-val">8</p>
+                            <input class="ab-in" id="ch4-sturdy-in" type="number" min="0" max="20">
+                            <h4>STURDY</h4>
+                        </div>
+
+                    </div>
+
+                    <div class="eccentricities">
+                        <h4>ECCENTRICITIES:</h4>
+                        <p class="ecc-val" id="ch4-ecc-val">ecc here</p>
+                        <textarea class="ecc-in" id="ch4-ecc-in"></textarea>
+                    </div>
+
+                    <div class="wounds">
+                        <h4>WOUNDS:</h4>
+                        <hr class="beneath-wounds">
+                        <div class="wound-big-div">
+                            <hr class="wound-bg">
+                            <div class="wound-div">
+                                <input type="checkbox" name="scrape" id="ch4-wound1" class="wound-check">
+                                <label for="ch4-wound1" class="wound-label">SCRAPE</label>
+                            </div>
+                            <div class="wound-div">
+                                <input type="checkbox" name="slash" id="ch4-wound2" class="wound-check">
+                                <label for="ch4-wound2" class="wound-label">SLASH</label>
+                            </div>
+                            <div class="wound-div">
+                                <input type="checkbox" name="severe" id="ch4-wound3" class="wound-check">
+                                <label for="ch4-wound3" class="wound-label">SEVERE</label>
+                            </div>
+                            <div class="wound-div">
+                                <input type="checkbox" name="critical" id="ch4-wound4" class="wound-check">
+                                <label for="ch4-wound4" class="wound-label">CRITICAL</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rand-ch-controls" id="ch4-controls">
+                        <button id="ch4-rand-btn">Roll Random Character</button>
+                        <button id="ch4-reset-btn">Reset</button>
+                        <button id="ch4-edit-btn">Edit</button>
+                    </div>
+
+                </div>
+
+                <div class="character" id="ch5">
+                    <h3 class="name-val" id="ch5-name-val">NPC Slot #1 (Name Here)</h3>
+                    <input class="name-in" id="ch5-name-in">
+
+                    <div class="abilities">
+                        <div class="ability" id="ch5-brawn">
+                            <p class="ab-val" id="ch5-abval-1">8</p>
+                            <input class="ab-in" id="ch5-abin-1" type="number" min="0" max="20">
+                            <h4>BRAWN</h4>
+                        </div>
+
+                        <div class="ability" id="ch5-agility">
+                            <p class="ab-val" id="ch5-abval-2">8</p>
+                            <input class="ab-in" id="ch5-abin-2" type="number" min="0" max="20">
+                            <h4>AGILITY</h4>
+                        </div>
+
+                        <div class="ability" id="ch5-wits">
+                            <p class="ab-val" id="ch5-abval-3">8</p>
+                            <input class="ab-in" id="ch5-abin-3" type="number" min="0" max="20">
+                            <h4>WITS</h4>
+                        </div>
+
+                        <div class="ability" id="ch5-charm">
+                            <p class="ab-val" id="ch5-abval-4">8</p>
+                            <input class="ab-in" id="ch5-abin-4" type="number" min="0" max="20">
+                            <h4>CHARM</h4>
+                        </div>
+
+                        <div class="ability" id="ch5-aware">
+                            <p class="ab-val" id="ch5-abval-5">8</p>
+                            <input class="ab-in" id="ch5-abin-5" type="number" min="0" max="20">
+                            <h4>AWARE</h4>
+                        </div>
+
+                        <div class="ability sturdy" id="ch5-sturdy">
+                            <p class="ab-val" id="ch5-sturdy-val">8</p>
+                            <input class="ab-in" id="ch5-sturdy-in" type="number" min="0" max="20">
+                            <h4>STURDY</h4>
+                        </div>
+
+                    </div>
+
+                    <div class="eccentricities">
+                        <h4>ECCENTRICITIES:</h4>
+                        <p class="ecc-val" id="ch5-ecc-val">ecc here</p>
+                        <textarea class="ecc-in" id="ch5-ecc-in"></textarea>
+                    </div>
+
+                    <div class="wounds">
+                        <h4>WOUNDS:</h4>
+                        <hr class="beneath-wounds">
+                        <div class="wound-big-div">
+                            <hr class="wound-bg">
+                            <div class="wound-div">
+                                <input type="checkbox" name="scrape" id="ch5-wound1" class="wound-check">
+                                <label for="ch5-wound1" class="wound-label">SCRAPE</label>
+                            </div>
+                            <div class="wound-div">
+                                <input type="checkbox" name="slash" id="ch5-wound2" class="wound-check">
+                                <label for="ch5-wound2" class="wound-label">SLASH</label>
+                            </div>
+                            <div class="wound-div">
+                                <input type="checkbox" name="severe" id="ch5-wound3" class="wound-check">
+                                <label for="ch5-wound3" class="wound-label">SEVERE</label>
+                            </div>
+                            <div class="wound-div">
+                                <input type="checkbox" name="critical" id="ch5-wound4" class="wound-check">
+                                <label for="ch5-wound4" class="wound-label">CRITICAL</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rand-ch-controls" id="ch5-controls">
+                        <button id="ch5-rand-btn">Roll Random Character</button>
+                        <button id="ch5-reset-btn">Reset</button>
+                        <button id="ch5-edit-btn">Edit</button>
                     </div>
 
                 </div>
