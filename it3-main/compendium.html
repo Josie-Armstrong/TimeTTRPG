@@ -11,13 +11,19 @@
 
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/compendium.css">
-    <title>Character Sheet - Rewind</title>
+
+    <link rel="icon" type="image/x-icon" href="images/Icon.svg">
+    <link rel="mask-icon" href="{{ base_path }}/images/Icon.svg" color="#000000">
+    <title>Rules Compendium - Rewind</title>
 
 </head>
 <body>
 
 <header>
-    <h1>Rewind</h1>
+    <div class="header-logo">
+        <img src="images/gold-icon.svg" class="logo-img" alt="clock logo">
+        <h1>Rewind</h1>
+    </div>
 
     <button class="hamburger-menu" id="hamburger-menu">
         <span></span>
@@ -26,9 +32,10 @@
     </button>
 
     <nav>
-        <a href="home.html">Home</a>
+        <a href="home.html" class="hide">Home</a>
         <a href="display.html">Character Creator</a>
         <a href="gm-resources.html">GM Resources</a>
+        <a href="player-resources.html">Player Resources</a>
         <a href="compendium.html">Compendium</a>
     </nav>
 </header>

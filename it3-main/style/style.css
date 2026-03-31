@@ -55,6 +55,17 @@ header {
     /* border-bottom: 3px solid var(--light-gold); */
 }
 
+.header-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+
+    img {
+        max-width: 50px;
+    }
+}
+
 a {
     color: var(--dark-red);
 }
@@ -69,6 +80,8 @@ nav {
 nav a {
     color: var(--light-gold);
     font-size: 1.2rem;
+    font-family: var(--p-font);
+    font-weight: bold;
 
     padding: 10px;
 }
@@ -146,164 +159,7 @@ button:hover {
     display: none;
 }
 
-.player-resources-page {
-    #intro {
-        color: black;
-        background-color: var(--light-gold);
-        padding: 20px;
-        margin-top: 20px;
-
-        border-top: 5px solid var(--dark-red);
-        border-bottom: 5px solid var(--dark-red);
-
-        p {
-            max-width: 1500px;
-            text-align: justify;
-            justify-self: center;
-        }
-
-        hr {
-            border: 2px solid var(--gold);
-            max-width: 50%;
-            margin: auto;
-            margin-top: 0;
-            margin-bottom: 0;
-            text-align: center;
-        }
-    }
-
-    h2 {
-        text-align: center;
-        margin: 0;
-        padding-bottom: 20px;
-        font-size: 2rem;
-        color: var(--dark-red);
-    }
-
-    .resources-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-
-        margin: 20px;
-        gap: 20px;
-        
-        .locked-resources, .unlocked-resources {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-
-            .player-resource {
-                background-color: var(--fill-cream);
-                height: min-content;
-                border-radius: 20px;
-                border: 3px solid var(--light-red);
-            }
-        }
-
-        h3 {
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-            font-size: 1.3rem;
-            background-color: var(--light-gold);
-            color: var(--dark-red);
-
-            border-bottom: 5px solid var(--gold);
-
-            border-radius: 20px 20px 0px 0px;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
-            margin: 0;
-            padding: 0;
-            padding-top: 20px;
-        }
-    }
-
-    .outer-content-container {
-        padding: 20px;
-    }
-
-    .player-resource {
-
-        .content {
-            max-height: 2000px;
-            overflow: hidden;
-
-            transition: max-height 0.3s ease-in;
-        }
-
-        .relock-btn {
-            display: block;
-        }
-    }
-
-    .player-resource.locked {
-        .content {
-            max-height: 0px;
-            overflow: hidden;
-
-            transition: max-height 0.3s ease-out;
-        }
-
-        .relock-btn {
-            display: none;
-        }
-    }
-
-    .password {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 10px;
-
-        height: 50px;
-
-        button {
-            height: 100%;
-            font-family: var(--p-font);
-            font-weight: bold;
-            padding: 5px;
-            height: min-content;
-            scale: 1;
-        }
-
-        button:hover {
-            scale: 1.1;
-            border: 2px solid var(--light-red);
-            box-sizing: border-box;
-        }
-
-        input {
-            height: min-content;
-            border: 2px solid var(--light-red);
-        }
-
-        label {
-            font-weight: bold;
-        }
-    }
-
-    .outer-content-container {
-        #test {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-    }
-
-    .outer-content-container:hover {
-        #test {
-            max-height: 500px;
-            transition: max-height 0.3s ease-in;
-        }
-    }
-}
-
-/* IN PROGRESS - styling for phone screens */
+/* Styling for phone screens */
 @media (max-width: 1050px) {
     main {
         display: flex;
@@ -345,13 +201,15 @@ button:hover {
 
     nav.show {
         background-color: var(--dark-red);
+        border-left: 3px solid var(--light-red);
+        border-bottom: 3px solid var(--light-red);
 
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 103px;
+        top: 104px;
         right: 0px;
-        height: 200px;
+        height: auto;
         width: 170px;
 
         padding-bottom: 10px;

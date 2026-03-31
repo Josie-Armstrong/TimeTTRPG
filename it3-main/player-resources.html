@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&family=DM+Serif+Display:ital@0;1&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Faculty+Glyphic&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/player-resources.css">
+
+    <link rel="icon" type="image/x-icon" href="images/Icon.svg">
+    <title>First Adventure Player Resources - Rewind</title>
+
+</head>
+
+<body class="player-resources-page">
+    <header>
+        <div class="header-logo">
+            <img src="images/gold-icon.svg" class="logo-img" alt="clock logo">
+            <h1>Rewind</h1>
+        </div>
+
+        <button class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="display.html">Character Creator</a>
+            <a href="gm-resources.html">GM Resources</a>
+            <a href="player-resources.html">Player Resources</a>
+            <a href="compendium.html">Compendium</a>
+        </nav>
+    </header>
+
+    <div id="intro">
+        <h2>Welcome to Your First Adventure!</h2>
+        <hr>
+        <p>On this page, you will find resources you may need during your adventure. One of these is
+            locked by a password, which your GM will provide you with when it's time to open it.
+            If you've never played <em>Rewind</em>, check out the 
+            <a href="display.html">online character maker</a> and the 
+            <a href="compendium.html">Rules Compendium</a> to learn how to play!
+        </p>
+    </div>
+
+    <div class="resources-grid">
+
+            <div class="player-resource" id="combat-ref">
+                <h3>Combat Quick-Reference Guide</h3>
+                <div class="outer-content-container">
+                    <h4>Initiative</h4>
+                    <p class="text">When you enter combat, roll 1d20 to determine where you will go in turn order. Your GM will ask each player for their roll and will write them down in order (including non-player characters, or NPCs, involved in combat).</p>
+
+                    <h4>Taking a Turn</h4>
+                    <p>When it’s your turn in combat, you can take both an <strong>action</strong> and <strong>movement</strong>.</p>
+
+                    <h4>Actions:</h4>
+                    <p>Your action can either be a ranged/close-combat <a href="compendium.html#combat-attacking">attack</a>, or an interaction of some other sort within the space. You could try to restrain an opponent, for instance, or steal something, or grab a weapon. If you have to roll for it, it’s probably an action (with the exception of jumping/climbing; see movement).</p>
+
+                    <h4><a href="compendium.html#combat-attacking">Guide to Attacking (Rules Compendium)</a></h4>
+
+                    <h4>Movement:</h4>
+                    <p>In one turn, you may move up to 10 feet in any direction (that includes up and down, but you may have to make an Agility check to climb or jump). If you want to move more than 10 feet in your turn, you may use your action to move another 10 feet.</p>
+
+                    <h4>Talking:</h4>
+                    <p>You may also talk on your turn. If you are talking in order to persuade/deceive/otherwise influence someone, and you will need to roll to determine your success, that counts as your action for that turn. Other talking (communicating information, planning, trash talking, etc) is free, and can be done at any time (including during someone else's turn).</p>
+                </div>
+            </div>
+
+            <div class="player-resource locked" id="house-map">
+                <h3>First Adventure Resource: Map</h3>
+                <div class="outer-content-container locked">
+
+                    <div class="password">
+                        <label for="house-pw">Password:</label>
+                        <input type="text" id="house-map-pw">
+                        <button id="house-btn">Unlock</button>
+                        <button class="relock-btn" id="house-relock-btn">Re-lock</button>
+                    </div>
+
+                    <div class="content">
+                        <img src="images/house_map.PNG" alt="map of Brutus's house">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="player-resource" id="quick-ref">
+                <h3>Quick-Reference Guide</h3>
+                <div class="outer-content-container">
+                    <p><em>Below, you will find links to sections of the Rules Compendium that may come in handy during your first adventure. When in doubt about how to do something, ask your GM!</em></p>
+
+                    <div class="list-of-links">
+                        <a href="compendium.html#in-base-mechanics">Rolling, Basic Mechanics, Advantage, and Disadvantage</a>
+                        <a href="compendium.html#character-creation">Creating Your Character</a>
+                        <a href="compendium.html#combat-initiative">Rolling Initiative (Combat)</a>
+                        <a href="compendium.html#combat-combat">Combat & Turns</a>
+                        <a href="compendium.html#combat-wounds">Wounds</a>
+                        <a href="compendium.html#time-paradoxes">Paradoxes and Holes/Tears in Time</a>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+    <script src="scripts/first-adv-player.js"></script>
+</body>
+</html>

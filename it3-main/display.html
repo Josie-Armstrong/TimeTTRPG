@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/char-sheet.css">
+
+    <link rel="icon" type="image/x-icon" href="images/Icon.svg">
     <title>Character Sheet - Rewind</title>
 
 </head>
@@ -19,7 +21,10 @@
 <body class="char-sheet-page">
 
     <header>
-        <h1>Rewind</h1>
+        <div class="header-logo">
+            <img src="images/gold-icon.svg" class="logo-img" alt="clock logo">
+            <h1>Rewind</h1>
+        </div>
 
         <button class="hamburger-menu" id="hamburger-menu">
             <span></span>
@@ -28,9 +33,10 @@
         </button>
 
         <nav>
-            <a href="home.html">Home</a>
+            <a href="home.html" class="hide">Home</a>
             <a href="display.html">Character Creator</a>
             <a href="gm-resources.html">GM Resources</a>
+            <a href="player-resources.html">Player Resources</a>
             <a href="compendium.html">Compendium</a>
         </nav>
     </header>
@@ -107,7 +113,7 @@
                 <img alt="Edit icon" src="images/book-4.svg">
             </a>
 
-            <a class="blank-btn" id="s-adv" title="First Adventure Player Resources" href="compendium/player-resources.html" target="_blank">
+            <a class="blank-btn" id="s-adv" title="First Adventure Player Resources" href="player-resources.html" target="_blank">
                 <img alt="Edit icon" src="images/adventure.svg">
             </a>
             </div>
