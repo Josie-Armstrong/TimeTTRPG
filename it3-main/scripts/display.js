@@ -206,7 +206,7 @@ let uploading = false;
 let upload_event;
 let event_type = "none";
 let tutorial_step = 0;
-let tutorial_section = [0, 0, 1, 2, 3, 4, 4, 5, 6];
+let tutorial_section = [0, 0, 1, 2, 3, 4, 5, 6, 7];
 let paste_string = "";
 
 // Variables for tutorial/focus styling
@@ -223,13 +223,14 @@ let tutorial_section_h = {
     1: "Step 2: Eccentricities",
     2: "Step 3: Expertise",
     3: "Step 4: Gear",
-    4: "Step 5: Header",
-    5: "Step 6: Background",
-    6: "You've Made a Character!"
+    4: "Step 5: Sturdy",
+    5: "Step 6: Header",
+    6: "Step 7: Background",
+    7: "You've Made a Character!"
 }
 
 let tutorial_section_highlight = [
-    abilities, eccentricities, expertise, gear, sheet_head, background
+    abilities, eccentricities, expertise, gear, sheet_head, sheet_head, background
 ];
 
 let eccs_list = ['Acrobatics',
@@ -721,23 +722,34 @@ function clearStoredCharacter() {
 function toggleCharTutorial() {
     resetTutorial();
 
-    // If the tutorial is being shown, highlight abilities
+    // If the tutorial is being shown, highlight abilities AND enter edit mode
     if (!tutorial_popup.classList.toggle("hide")) {
         let item = tutorial_section_highlight[tutorial_section[tutorial_step]];
         item.style.boxShadow = focus_shadow;
         item.style.backgroundColor = focus_color;
         item.style.border = focus_border;
+
+        if (!editing) {
+            makeEdits();
+        }
+    }
+    else {
+        if (editing) {
+            makeEdits();
+        }
     }
 
 }
 
 // Goes forward or backward by change # of steps in the tutorial cards
 function tutorialCardChange(change) {
-    if((tutorial_step + change) >= 0 && (tutorial_step + change) <= (tutorial_text.length - 1)) { 
+    if((tutorial_step + change) >= 0 && (tutorial_step + change) < (tutorial_text.length)) { 
         tutorial_step += change;
+        // console.log(tutorial_step);
 
         tutorial_header.textContent = tutorial_section_h[tutorial_section[tutorial_step]];
         tutorial_text[tutorial_step - change].classList.toggle("hide");
+        // console.log(tutorial_text[tutorial_step - change]);
         tutorial_text[tutorial_step].classList.toggle("hide");
 
         // Resetting the sheet pieces to normal styling between steps
@@ -745,7 +757,7 @@ function tutorialCardChange(change) {
             let item = tutorial_section_highlight[i];
             item.style.boxShadow = default_shadow;
 
-            if (i == 4) {
+            if (i == 4 || i == 5) {
                 item.style.backgroundColor = "var(--dark-red)";
                 item.style.border = "none";
             }
@@ -762,7 +774,7 @@ function tutorialCardChange(change) {
             temp_focus.style.boxShadow = focus_shadow;
             temp_focus.style.border = focus_border;
 
-            if (tutorial_section[tutorial_step] != 4) {
+            if (tutorial_section[tutorial_step] != 4 && tutorial_section[tutorial_step] != 5) {
                 temp_focus.style.backgroundColor = focus_color;
             }
         }
@@ -786,7 +798,7 @@ function resetTutorial() {
         let item = tutorial_section_highlight[i];
         item.style.boxShadow = default_shadow;
 
-        if (i == 4) {
+        if (i == 4 || i == 5) {
             item.style.backgroundColor = "var(--dark-red)";
             item.style.border = "none";
         }
@@ -798,6 +810,8 @@ function resetTutorial() {
 
     //Showing step one
     tutorial_text[0].classList.toggle("hide");
+    tutorial_step = 0;
+    // console.log("ran");
 
 }
 

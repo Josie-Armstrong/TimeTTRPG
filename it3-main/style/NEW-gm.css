@@ -233,6 +233,10 @@ p, dl {
     text-align: justify;
 }
 
+ul {
+    font-size: 1.2rem;
+}
+
 dl {
     margin-top: 10px;
     column-count: 2;
@@ -324,6 +328,40 @@ ul {
     margin-top: 20px;
 }
 
+#brutus-house-map {
+    display: block;
+    max-width: 800px;
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 3px solid var(--light-red);
+
+}
+
+.char-sheet {
+    text-align: center;
+}
+
+.copy-btn {
+    font-size: 1rem;
+    background-color: var(--gold);
+    border: 3px solid var(--light-red);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.char-img {
+    display: block;
+    margin-bottom: 20px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    justify-self: center;
+}
+
 @media (max-width: 1500px) {
     .first-adv-gm-page {
         margin-left: 20px;
@@ -403,6 +441,14 @@ ul {
     dl {
         column-count: 1;
     }
+
+    .char-sheet {
+        padding: 10px;
+    }
+
+    .char-img {
+        margin-bottom: 0px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -410,7 +456,7 @@ ul {
         padding: 0px 40px 0px 40px;
     }
 
-    p, dl, h5 {
+    p, dl, h5, ul {
         font-size: 1rem;
     }
 }
