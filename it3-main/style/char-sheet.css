@@ -582,7 +582,7 @@
                 width: 68%;
 
                 position: absolute;
-                top: 48px;
+                top: 46px;
                 left: 15%;
                 text-align: center;
             }
@@ -651,11 +651,13 @@
 
             width: min-content;
             justify-self: center;
-            padding: 10px 20px 10px 20px;
+            text-align: center;
+            padding: 10px 15px 10px 15px;
         }
 
         .ab-in {
             display: none;
+            max-width: 50px;
         }
 
         div {
@@ -695,6 +697,7 @@
         h3, input {
             font-family: var(--p-font);
             font-weight: bold;
+            margin: auto;
             margin-top: 10px;
             margin-bottom: 10px;
         }
