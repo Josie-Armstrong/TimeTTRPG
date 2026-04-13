@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://use.typekit.net/vxu0obh.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&family=DM+Serif+Display:ital@0;1&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Faculty+Glyphic&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/char-sheet.css">
+
+    <link rel="icon" type="image/x-icon" href="images/Icon.svg">
+    <title>Character Sheet - Rewind</title>
+
+</head>
+
+<body class="char-sheet-page">
+
+    <header>
+        <div class="header-logo">
+            <img src="images/gold-icon.svg" class="logo-img" alt="clock logo">
+            <h1>Rewind</h1>
+        </div>
+
+        <button class="hamburger-menu" id="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav>
+            <a href="home.html" class="hide">Home</a>
+            <a href="index.html">Character Creator</a>
+            <a href="gm-resources.html">GM Resources</a>
+            <a href="player-resources.html">Player Resources</a>
+            <a href="compendium.html">Compendium</a>
+        </nav>
+    </header>
+    
+    <main class="disp-main">
+
+        <div class="edit-sidebar">
+            <div class="inner-side">
+            <div class="sn-sect" id="edit-nav">
+                <button class="blank-btn" id="s-edit" title="Edit Sheet">
+                    <img alt="Edit icon" src="images/edit-icon.svg">
+                </button>
+
+                <div class="sidebar-popout" id="edit-popout">
+                    <button id="edit-btn-po">Edit</button>
+                    <button id="use-tutorial-po">Make a Character (Tutorial)</button>
+                    <button id="rand-char-btn-po">Generate a Random Character</button>
+                </div>
+            </div>
+
+            <div class="sn-sect" id="export-nav">
+                <button class="blank-btn" id="s-export" title="Export/Import Sheet">
+                    <img alt="Edit icon" src="images/export-1.svg">
+                </button>
+
+                <div class="sidebar-popout" id="export-popout">
+                    <button id="download-btn-po">Download Character Sheet</button>
+                    <button id="upload-btn-po">Upload Character Sheet</button>
+                    <button id="copy-btn-po">Copy Character JSON</button>
+                    <button id="paste-btn-po">Paste Character Json</button>
+                </div>
+            </div>
+
+            <div class="sn-sect" id="clear-nav">
+                <button class="blank-btn" id="s-clear" title="Reset Character">
+                    <img alt="Edit icon" src="images/clear-2.svg">
+                </button>
+
+                <div class="sidebar-popout" id="clear-popout">
+                    <button id="clear-storage-po">Clear Stored Character</button>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="sn-sect" id="roll-nav">
+                <button class="blank-btn" id="s-roll" title="Roll Dice">
+                    <img alt="Edit icon" src="images/d20-2.svg">
+                </button>
+
+                <div class="sidebar-popout" id="roll-popout">
+                    <div class="mid-popout">
+                    <h4>Roll Dice</h4>
+                    <div class="inner-popout">
+                        <label for="num_dice">Roll</label>
+                        <input type="number" placeholder="# dice" id="num-dice">
+                        <br>
+                        <input type="number" placeholder="sides" id="sides-dice">
+                        <label for="sides_dice">-sided dice</label>
+
+                    </div>
+
+                    <div class="rolly-results">
+                        <h5>Result: </h5>
+                        <p id="roll-dice-result"></p>
+                    </div>
+
+                    <button id="roll-dice-btn">Roll Dice</button>
+                    </div>
+                </div>
+            </div>
+
+            <a class="blank-btn" id="s-book" title="Rules Compendium" href="compendium.html" target="_blank">
+                <img alt="Edit icon" src="images/book-4.svg">
+            </a>
+
+            <a class="blank-btn" id="s-adv" title="First Adventure Player Resources" href="player-resources.html" target="_blank">
+                <img alt="Edit icon" src="images/adventure.svg">
+            </a>
+            </div>
+
+        </div>
+
+        <div class="edit-menu hide">
+            <div id="edit-div">
+                <button id="edit-btn">Edit</button>
+                <button id="edit-dropdown">
+                    <img src="images/gold_triangle.svg" alt="drop down button image">
+                </button>
+            </div>
+            <button id="use-tutorial">Make a Character (Tutorial)</button>
+            <button id="download-btn">Download Character Sheet</button>
+            <button id="upload-btn">Upload Character Sheet</button>
+            <button id="copy-btn">Copy Character JSON</button>
+            <button id="paste-btn">Paste Character Json</button>
+            <button id="clear-storage">Clear Stored Character</button>
+            <button id="rand-char-btn">Generate a Random Character</button>
+        </div>
+
+        <div class="popup hide" id="paste-popup">
+            <h3>Paste your character JSON here:</h3>
+            <textarea placeholder="Paste here" id="paste-textarea"></textarea>
+
+            <div id="paste-buttons">
+                <button id="confirm-paste-btn">Paste Character JSON</button>
+                <button id="cancel-paste">Cancel</button>
+            </div>
+        </div>
+
+        <div class="popup hide" id="upload-popup">
+            <h3>Upload Character Sheet</h3>
+            <input id="char-file" type="file" accept="applications/json">
+            <button id="finish-upload">Upload Character Sheet</button>
+            <button id="cancel-upload">Cancel</button>
+        </div>
+
+        <div class="popup hide" id="overwrite-warning">
+            <h3>WARNING</h3>
+            <p>You are about to overwrite your existing character. Anything currently entered in this page will be lost. Are you sure?</p>
+            <button id="cancel-sure">Cancel</button>
+            <button id="download-curr-char">Download Current Character</button>
+            <button id="im-sure">I'm Sure, Overwrite My Character</button>
+        </div>
+
+        <div class="popup hide" id="char-creation-popup">
+            <h2 id="tutorial-header">Step 1:</h2>
+            <div class="tutorial-text hide" id="ab-tt-1">
+                <p>
+                    Your character has five core <strong>abilities</strong>, scores from 3-18, that determine how proficient they are at broad/basic things: Brawn, Agility, Wits, Charm, and Aware. The higher the score, the better your character is at that particular ability.
+                </p>
+
+                <p>
+                    The first step in creating your character is to roll for their abilities. You have two options here, with varying degrees of randomness. <em>See next step for options.</em>
+                </p>
+            </div>
+
+            <div class="tutorial-text hide" id="ab-tt-2">
+                <h4>There are two ways to assign your character's abilities.</h4>
+                <h3>Score Array</h3>
+                <p>
+                    If you want a character that is guaranteed to be balanced, you may assign your character the following five scores: <strong>7, 9, 10, 11, 13</strong>. You may assign these in any order you like, to whichever ability you like, but you may only use each score once.
+                </p>
+
+                <h3>Random Rolls</h3>
+                <p>
+                    Alternatively, you may choose to roll for your attributes. If you choose to roll, you will roll five times and assign those scores as you like (same rules apply, you must only use each score once).
+                </p>
+
+                <p>
+                    Each time, roll 3d20 and take the middle number (the median) as your score. If the median is 1, 2, 19, or 20, re-roll all three dice and take the new median/middle number (keep re-rolling until the median is not 1, 2, 19, or 20).
+                </p>
+                <p>
+                    Write down those five numbers and assign them to whichever abilities you’d like! Think about what your character might be good or bad at.
+                </p>
+            </div>
+
+            <div class="tutorial-text hide" id="t-tt-1">
+                <p>
+                    <strong>Eccentricities</strong> are extra-specific, not-often-applicable things that your character is oddly good at. When you attempt to do something that aligns with one of your character’s eccentricities, you roll with <strong><a href="compendium.html#in-base-mechanics" target="_blank">advantage</a></strong>.
+                </p>
+
+                <p>
+                    To choose eccentricities, you can either pick (in which case you will <strong>pick two eccentricities</strong> from the list linked below) or <strong>roll 1d100 five times</strong> and pick three of the corresponding eccentricities to keep. If you pick, you get two eccentricities; if you roll, you get three.
+                </p>
+
+                <p><a href="compendium.html#cc-eccentricities" target="_blank"><strong>Table of Eccentricities (Rules Compendium)</strong></a></p>
+            </div>
+
+            <div class="tutorial-text hide" id="e-tt-1">
+                <p>
+                    Everyone has some sort of historical expertise—something that your character is particularly knowledgeable about. They might have become an expert through years of study at LRU, it might be a separate hobby that they’re knowledgeable about, or they could’ve acquired their expertise in some other way. Pick which area of history your character is most knowledgeable about, and note it down under expertise.
+                </p>
+
+                <p>
+                    If you want to build a completely random character, roll 1d12 and take the corresponding expertise (Architecture is #1, and so on down the list). Re-roll if you roll a 12.
+                </p>
+
+                <h4>Areas of Expertise:</h4>
+                <ol class="two-columns-p">
+                    <li>Architecture</li>
+                    <li>Art</li>
+                    <li>Criminology</li>
+                    <li>Fashion</li>
+                    <li>Language</li>
+                    <li>Nature</li>
+                    <li>Politics</li>
+                    <li>Religion</li>
+                    <li>Technology</li>
+                    <li>Warfare</li>
+                    <li>Weaponry</li>
+                </ol>
+
+                <p><a href="compendium.html#cc-expertise" target="_blank"><strong>Expertise Descriptions (Rules Compendium)</strong></a></p>
+            </div>
+            
+            <div class="tutorial-text hide" id="g-tt-1">
+                <p>
+                    Your gear will depend on your expertise (see link below). All of your gear is assumed to be carried with you, and accessible to you at all times, unless you explicitly leave it somewhere during a mission.
+                </p>
+
+                <p>
+                    In addition to your expertise-specific gear, everyone has an <strong>in-ear communication</strong> device whose communication radius is ~1 mile, and will translate most spoken (not written) language. This is how you are able to speak with and understand people from other eras/places. You also have a <strong>modern phone</strong> that can take photos and record video/audio (and has a calculator, compass, etc). Cell phone service will not work in most historical periods, though.
+                </p>
+
+                <p><strong><a href="compendium.html#cc-gear" target="_blank">Gear (By Expertise)</a></strong></p>
+            </div>
+
+            <div class="tutorial-text hide" id="h-tt-1">
+                <h4>Sturdy:</h4>
+
+                <p>
+                    Sturdy is a special ability that you will only use in combat. It represents how well you withstand getting hit (the higher the number, the more resilient you are). Roll 3d20, re-rolling if you get a 1, 2, 19, or 20. Assign the median number to your Sturdy, found in the header of your character sheet.
+                </p>
+
+                <p>If you want to read more about Sturdy, combat, and wounds, check out the <a href="compendium.html#combat" target="_blank"><strong>combat section of the Rules Compendium</strong></a>!</p>
+            </div>
+
+            <div class="tutorial-text hide" id="h-tt-2">
+                <p>
+                    Now that you’ve selected your character’s mechanical abilities, it’s time to flesh them out. Give your character a <strong>name</strong>, <strong>age</strong>, and <strong>pronouns</strong>. Your character will start healthy (no wounds).
+                </p>
+
+                <p>
+                    Decide: what is your character’s <strong>position</strong> at LRU? Are they a tenured professor, a lecturer, a student, a security guard, a janitor, a librarian, administrative staff, or something else? If you’re wondering whether or not the position you’ve picked is appropriate for the setting, 1) it probably is, you are encouraged to pick an unusual position! And 2) check with your GM.
+                </p>
+            </div>
+
+            <div class="tutorial-text hide" id="b-tt-1">
+                <p>
+                    Finally, give your character a <strong>background</strong>! Jot down a few sentences about who they are, where they came from, and what their goals are.
+                </p>
+
+                <p>
+                    If you are having trouble figuring out your background or want to create a completely random character, you can roll for your background! Use the tables linked below to randomly pick a few key traits and facts about your character. You can also use these tables for inspiration.
+                </p>
+
+                <p><a href="compendium.html#cc-finishing" target="_blank"><strong>Random Background & Occupation Tables (Rules Compendium)</strong></a></p>
+            </div>
+
+            <div class="tutorial-text hide" id="end-tt-1">
+                <p>
+                    <strong>Congratulations, you've finished making a character! All that's left is to start playing.</strong>
+                </p>
+
+                <p>Your character will be stored locally on your device, but you may want to <strong>download</strong> (only on web) or <strong>copy</strong> your character to save them permanently or transfer them to a different device. See the character sheet menu for download/upload and copy/paste options.</p>
+
+                <p>
+                    Before you play, check out the <strong><a href="compendium.html" target="_blank">Rules Compendium</a></strong>! It has everything you need to know about <em>Rewind</em>.
+                </p>
+            </div>
+
+            <div class="tutorial-text hide" id="template-tt">
+
+            </div>
+
+            <div id="cc-buttons">
+                <button id="cc-back">Back</button>
+                <button id="cc-next">Next</button>
+                <button id="cc-exit">Exit Character Creation</button>
+            </div>
+        </div>
+
+        <div class="sheet">
+
+            <div class="sheet-head">
+
+                <div id="name" class="sheet-header-item">
+                    <h2>Name: </h2>
+                    <p class="sh-val" id="name-val">Letitia Knox</p>
+                    <input class="sh-in" id="name-in" placeholder="Name Here">
+                </div>
+
+                <div id="pronouns" class="sheet-header-item">
+                    <h3>Pronouns: </h3>
+                    <p class="sh-val" id="pronouns-val">She/her</p>
+                    <input class="sh-in" id="pronouns-in" placeholder="Pronouns Here">
+                </div>
+
+                <div  id="age" class="sheet-header-item">
+                    <h3>Age: </h3>
+                    <p class="sh-val" id="age-val">38</p>
+                    <input class="sh-in" id="age-in" placeholder="Age Here">
+                </div>
+
+                <div id="position" class="sheet-header-item">
+                    <h3>Position: </h3>
+                    <p class="sh-val" id="position-val">Senior Researcher</p>
+                    <input class="sh-in" id="position-in" placeholder="Position Here">
+                </div>
+
+                <div id="sturdy" class="sheet-header-item">
+                    <h3>Sturdy:</h3>
+                    <p class="sh-val" id="sturdy-val">1</p>
+                    <input class="sh-in" type="number" id="sturdy-in" placeholder="10">
+                </div>
+
+                <div id="wounds" class="sheet-header-item">
+                    <h3>Wounds:</h3>
+
+                    <div class="wound-big-div">
+                        <hr id="wound-bg">
+                        <div class="wound-div">
+                            <input type="checkbox" name="scrape" id="wound1" class="wound-check">
+                            <label for="wound1" id="wound-label-1" class="wound-label">Scrape</label>
+                        </div>
+                        <div class="wound-div">
+                            <input type="checkbox" name="slash" id="wound2" class="wound-check">
+                            <label for="wound2" id="wound-label-2" class="wound-label">Slash</label>
+                        </div>
+                        <div class="wound-div">
+                            <input type="checkbox" name="severe" id="wound3" class="wound-check">
+                            <label for="wound3" id="wound-label-3" class="wound-label">Severe</label>
+                        </div>
+                        <div class="wound-div">
+                            <input type="checkbox" name="critical" id="wound4" class="wound-check">
+                            <label for="wound4" id="wound-label-4" class="wound-label">Critical</label>
+                        </div>
+                    </div>
+    
+                </div>
+
+            </div>
+
+            <div class="sheet-main">
+
+                <div class="main-item" id="abilities">
+                    <h2>Abilities</h2>
+
+                    <div class="brawn">
+                        <h3>Brawn</h3>
+                        <input class="ab-in" id="brawn-in" type="number" min="0" max="20">
+                        <h3 class="ab-val" id="brawn-val">8</h3>
+                    </div>
+
+                    <div class="agility">
+                        <h3>Agility</h3>
+                        <input class="ab-in" id="agility-in" type="number" min="0" max="20">
+                        <h3 class="ab-val" id="agility-val">8</h3>
+                    </div>
+
+                    <div class="wits">
+                        <h3>Wits</h3>
+                        <input class="ab-in" id="wits-in" type="number" min="0" max="20">
+                        <h3 class="ab-val" id="wits-val">8</h3>
+                    </div>
+
+                    <div class="charm">
+                        <h3>Charm</h3>
+                        <input class="ab-in" id="charm-in" type="number" min="0" max="20">
+                        <h3 class="ab-val" id="charm-val">8</h3>
+                    </div>
+
+                    <div class="aware">
+                        <h3>Aware</h3>
+                        <input class="ab-in" id="aware-in" type="number" min="0" max="20">
+                        <h3 class="ab-val" id="aware-val">8</h3>
+                    </div>
+
+                </div>
+
+                <div class="eccentricities main-item">
+                    <h2>Eccentricities:</h2>
+                    <p class="te-val" id="ecc-val"></p>
+                    <textarea class="te-in" id="ecc-in" rows="5" cols="30"></textarea>
+                </div>
+
+                <div class="expertise main-item">
+                    <h2>Expertise:</h2>
+                    <p class="te-val" id="expertise-val"></p>
+                    <textarea class="te-in" id="expertise-in" rows="5" cols="30"></textarea>
+                </div>
+
+                <div class="main-item" id="gear">
+                    <h2>Gear:</h2>
+                    <p class="long-text-val" id="gear-val"></p>
+                    <textarea class="long-text-in" id="gear-in" rows="5" cols="30"></textarea>
+                </div>
+
+                <div class="main-item" id="background">
+                    <h2>Background:</h2>
+                    <p class="long-text-val" id="background-val"></p>
+                    <textarea class="long-text-in" id="background-in" rows="5" cols="30"></textarea>
+                </div>
+
+                <div class="main-item" id="notes">
+                    <h2>Notes:</h2>
+                    <p class="long-text-val" id="notes-val"></p>
+                    <textarea class="long-text-in" id="notes-in" rows="5" cols="30"></textarea>
+                </div>
+
+            </div>
+
+        </div>
+    
+    </main>
+
+    <script src="scripts/mobile-nav.js"></script>
+    <script src="scripts/display.js"></script>
+    <script src="scripts/roll-dice.js"></script>
+
+</body>
+</html>
