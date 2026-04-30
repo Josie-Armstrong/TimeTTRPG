@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amarante&family=DM+Serif+Display:ital@0;1&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Faculty+Glyphic&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/gm-resources.css">
 
     <link rel="icon" type="image/x-icon" href="images/Icon.svg">
     <title>Home - Rewind</title>
@@ -27,13 +28,40 @@
         </button>
 
         <nav>
-            <a href="home.html" class="hide">Home</a>
+            <a href="home.html" class="">Home</a>
             <a href="index.html">Character Creator</a>
             <a href="gm-resources.html">GM Resources</a>
             <a href="player-resources.html">Player Resources</a>
             <a href="compendium.html">Compendium</a>
         </nav>
     </header>
+
+    <main>
+        <div class="header">
+            <h2>Welcome to Rewind!</h2>
+            <hr>
+            <iframe
+            src="https://www.youtube.com/embed/kFV0KFQPOmE" id="iframe-1">
+            </iframe>
+            <p><em>To learn more about the system and how to get started, visit the <a href="compendium.html">Rules Compendium</a>. Or, if you're ready to make a character, check out the <a href="index.html">Character Creator</a>!
+            </em></p>
+        </div>
+
+        <div class="red-div">
+            <div class="lil-header">
+                <h2>Resources for Playing in Physical Form</h2>
+                <p><em>Rulebook PDF and printable character sheets</em></p>
+            </div>
+            <div class="home-flex">
+                <div class="imgs">
+                <img src="documentation/IMG_9167.JPG" alt="rewind books stacked">
+                <img src="documentation/Rewind_FINAL_Cover copy.png" alt="cover of rewind book">
+                </div>
+                <embed src="documentation/rewind_digital.pdf" width="90%" height="500px" type="application/pdf" justify-self="center">
+                <embed src="char_sheet_pdf.pdf" width="90%" height="500px" type="application/pdf" justify-self="center">
+            </div>
+        </div>
+    </main>
 
     <script src="scripts/mobile-nav.js"></script>
 </body>
